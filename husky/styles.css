@@ -166,10 +166,11 @@ nav {
 }
 
 .accent-multi {
-  background: linear-gradient(90deg, #f4511e, #fbbc04, #34a853, #00b4ff, #e91e8c);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: #fff;
+  background-clip: initial;
+  color: #fff;
 }
 
 .hero-sub {
@@ -185,6 +186,11 @@ nav {
   gap: 14px;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.hero-btns-top {
+  margin-top: 28px;
+  margin-bottom: 28px;
 }
 
 .btn-primary {
