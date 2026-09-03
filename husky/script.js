@@ -235,6 +235,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('msgModal');
   const closeBtn = document.getElementById('msgModalClose');
 
+  const zipModal = document.getElementById('zipModal');
+  const zipCloseBtn = document.getElementById('zipModalClose');
+
   if (fab && modal) {
     fab.addEventListener('click', () => {
       modal.classList.add('open');
@@ -247,7 +250,13 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   }
 
+  function closeZipModal() {
+    if (zipModal) zipModal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
   if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (zipCloseBtn) zipCloseBtn.addEventListener('click', closeZipModal);
 
   if (modal) {
     modal.addEventListener('click', (e) => {
@@ -255,11 +264,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  if (zipModal) {
+    zipModal.addEventListener('click', (e) => {
+      if (e.target === zipModal) closeZipModal();
+    });
+  }
+
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal && modal.classList.contains('open')) closeModal();
+    if (e.key === 'Escape') {
+      if (modal && modal.classList.contains('open')) closeModal();
+      if (zipModal && zipModal.classList.contains('open')) closeZipModal();
+    }
   });
 
   initServicesSlider();
+  initZipSearch();
 });
 
 function initServicesSlider() {
@@ -318,6 +337,72 @@ function initServicesSlider() {
     clearTimeout(window._sliderResize);
     window._sliderResize = setTimeout(update, 100);
   });
+}
+
+function handleZipSearch(event) {
+  if (event) event.preventDefault();
+
+  const input = document.getElementById('zipSearchInput');
+  const zip = input.value.trim();
+
+  if (!zip || zip.length < 5 || !/^\d{5}$/.test(zip)) {
+    alert('Please enter a valid 5-digit ZIP code.');
+    input.focus();
+    return false;
+  }
+
+  const result = document.getElementById('zipResult');
+  const grid = document.getElementById('zipResultsGrid');
+  const echo = document.getElementById('zipEcho');
+
+  echo.textContent = 'ZIP ' + zip;
+
+  const services = [
+    { name: 'AT&T',       type: 'Internet / Fiber' },
+    { name: 'DIRECTV',    type: 'TV / Streaming' },
+    { name: 'Viasat',     type: 'Satellite Internet' },
+    { name: 'ADT',        type: 'Home Security' },
+    { name: 'Brightspeed',type: 'Fiber Internet' },
+    { name: 'Frontier',   type: 'Fiber Internet' },
+    { name: 'Optimum',    type: 'Cable / Fiber' },
+    { name: 'Kinetic',    type: 'Internet' },
+    { name: 'Vivint',     type: 'Smart Security' },
+    { name: 'EarthLink',  type: 'Internet' },
+    { name: 'altafiber',  type: 'Fiber Internet' },
+    { name: 'Ziply Fiber',type: 'Fiber Internet' },
+    { name: 'Metronet',   type: 'Fiber Internet' }
+  ];
+
+  grid.innerHTML = services.map(s =>
+    '<div class="zip-result-card">' +
+      '<div class="zip-result-tick">✓</div>' +
+      '<div>' +
+        '<div class="zip-result-name">' + s.name + '</div>' +
+        '<div class="zip-result-type">' + s.type + '</div>' +
+      '</div>' +
+    '</div>'
+  ).join('');
+
+  result.classList.add('open');
+  const modal = result.closest('.msg-modal');
+  if (modal) {
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  return false;
+}
+
+function initZipSearch() {
+  const form = document.getElementById('zipSearchForm');
+  if (!form) return;
+  form.addEventListener('submit', handleZipSearch);
+
+  const input = document.getElementById('zipSearchInput');
+  if (input) {
+    input.addEventListener('input', () => {
+      input.value = input.value.replace(/\D/g, '').slice(0, 5);
+    });
+  }
 }
 
 function handleModalSubmit(event) {
