@@ -5,101 +5,327 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Husky Talent — Empowering Connections</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+<style>
+/* ─── RESET ─── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#0a1628;color:#fff;min-height:100vh}
+
+/* ─── NAV ─── */
+nav{position:sticky;top:0;z-index:200;background:rgba(10,22,40,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:66px}
+.nav-logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.nav-logo-img{width:38px;height:38px;border-radius:9px;object-fit:cover}
+.nav-logo-text{font-family:'Sora',sans-serif;font-size:17px;font-weight:700;color:#fff;display:block}
+.nav-logo-sub{font-size:9px;color:#7a8fa6;letter-spacing:1px;text-transform:uppercase;display:block;margin-top:-2px}
+.nav-links{display:flex;gap:24px}
+.nav-links a{color:rgba(255,255,255,.65);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-cta{background:#1a73e8;color:#fff;padding:9px 20px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:#1557b0}
+
+/* ─── HERO ─── */
+.hero{padding:80px 5% 60px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 55% at 50% 0%,rgba(26,115,232,.2) 0%,transparent 70%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(52,168,83,.15);border:1px solid rgba(52,168,83,.35);color:#34a853;padding:6px 14px;border-radius:100px;font-size:13px;font-weight:600;margin-bottom:26px}
+.hero-badge-dot{width:7px;height:7px;border-radius:50%;background:#34a853;animation:glow 2s ease-in-out infinite}
+@keyframes glow{0%,100%{box-shadow:0 0 0 2px rgba(52,168,83,.3)}50%{box-shadow:0 0 0 6px rgba(52,168,83,.08)}}
+.hero h1{font-family:'Sora',sans-serif;font-size:clamp(32px,6vw,64px);font-weight:800;line-height:1.09;letter-spacing:-1.5px;max-width:800px;margin:0 auto 18px}
+.accent-multi{background:linear-gradient(90deg,#f4511e,#fbbc04,#34a853,#00b4ff,#e91e8c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{color:rgba(255,255,255,.6);font-size:18px;line-height:1.6;max-width:520px;margin:0 auto 30px}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+.hero-btns-top{margin-bottom:20px}
+.btn-primary{background:#1a73e8;color:#fff;padding:13px 28px;border-radius:10px;font-size:15px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s;border:none;cursor:pointer;font-family:'Inter',sans-serif}
+.btn-primary:hover{background:#1557b0;transform:translateY(-1px)}
+.btn-outline{background:transparent;color:#fff;padding:13px 28px;border-radius:10px;font-size:15px;font-weight:600;text-decoration:none;border:1.5px solid rgba(255,255,255,.25);transition:all .2s;cursor:pointer;font-family:'Inter',sans-serif}
+.btn-outline:hover{border-color:rgba(255,255,255,.6)}
+
+/* ─── TRUST BAR ─── */
+.trust-bar{border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);padding:18px 5%;display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;background:rgba(255,255,255,.03)}
+.trust-item{display:flex;align-items:center;gap:9px;color:rgba(255,255,255,.5);font-size:13px;font-weight:500}
+
+/* ─── SECTIONS ─── */
+section{padding:72px 5%}
+.section-label{text-align:center;font-size:11px;font-weight:700;letter-spacing:2px;color:#7a8fa6;text-transform:uppercase;margin-bottom:12px}
+.section-title{text-align:center;font-family:'Sora',sans-serif;font-size:clamp(26px,4vw,42px);font-weight:800;letter-spacing:-.8px;margin-bottom:10px;line-height:1.15}
+.section-sub{text-align:center;color:rgba(255,255,255,.5);font-size:16px;max-width:500px;margin:0 auto 52px;line-height:1.6}
+
+/* ─── INTAKE FORM ─── */
+#intake{background:#132040}
+.intake-wrap{max-width:560px;margin:0 auto}
+.intake-card{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 28px 80px rgba(0,0,0,.4)}
+.intake-head{background:linear-gradient(135deg,#0a1628,#1d3461);padding:28px 34px 24px}
+.intake-logo{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.intake-logo img{width:36px;height:36px;border-radius:8px;object-fit:cover}
+.intake-logo-text{font-family:'Sora',sans-serif;font-size:15px;font-weight:700;color:#fff}
+.intake-logo-sub{font-size:11px;color:rgba(255,255,255,.5);margin-top:1px}
+.intake-head h2{font-family:'Sora',sans-serif;font-size:22px;font-weight:800;color:#fff;margin-bottom:5px}
+.intake-head p{color:rgba(255,255,255,.55);font-size:13px;line-height:1.5}
+.intake-body{padding:26px 34px 30px}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;font-size:12px;font-weight:700;color:#374151;margin-bottom:5px;text-transform:uppercase;letter-spacing:.4px}
+.form-group select,.form-group input,.form-group textarea{width:100%;padding:11px 13px;border:1.5px solid #e2e8f0;border-radius:9px;font-size:14px;font-family:'Inter',sans-serif;color:#111827;background:#f9fafb;outline:none;transition:border-color .2s,box-shadow .2s}
+.form-group select:focus,.form-group input:focus,.form-group textarea:focus{border-color:#1a73e8;box-shadow:0 0 0 3px rgba(26,115,232,.1);background:#fff}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.submit-btn{width:100%;padding:14px;background:linear-gradient(135deg,#1a73e8,#0d47a1);color:#fff;border:none;border-radius:11px;font-size:15px;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;margin-top:4px;transition:opacity .2s,transform .2s}
+.submit-btn:hover{opacity:.9;transform:translateY(-1px)}
+.form-legal{font-size:11px;color:#9ca3af;line-height:1.5;margin-top:11px;text-align:center}
+
+/* ─── PROVIDER PICKER ─── */
+.provider-picker{display:none;padding:24px 34px 30px}
+.provider-picker-head h3{font-family:'Sora',sans-serif;font-size:19px;font-weight:800;color:#0a1628;margin-bottom:4px}
+.provider-picker-head p{font-size:13px;color:#6b7280;margin-bottom:20px}
+.logo-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.logo-tile{background:#eef0f3;border:2px solid transparent;border-radius:14px;min-height:78px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .18s,background .18s,transform .18s,box-shadow .18s;overflow:hidden;padding:0}
+.logo-tile:hover{border-color:#1a73e8;background:#deeaff;transform:translateY(-2px);box-shadow:0 8px 22px rgba(26,115,232,.18)}
+.logo-tile img{width:100%;height:100%;object-fit:contain;padding:14px 20px}
+.logo-tile-text{width:100%;height:100%;min-height:78px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:16px;font-family:'Inter',sans-serif;padding:8px}
+.back-btn{background:none;border:none;color:#1a73e8;font-size:13px;font-weight:600;cursor:pointer;margin-top:14px;font-family:'Inter',sans-serif;display:inline-flex;align-items:center;gap:4px}
+
+/* ─── GOOD NEWS CARD ─── */
+.goodnews-wrap{display:none;padding:0 34px 28px}
+.goodnews-card{background:#f8fafc;border-radius:14px;overflow:hidden;border:1px solid #e2e8f0}
+.gn-bar{height:5px;background:linear-gradient(90deg,#34a853,#1a73e8)}
+.gn-body{padding:26px;text-align:center}
+.gn-check{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#34a853,#22c55e);display:flex;align-items:center;justify-content:center;margin:0 auto 13px}
+.gn-check svg{width:30px;height:30px;stroke:#fff;stroke-width:3;fill:none}
+.gn-label{font-size:10px;font-weight:700;letter-spacing:1.5px;color:#34a853;text-transform:uppercase;margin-bottom:4px}
+.gn-title{font-family:'Sora',sans-serif;font-size:28px;font-weight:800;color:#0a1628;margin-bottom:4px}
+.gn-avail{font-size:15px;font-weight:600;color:#1a73e8;margin-bottom:13px}
+.gn-desc{font-size:13px;color:#4b5563;line-height:1.6;margin-bottom:16px}
+.gn-promo{background:#fffbeb;border:1px solid #fde68a;border-radius:11px;padding:12px 14px;display:flex;gap:11px;align-items:center;margin-bottom:20px;text-align:left}
+.gn-promo-icon{font-size:24px;flex-shrink:0}
+.gn-promo-title{font-size:12px;font-weight:700;color:#92400e}
+.gn-promo-sub{font-size:11px;color:#78350f;margin-top:2px}
+.gn-cta{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;padding:14px;border-radius:11px;font-size:15px;font-weight:700;color:#fff;text-decoration:none;background:linear-gradient(135deg,#1a73e8,#0d47a1);transition:opacity .2s}
+.gn-cta:hover{opacity:.88}
+.gn-live{display:flex;align-items:center;justify-content:center;gap:6px;font-size:11px;color:#34a853;font-weight:600;margin-top:9px}
+.live-dot{width:7px;height:7px;border-radius:50%;background:#34a853;animation:glow 2s ease-in-out infinite;display:inline-block}
+.gn-footer{padding:9px 18px 13px;border-top:1px solid #e2e8f0;font-size:10px;color:#9ca3af;text-align:center;line-height:1.5}
+.gn-back{display:inline-flex;align-items:center;gap:4px;color:#1a73e8;font-size:13px;font-weight:600;cursor:pointer;background:none;border:none;font-family:'Inter',sans-serif;margin-top:11px}
+
+/* ─── ZIP MODAL ─── */
+.msg-modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px}
+.msg-modal-backdrop.open{display:flex}
+.msg-modal{background:#fff;border-radius:22px;width:100%;max-width:520px;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 32px 80px rgba(0,0,0,.4)}
+.msg-modal-close{position:absolute;top:16px;right:18px;background:rgba(0,0,0,.08);border:none;width:32px;height:32px;border-radius:50%;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#374151;font-family:'Inter',sans-serif;z-index:10}
+.msg-modal-close:hover{background:rgba(0,0,0,.15)}
+.zip-input-wrap{position:relative;margin-bottom:14px}
+.zip-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#9ca3af}
+.zip-input-wrap input{width:100%;padding:13px 14px 13px 44px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:'Inter',sans-serif;color:#111827;background:#f9fafb;outline:none;transition:border-color .2s}
+.zip-input-wrap input:focus{border-color:#1a73e8;box-shadow:0 0 0 3px rgba(26,115,232,.1);background:#fff}
+.zip-search-btn{width:100%;padding:14px;background:linear-gradient(135deg,#1a73e8,#0d47a1);color:#fff;border:none;border-radius:11px;font-size:15px;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;transition:opacity .2s}
+.zip-search-btn:hover{opacity:.9}
+.zip-result{display:none;margin-top:22px}
+.zip-result-success{text-align:center;margin-bottom:20px}
+.zip-success-icon{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#34a853,#22c55e);display:flex;align-items:center;justify-content:center;margin:0 auto 10px}
+.zip-success-icon svg{width:26px;height:26px;stroke:#fff;stroke-width:3;fill:none}
+.zip-success-label{font-size:10px;font-weight:700;letter-spacing:1.5px;color:#34a853;text-transform:uppercase;margin-bottom:4px}
+.zip-success-title{font-family:'Sora',sans-serif;font-size:24px;font-weight:800;color:#0a1628;margin-bottom:6px}
+.zip-success-msg{font-size:14px;color:#4b5563}
+.zip-results-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.zip-provider-tile{background:#eef0f3;border:2px solid transparent;border-radius:12px;min-height:64px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .18s;padding:10px}
+.zip-provider-tile:hover{border-color:#1a73e8;background:#deeaff;transform:translateY(-2px)}
+.zip-provider-tile img{max-width:100px;max-height:36px;object-fit:contain}
+.zip-provider-tile span{font-weight:800;font-size:14px}
+.zip-result-disclaimer{font-size:10px;color:#9ca3af;text-align:center;line-height:1.5}
+
+/* ─── OUR SERVICES SECTION (ONLY ONCE) ─── */
+#our-services{background:#132040}
+.our-services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;max-width:1100px;margin:0 auto}
+.our-service-tile{background:#fff;border-radius:18px;padding:28px 26px;text-decoration:none;color:inherit;display:block;transition:transform .22s,box-shadow .22s;border:2px solid transparent;position:relative;overflow:hidden}
+.our-service-tile::before{content:'';position:absolute;top:0;left:0;right:0;height:4px}
+.os-internet::before{background:linear-gradient(90deg,#00b4ff,#1a73e8)}
+.os-tv::before{background:linear-gradient(90deg,#00aae7,#0069c0)}
+.os-security::before{background:linear-gradient(90deg,#1b3a6b,#0d2045)}
+.our-service-tile:hover{transform:translateY(-5px);box-shadow:0 18px 55px rgba(0,0,0,.25);border-color:rgba(26,115,232,.15)}
+.os-icon{width:52px;height:52px;border-radius:14px;background:#f0f4ff;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:16px}
+.os-internet .os-icon{background:#e8f4ff}
+.os-tv .os-icon{background:#e8f4ff}
+.os-security .os-icon{background:#fff3e0}
+.os-title{font-family:'Sora',sans-serif;font-size:19px;font-weight:800;color:#0a1628;margin-bottom:8px}
+.os-desc{font-size:13px;color:#4b5563;line-height:1.6;margin-bottom:14px}
+.os-features{list-style:none;margin-bottom:18px}
+.os-features li{font-size:13px;color:#374151;padding:3px 0;display:flex;align-items:center;gap:8px}
+.os-features li::before{content:'✓';color:#34a853;font-weight:700;font-size:13px;flex-shrink:0}
+.os-link{font-size:13px;font-weight:700;color:#1a73e8;display:inline-flex;align-items:center;gap:4px}
+
+/* ─── PROVIDER CARDS SLIDER ─── */
+#services{background:#0a1628}
+.services-slider{position:relative;overflow:hidden}
+.services-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:0 0 16px;scrollbar-width:none}
+.services-track::-webkit-scrollbar{display:none}
+.service-card{flex:0 0 280px;scroll-snap-align:start;background:#fff;border-radius:18px;overflow:hidden;transition:transform .22s,box-shadow .22s}
+.service-card:hover{transform:translateY(-4px);box-shadow:0 16px 50px rgba(0,0,0,.25)}
+.slider-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);color:#fff;width:40px;height:40px;border-radius:50%;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;transition:background .2s}
+.slider-btn:hover{background:rgba(255,255,255,.3)}
+.slider-btn.prev{left:0}
+.slider-btn.next{right:0}
+.slider-dots{display:flex;justify-content:center;gap:6px;margin-top:16px}
+.slider-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);border:none;cursor:pointer;transition:background .2s;padding:0}
+.slider-dot.active{background:#1a73e8}
+.s-card-top{height:5px}
+.s-card-body{padding:20px 20px 0}
+.s-logo-link{text-decoration:none;display:block}
+.s-logo{height:34px;display:flex;align-items:center;margin-bottom:12px}
+.s-logo img{height:100%;max-width:110px;object-fit:contain}
+.text-logo{display:flex;align-items:center}
+.s-provider-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#34a853;margin-bottom:3px}
+.s-title{font-family:'Sora',sans-serif;font-size:20px;font-weight:800;color:#0a1628;margin-bottom:3px}
+.s-avail{font-size:13px;font-weight:600;color:#1a73e8;margin-bottom:10px}
+.s-desc{font-size:12px;color:#4a5568;line-height:1.6;margin-bottom:12px}
+.s-promo{background:#fffbeb;border:1px solid #fde68a;border-radius:9px;padding:9px 11px;display:flex;gap:9px;align-items:center;margin-bottom:14px}
+.s-promo-icon{font-size:18px}
+.s-promo-title{font-size:11px;font-weight:700;color:#92400e}
+.s-promo-sub{font-size:10px;color:#78350f;margin-top:1px}
+.s-cta-wrap{padding:0 20px 16px}
+.s-cta{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;padding:11px;border-radius:9px;font-size:13px;font-weight:700;text-decoration:none;color:#fff;transition:opacity .2s}
+.s-cta:hover{opacity:.87}
+.s-cta-sub{display:flex;align-items:center;justify-content:center;gap:5px;font-size:10px;color:#34a853;font-weight:600;margin-top:6px}
+.s-footer{padding:7px 20px 11px;border-top:1px solid #f0f4f8;font-size:10px;color:#9ca3af;text-align:center;line-height:1.5}
+.att .s-card-top,.att .s-cta{background:linear-gradient(90deg,#00a8e0,#0057b7)}
+.dtv .s-card-top,.dtv .s-cta{background:linear-gradient(90deg,#00aae7,#0069c0)}
+.viasat .s-card-top,.viasat .s-cta{background:linear-gradient(90deg,#e31837,#b3001b)}
+.adt .s-card-top,.adt .s-cta{background:linear-gradient(90deg,#1b3a6b,#0d2045)}
+.brightspeed .s-card-top,.brightspeed .s-cta{background:linear-gradient(90deg,#6d2d8a,#4a1a60)}
+.frontier .s-card-top,.frontier .s-cta{background:linear-gradient(90deg,#d71920,#a01015)}
+.optimum .s-card-top,.optimum .s-cta{background:linear-gradient(90deg,#7d2b8b,#5a1e65)}
+.kinetic .s-card-top,.kinetic .s-cta{background:linear-gradient(90deg,#004b8d,#003366)}
+.vivint .s-card-top,.vivint .s-cta{background:linear-gradient(90deg,#1a1a2e,#0d0d1a)}
+.earthlink .s-card-top,.earthlink .s-cta{background:linear-gradient(90deg,#0099cc,#006699)}
+.altafiber .s-card-top,.altafiber .s-cta{background:linear-gradient(90deg,#e8720c,#c45a00)}
+.ziply .s-card-top,.ziply .s-cta{background:linear-gradient(90deg,#0a2e5a,#061a33)}
+.metronet .s-card-top,.metronet .s-cta{background:linear-gradient(90deg,#004f9f,#003370)}
+
+/* ─── HOW IT WORKS ─── */
+#how{background:#132040}
+.steps-row{display:flex;gap:0;max-width:860px;margin:0 auto;position:relative}
+.steps-row::before{content:'';position:absolute;top:27px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,#f4511e,#34a853,#00b4ff);z-index:0}
+.step{flex:1;text-align:center;padding:0 18px;position:relative;z-index:1}
+.step-num{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:19px;font-weight:800;margin:0 auto 18px;border:3px solid #132040}
+.step:nth-child(1) .step-num{background:#f4511e}
+.step:nth-child(2) .step-num{background:#34a853}
+.step:nth-child(3) .step-num{background:#00b4ff;color:#0a1628}
+.step-title{font-family:'Sora',sans-serif;font-size:15px;font-weight:700;margin-bottom:7px}
+.step-desc{font-size:13px;color:rgba(255,255,255,.5);line-height:1.6}
+
+/* ─── WHY HUSKY ─── */
+#why{background:#0a1628}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:1060px;margin:0 auto}
+.why-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:24px 20px;transition:background .2s}
+.why-card:hover{background:rgba(255,255,255,.07)}
+.why-icon{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:13px}
+.why-card:nth-child(1) .why-icon{background:rgba(244,81,30,.2)}
+.why-card:nth-child(2) .why-icon{background:rgba(52,168,83,.2)}
+.why-card:nth-child(3) .why-icon{background:rgba(26,115,232,.2)}
+.why-card:nth-child(4) .why-icon{background:rgba(233,30,140,.2)}
+.why-title{font-size:15px;font-weight:700;margin-bottom:7px}
+.why-desc{font-size:13px;color:rgba(255,255,255,.48);line-height:1.6}
+
+/* ─── CTA + FOOTER ─── */
+.cta-strip{background:linear-gradient(135deg,#1a73e8,#0d47a1);padding:64px 5%;text-align:center}
+.cta-strip h2{font-family:'Sora',sans-serif;font-size:clamp(22px,4vw,38px);font-weight:800;margin-bottom:12px;letter-spacing:-.5px}
+.cta-strip p{color:rgba(255,255,255,.8);font-size:15px;margin-bottom:28px}
+footer{background:#060e1a;padding:46px 5% 28px}
+.footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:36px;margin-bottom:40px}
+.footer-brand p{color:rgba(255,255,255,.4);font-size:13px;max-width:260px;line-height:1.6;margin-top:12px}
+.footer-links-group{display:flex;gap:50px;flex-wrap:wrap}
+.footer-col h4{font-size:12px;font-weight:700;margin-bottom:12px;color:#fff}
+.footer-col a{display:block;color:rgba(255,255,255,.4);font-size:13px;text-decoration:none;margin-bottom:9px;transition:color .2s}
+.footer-col a:hover{color:#fff}
+.footer-col p.footer-address{font-size:13px;color:rgba(255,255,255,.4);line-height:1.6;margin-top:4px}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:12px;color:rgba(255,255,255,.28)}
+
+/* ─── FLOATING MESSAGE BUTTON ─── */
+.msg-fab{position:fixed;bottom:28px;right:28px;z-index:500;background:linear-gradient(135deg,#1a73e8,#0d47a1);color:#fff;border:none;border-radius:50px;padding:12px 20px 12px 16px;display:flex;align-items:center;gap:10px;cursor:pointer;box-shadow:0 8px 32px rgba(26,115,232,.45);transition:transform .2s,box-shadow .2s;font-family:'Inter',sans-serif}
+.msg-fab:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(26,115,232,.55)}
+.msg-fab-pulse{position:absolute;top:-3px;right:-3px;width:14px;height:14px;background:#34a853;border-radius:50%;border:2px solid #0a1628;animation:glow 2s ease-in-out infinite}
+.msg-fab-icon svg{width:20px;height:20px;fill:#fff;display:block}
+.msg-fab-label{font-size:14px;font-weight:600}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .steps-row{flex-direction:column;gap:24px}
+  .steps-row::before{display:none}
+  .footer-top{flex-direction:column}
+  .form-row{grid-template-columns:1fr}
+  .intake-body,.provider-picker,.goodnews-wrap{padding-left:18px;padding-right:18px}
+  .intake-head{padding:22px 18px 18px}
+  .zip-results-grid{grid-template-columns:1fr 1fr}
+}
+</style>
 </head>
 <body>
 
-  <!-- ═══ NAV ═══ -->
-  <nav>
-    <a href="#" class="nav-logo">
-      <img src="logos/Husky talent.jpeg" alt="Husky Talent" class="nav-logo-img" />
-      <div>
-        <span class="nav-logo-text">Husky Talent</span>
-        <span class="nav-logo-sub">Empowering Connections</span>
-      </div>
-    </a>
-
-    <div class="nav-links">
-      <a href="#intake">Check Availability</a>
-      <a href="#our-services">Our Services</a>
-      <a href="#services">Providers</a>
-      <a href="#how">How It Works</a>
-      <a href="#why">Why Us</a>
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="logos/Husky talent.jpeg" alt="Husky Talent" class="nav-logo-img" />
+    <div>
+      <span class="nav-logo-text">Husky Talent</span>
+      <span class="nav-logo-sub">Empowering Connections</span>
     </div>
-
-    <a href="#intake" class="nav-cta">Get Started</a>
-  </nav>
-
-  <!-- ═══ HERO ═══ -->
-  <section class="hero">
-    <div class="hero-badge">
-      <span class="hero-badge-dot"></span>Live Specialists Available Now
-    </div>
-    <h1>Your Trusted Partner for<br><span class="accent-multi">Home Services</span></h1>
-    <div class="hero-btns hero-btns-top">
-      <a href="#intake" class="btn-primary">
-        <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-        </svg>
-        Check Availability
-      </a>
-    </div>
-    <p class="hero-sub">Internet, TV, Satellite &amp; Home Security — all from one authorized dealer. Get the best plans for your address in minutes.</p>
-    <div class="hero-btns">
-      <a href="tel:000" class="btn-outline">📞 Call a Specialist</a>
-      <button type="button" class="btn-outline" onclick="document.getElementById('zipModal').classList.add('open');document.body.style.overflow='hidden';">📍 Search by ZIP</button>
-    </div>
-  </section>
-
-  <!-- ═══ TRUST BAR ═══ -->
-  <div class="trust-bar">
-    <div class="trust-item">
-      <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      Authorized Dealer
-    </div>
-    <div class="trust-item">
-      <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-      No Hidden Fees
-    </div>
-    <div class="trust-item">
-      <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      Free Expert Consultation
-    </div>
-    <div class="trust-item">
-      <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-      Gift &amp; Reward Card Offers
-    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#intake">Check Availability</a>
+    <a href="#our-services">Our Services</a>
+    <a href="#services">Providers</a>
+    <a href="#how">How It Works</a>
+    <a href="#why">Why Us</a>
   </div>
+  <a href="#intake" class="nav-cta">Get Started</a>
+</nav>
 
-  <!-- ═══ INTAKE FORM ═══ -->
-  <section id="intake">
-    <div class="section-label">Get Started</div>
-    <h2 class="section-title">What Service Are You<br>Looking For?</h2>
-    <p class="section-sub">Share your interest and we'll match you with the best available options for your address.</p>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge"><span class="hero-badge-dot"></span>Live Specialists Available Now</div>
+  <h1>Your Trusted Partner for<br><span class="accent-multi">Home Services</span></h1>
+  <div class="hero-btns hero-btns-top">
+    <a href="#intake" class="btn-primary">
+      <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      Check Availability
+    </a>
+  </div>
+  <p class="hero-sub">Internet, TV, Satellite &amp; Home Security — all from one authorized dealer. Get the best plans for your address in minutes.</p>
+  <div class="hero-btns">
+    <a href="tel:000" class="btn-outline">📞 Call a Specialist</a>
+    <button type="button" class="btn-outline" onclick="document.getElementById('zipModal').classList.add('open');document.body.style.overflow='hidden';">📍 Search by ZIP</button>
+  </div>
+</section>
 
-    <div class="intake-wrap">
-      <div class="intake-card">
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Authorized Dealer</div>
+  <div class="trust-item"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>No Hidden Fees</div>
+  <div class="trust-item"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Free Expert Consultation</div>
+  <div class="trust-item"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>Gift &amp; Reward Card Offers</div>
+</div>
 
-        <!-- STEP 1: FORM -->
-        <div class="intake-head">
-          <div class="intake-logo">
-            <img src="logos/Husky talent.jpeg" alt="Husky Talent" />
-            <div>
-              <div class="intake-logo-text">Husky Talent</div>
-              <div class="intake-logo-sub">Authorized Service Dealer</div>
-            </div>
+<!-- INTAKE FORM -->
+<section id="intake">
+  <div class="section-label">Get Started</div>
+  <h2 class="section-title">What Service Are You<br>Looking For?</h2>
+  <p class="section-sub">Share your interest and we'll match you with the best available options for your address.</p>
+  <div class="intake-wrap">
+    <div class="intake-card">
+      <div class="intake-head">
+        <div class="intake-logo">
+          <img src="logos/Husky talent.jpeg" alt="Husky Talent"/>
+          <div>
+            <div class="intake-logo-text">Husky Talent</div>
+            <div class="intake-logo-sub">Authorized Service Dealer</div>
           </div>
-          <h2>Check Availability</h2>
-          <p>Fill in your details — we'll find the right plan for your home in seconds.</p>
         </div>
+        <h2>Check Availability</h2>
+        <p>Fill in your details — we'll find the right plan for your home in seconds.</p>
+      </div>
 
-        <form class="intake-body" id="step-form" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="ce21fa6d-03b0-408b-941c-21f70ec6e314" />
-          <input type="hidden" name="subject" value="New Husky Talent Availability Check" />
-          <input type="hidden" name="from_name" value="Husky Talent Website" />
-          <input type="hidden" name="redirect" value="" />
-          <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
-
+      <!-- STEP 1: FORM -->
+      <div id="step-form">
+        <form class="intake-body" action="https://api.web3forms.com/submit" method="POST" onsubmit="return handleFormSubmit(event)">
+          <input type="hidden" name="access_key" value="ce21fa6d-03b0-408b-941c-21f70ec6e314"/>
+          <input type="hidden" name="subject" value="New Husky Talent Availability Check"/>
+          <input type="hidden" name="from_name" value="Husky Talent Website"/>
+          <input type="checkbox" name="botcheck" style="display:none"/>
           <div class="form-group">
             <label for="svc">What service are you looking for?</label>
             <select id="svc" name="service" required>
@@ -111,199 +337,165 @@
               <option value="internet-security">Internet + Security</option>
             </select>
           </div>
-
           <div class="form-group">
             <label for="zip">ZIP Code</label>
-            <input type="text" id="zip" name="zip" placeholder="e.g. 90210" maxlength="5" inputmode="numeric" required />
+            <input type="text" id="zip" name="zip" placeholder="e.g. 90210" maxlength="5" inputmode="numeric" required/>
           </div>
-
           <div class="form-row">
             <div class="form-group">
               <label for="fname">First Name</label>
-              <input type="text" id="fname" name="first_name" placeholder="John" required />
+              <input type="text" id="fname" name="first_name" placeholder="John" required/>
             </div>
             <div class="form-group">
               <label for="lname">Last Name</label>
-              <input type="text" id="lname" name="last_name" placeholder="Smith" />
+              <input type="text" id="lname" name="last_name" placeholder="Smith"/>
             </div>
           </div>
-
           <div class="form-group">
             <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required />
+            <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required/>
           </div>
-
           <div class="form-group">
             <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="john@email.com" />
+            <input type="email" id="email" name="email" placeholder="john@email.com"/>
           </div>
-
           <div class="form-group">
             <label for="desc">Description / Message</label>
-            <textarea id="desc" name="description" rows="4" placeholder="Tell us what you're looking for, any specific requirements, or questions you have..." style="width:100%;padding:12px 14px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:'Inter',sans-serif;color:#1a202c;background:#f9fafb;outline:none;resize:vertical;transition:border-color .2s,box-shadow .2s;"></textarea>
+            <textarea id="desc" name="description" rows="3" placeholder="Tell us what you're looking for..."></textarea>
           </div>
-
-          <button type="submit" class="submit-btn">Send My Request →</button>
-          <p class="form-legal">By submitting, you agree that Husky Talent may contact you by call, text, or email regarding your request. Consent is not a condition of purchase.</p>
-        </form></oldString>
-
-        <!-- STEP 2: PROVIDER LOGO GRID -->
-        <div class="provider-picker" id="step-providers">
-          <div class="provider-picker-head">
-            <h3>Great — Service is Available!</h3>
-            <p>Select your preferred provider to see plans and connect with a live specialist.</p>
-          </div>
-          <div class="logo-grid" id="logo-grid"></div>
-          <div style="text-align:center;">
-            <button class="back-btn" onclick="goBack('step-form')">← Start over</button>
-          </div>
-        </div>
-
-        <!-- STEP 3: GOOD NEWS CARD -->
-        <div class="goodnews-wrap" id="step-goodnews">
-          <div class="goodnews-card">
-            <div class="gn-bar"></div>
-            <div class="gn-body">
-              <div class="gn-check">
-                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <div class="gn-label">✓ Your Availability Check Is Complete</div>
-              <div class="gn-title">Good News!</div>
-              <div class="gn-avail" id="gn-avail">Service is available for you.</div>
-              <p class="gn-desc">Speak with a live specialist to check plans, pricing, installation options, and current promotions available for your address.</p>
-              <div class="gn-promo">
-                <div class="gn-promo-icon">🎁</div>
-                <div>
-                  <div class="gn-promo-title">Gift Card &amp; Reward Card Offers</div>
-                  <div class="gn-promo-sub">Promotions may be available based on provider, location, and eligibility.</div>
-                </div>
-              </div>
-              <a href="tel:000" class="gn-cta" id="gn-cta">📞 &nbsp;000</a>
-              <div class="gn-live"><span class="live-dot"></span> Live sales specialists available</div>
-            </div>
-            <div class="gn-footer">Availability, pricing, promotional offers, and reward cards vary by provider, service area, plan, and eligibility. Terms and conditions apply.</div>
-          </div>
-          <div style="text-align:center;">
-            <button class="gn-back" onclick="goBack('step-providers')">← Back to providers</button>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ ZIP SEARCH MODAL ═══ -->
-  <div class="msg-modal-backdrop" id="zipModal">
-    <div class="msg-modal">
-      <button class="msg-modal-close" id="zipModalClose" aria-label="Close">×</button>
-      <div class="intake-head">
-        <div class="intake-logo">
-          <img src="logos/Husky talent.jpeg" alt="Husky Talent" />
-          <div>
-            <div class="intake-logo-text">Husky Talent</div>
-            <div class="intake-logo-sub">Authorized Service Dealer</div>
-          </div>
-        </div>
-        <h2>Check Services in Your Area</h2>
-        <p>Enter your ZIP code to see all services available at your address.</p>
-      </div>
-
-      <div class="intake-body">
-        <form class="zip-search-form" id="zipSearchForm" onsubmit="return handleZipSearch(event)">
-          <div class="zip-input-wrap">
-            <svg class="zip-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-            </svg>
-            <input type="text" id="zipSearchInput" placeholder="Enter ZIP code (e.g. 75189)" maxlength="5" inputmode="numeric" />
-          </div>
-          <button type="submit" class="zip-search-btn">Search Now</button>
+          <button type="submit" class="submit-btn">Show Me Available Options →</button>
+          <p class="form-legal">By submitting, you agree that Husky Talent may contact you by call, text, or email. Consent is not a condition of purchase.</p>
         </form>
+      </div>
 
-        <div class="zip-result" id="zipResult">
-          <div class="zip-result-success">
-            <div class="zip-success-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <div class="zip-success-label">✓ Availability Check Complete</div>
-            <h3 class="zip-success-title">Good News!</h3>
-            <p class="zip-success-msg">All of these services are available in <strong id="zipEcho">your area</strong>:</p>
-          </div>
-          <div class="zip-results-grid" id="zipResultsGrid"></div>
-          <p class="zip-result-disclaimer">Availability, pricing, and promotions vary by exact address and eligibility. Terms apply.</p>
+      <!-- STEP 2: PROVIDER GRID -->
+      <div class="provider-picker" id="step-providers">
+        <div class="provider-picker-head">
+          <h3>Great — Service is Available!</h3>
+          <p>Select your preferred provider to see plans and connect with a live specialist.</p>
         </div>
+        <div class="logo-grid" id="logo-grid"></div>
+        <div style="text-align:center">
+          <button class="back-btn" onclick="showStep('step-form')">← Start over</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: GOOD NEWS CARD -->
+      <div class="goodnews-wrap" id="step-goodnews">
+        <div class="goodnews-card">
+          <div class="gn-bar"></div>
+          <div class="gn-body">
+            <div class="gn-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="gn-label">✓ Your Availability Check Is Complete</div>
+            <div class="gn-title">Good News!</div>
+            <div class="gn-avail" id="gn-avail">Service is available for you.</div>
+            <p class="gn-desc">Speak with a live specialist to check plans, pricing, installation options, and current promotions available for your address.</p>
+            <div class="gn-promo">
+              <div class="gn-promo-icon">🎁</div>
+              <div><div class="gn-promo-title">Gift Card &amp; Reward Card Offers</div><div class="gn-promo-sub">Promotions may be available based on provider, location, and eligibility.</div></div>
+            </div>
+            <a href="tel:000" class="gn-cta" id="gn-cta">📞 &nbsp;000</a>
+            <div class="gn-live"><span class="live-dot"></span> Live sales specialists available</div>
+          </div>
+          <div class="gn-footer">Availability, pricing, promotional offers, and reward cards vary by provider, service area, plan, and eligibility. Terms and conditions apply.</div>
+        </div>
+        <div style="text-align:center">
+          <button class="gn-back" onclick="showStep('step-providers')">← Back to providers</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ZIP SEARCH MODAL -->
+<div class="msg-modal-backdrop" id="zipModal">
+  <div class="msg-modal">
+    <button class="msg-modal-close" id="zipModalClose">×</button>
+    <div class="intake-head">
+      <div class="intake-logo">
+        <img src="logos/Husky talent.jpeg" alt="Husky Talent"/>
+        <div><div class="intake-logo-text">Husky Talent</div><div class="intake-logo-sub">Authorized Service Dealer</div></div>
+      </div>
+      <h2>Check Services in Your Area</h2>
+      <p>Enter your ZIP code to see all services available at your address.</p>
+    </div>
+    <div class="intake-body">
+      <form id="zipSearchForm" onsubmit="return handleZipSearch(event)">
+        <div class="zip-input-wrap">
+          <svg class="zip-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <input type="text" id="zipSearchInput" placeholder="Enter ZIP code (e.g. 75189)" maxlength="5" inputmode="numeric"/>
+        </div>
+        <button type="submit" class="zip-search-btn">Search Now</button>
+      </form>
+      <div class="zip-result" id="zipResult">
+        <div class="zip-result-success">
+          <div class="zip-success-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="zip-success-label">✓ Availability Check Complete</div>
+          <h3 class="zip-success-title">Good News!</h3>
+          <p class="zip-success-msg">Services available in <strong id="zipEcho">your area</strong>:</p>
+        </div>
+        <div class="zip-results-grid" id="zipResultsGrid"></div>
+        <p class="zip-result-disclaimer">Availability, pricing, and promotions vary by exact address and eligibility. Terms apply.</p>
       </div>
     </div>
   </div>
-</body>
-    <div class="section-label">What We Offer</div>
-    <h2 class="section-title">Our Services</h2>
-    <p class="section-sub">Reliable home services from trusted providers — all in one place.</p>
-    <div class="our-services-grid">
+</div>
 
-      <a href="#intake" class="our-service-tile os-internet">
-        <div class="os-icon">🌐</div>
-        <h3 class="os-title">Internet &amp; Fiber</h3>
-        <p class="os-desc">High-speed internet and fiber connections for streaming, gaming, working from home, and connecting every device in your household.</p>
-        <ul class="os-features">
-          <li>Speeds up to 5 Gig</li>
-          <li>No data caps on fiber</li>
-          <li>Free professional installation</li>
-        </ul>
-        <span class="os-link">Check Availability →</span>
-      </a>
+<!-- OUR SERVICES — ONLY ONCE -->
+<section id="our-services">
+  <div class="section-label">What We Offer</div>
+  <h2 class="section-title">Our Services</h2>
+  <p class="section-sub">Reliable home services from trusted providers — all in one place.</p>
+  <div class="our-services-grid">
+    <a href="#intake" class="our-service-tile os-internet">
+      <div class="os-icon">🌐</div>
+      <h3 class="os-title">Internet &amp; Fiber</h3>
+      <p class="os-desc">High-speed internet and fiber connections for streaming, gaming, working from home, and connecting every device in your household.</p>
+      <ul class="os-features"><li>Speeds up to 5 Gig</li><li>No data caps on fiber</li><li>Free professional installation</li></ul>
+      <span class="os-link">Check Availability →</span>
+    </a>
+    <a href="#intake" class="our-service-tile os-tv">
+      <div class="os-icon">📺</div>
+      <h3 class="os-title">DIRECTV &amp; Entertainment</h3>
+      <p class="os-desc">Live TV, sports, movies, and on-demand entertainment. Stream your favorite channels anywhere with no satellite dish required.</p>
+      <ul class="os-features"><li>90+ channels included</li><li>Watch on any device</li><li>No long-term contracts</li></ul>
+      <span class="os-link">Check Availability →</span>
+    </a>
+    <a href="#intake" class="our-service-tile os-security">
+      <div class="os-icon">🔒</div>
+      <h3 class="os-title">Home Security</h3>
+      <p class="os-desc">24/7 professional monitoring to protect what matters most. Smart cameras, sensors, and alarms — all backed by America's #1 security provider.</p>
+      <ul class="os-features"><li>24/7 professional monitoring</li><li>Smart home integration</li><li>Same-day installation available</li></ul>
+      <span class="os-link">Check Availability →</span>
+    </a>
+  </div>
+</section>
 
-      <a href="#intake" class="our-service-tile os-tv">
-        <div class="os-icon">📺</div>
-        <h3 class="os-title">DIRECTV &amp; Entertainment</h3>
-        <p class="os-desc">Live TV, sports, movies, and on-demand entertainment. Stream your favorite channels anywhere with no satellite dish required.</p>
-        <ul class="os-features">
-          <li>90+ channels included</li>
-          <li>Watch on any device</li>
-          <li>No long-term contracts</li>
-        </ul>
-        <span class="os-link">Check Availability →</span>
-      </a>
-
-      <a href="#intake" class="our-service-tile os-security">
-        <div class="os-icon">🔒</div>
-        <h3 class="os-title">Home Security</h3>
-        <p class="os-desc">24/7 professional monitoring to protect what matters most. Smart cameras, sensors, and alarms — all backed by America's #1 security provider.</p>
-        <ul class="os-features">
-          <li>24/7 professional monitoring</li>
-          <li>Smart home integration</li>
-          <li>Same-day installation available</li>
-        </ul>
-        <span class="os-link">Check Availability →</span>
-      </a>
-
-    </div>
-  </section>
-
-  <!-- ═══ STATIC SERVICE CARDS ═══ -->
-  <section id="services">
-    <div class="section-label">Our Partners</div>
-    <h2 class="section-title">All Available Services</h2>
-    <p class="section-sub">We represent the nation's leading providers. Click any card to get started directly.</p>
-
-    <div class="services-slider">
-      <button class="slider-btn prev" id="sliderPrev" aria-label="Previous">‹</button>
-      <div class="services-track" id="servicesTrack">
+<!-- PROVIDER CARDS SLIDER -->
+<section id="services">
+  <div class="section-label">Our Partners</div>
+  <h2 class="section-title">All Available Services</h2>
+  <p class="section-sub">We represent the nation's leading providers. Click any card to get started directly.</p>
+  <div class="services-slider">
+    <button class="slider-btn prev" id="sliderPrev">‹</button>
+    <div class="services-track" id="servicesTrack">
 
       <div class="service-card att">
         <div class="s-card-top"></div>
         <div class="s-card-body">
           <a href="https://www.attspoc.com/e/(S(plnxgaxi4prtlsde50nzh0cc))/oe/landing.aspx" target="_blank" rel="noopener" class="s-logo-link">
-            <div class="s-logo"><img src="logos/AT&T.webp" alt="AT&T" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/><span style="display:none;font-size:22px;font-weight:900;color:#00a8e0">AT&T</span></div>
+            <div class="s-logo"><img src="logos/AT&T.webp" alt="AT&T" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/><span style="display:none;font-size:20px;font-weight:900;color:#00a8e0" class="text-logo">AT&amp;T</span></div>
           </a>
           <div class="s-provider-label">✓ Availability Check Complete</div>
           <div class="s-title">Good News!</div>
           <div class="s-avail">AT&amp;T Service is available for you.</div>
-          <p class="s-desc">Check plans, pricing, and installation options for AT&amp;T Internet and phone service. Speak with a live specialist today.</p>
+          <p class="s-desc">Check plans, pricing, and installation options for AT&amp;T Internet and phone service.</p>
           <div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div>
         </div>
         <div class="s-cta-wrap">
-          <a href="https://www.attspoc.com/e/(S(plnxgaxi4prtlsde50nzh0cc))/oe/landing.aspx" target="_blank" rel="noopener" class="s-cta">📞 Connect with AT&amp;T Specialist</a>
-          <div class="s-cta-sub"><span class="live-dot"></span> Live sales specialists available</div>
+          <a href="https://www.attspoc.com/e/(S(plnxgaxi4prtlsde50nzh0cc))/oe/landing.aspx" target="_blank" rel="noopener" class="s-cta">📞 Connect with AT&amp;T</a>
+          <div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div>
         </div>
         <div class="s-footer">Terms and conditions apply.</div>
       </div>
@@ -312,7 +504,7 @@
         <div class="s-card-top"></div>
         <div class="s-card-body">
           <a href="https://residential.directvdealer.com/explore/?dealer_name=husky-talent&service=directv-stream" target="_blank" rel="noopener" class="s-logo-link">
-            <div class="s-logo"><img src="logos/directTV.png" alt="DIRECTV" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/><span style="display:none;font-size:16px;font-weight:900;color:#0069c0">DIRECTV</span></div>
+            <div class="s-logo"><img src="logos/directTV.png" alt="DIRECTV" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/><span style="display:none;font-size:14px;font-weight:900;color:#0069c0" class="text-logo">DIRECTV</span></div>
           </a>
           <div class="s-provider-label">✓ Availability Check Complete</div>
           <div class="s-title">Good News!</div>
@@ -322,7 +514,7 @@
         </div>
         <div class="s-cta-wrap">
           <a href="https://residential.directvdealer.com/explore/?dealer_name=husky-talent&service=directv-stream" target="_blank" rel="noopener" class="s-cta">📺 Explore DIRECTV Plans</a>
-          <div class="s-cta-sub"><span class="live-dot"></span> Live sales specialists available</div>
+          <div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div>
         </div>
         <div class="s-footer">Terms and conditions apply.</div>
       </div>
@@ -331,7 +523,7 @@
         <div class="s-card-top"></div>
         <div class="s-card-body">
           <a href="https://huskytalent.viasatretailer.com/" target="_blank" rel="noopener" class="s-logo-link">
-            <div class="s-logo"><img src="logos/Viasat-Logo-500x313.jpg" alt="Viasat" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/><span style="display:none;font-size:18px;font-weight:900;color:#e31837">VIASAT</span></div>
+            <div class="s-logo"><img src="logos/Viasat-Logo-500x313.jpg" alt="Viasat" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/><span style="display:none;font-size:18px;font-weight:900;color:#e31837" class="text-logo">VIASAT</span></div>
           </a>
           <div class="s-provider-label">✓ Availability Check Complete</div>
           <div class="s-title">Good News!</div>
@@ -341,7 +533,7 @@
         </div>
         <div class="s-cta-wrap">
           <a href="https://huskytalent.viasatretailer.com/" target="_blank" rel="noopener" class="s-cta">🛰️ Check Viasat Availability</a>
-          <div class="s-cta-sub"><span class="live-dot"></span> Live sales specialists available</div>
+          <div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div>
         </div>
         <div class="s-footer">Terms and conditions apply.</div>
       </div>
@@ -350,7 +542,7 @@
         <div class="s-card-top"></div>
         <div class="s-card-body">
           <a href="https://www.getsafestreets.com/husky" target="_blank" rel="noopener" class="s-logo-link">
-            <div class="s-logo"><img src="logos/adt.png" alt="ADT" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/><span style="display:none;font-size:22px;font-weight:900;color:#1b3a6b">ADT</span></div>
+            <div class="s-logo"><img src="logos/adt.png" alt="ADT" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/><span style="display:none;font-size:22px;font-weight:900;color:#1b3a6b" class="text-logo">ADT</span></div>
           </a>
           <div class="s-provider-label">✓ Availability Check Complete</div>
           <div class="s-title">Good News!</div>
@@ -360,238 +552,85 @@
         </div>
         <div class="s-cta-wrap">
           <a href="https://www.getsafestreets.com/husky" target="_blank" rel="noopener" class="s-cta">🔒 Get ADT Home Security</a>
-          <div class="s-cta-sub"><span class="live-dot"></span> Live sales specialists available</div>
+          <div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div>
         </div>
         <div class="s-footer">Terms and conditions apply.</div>
       </div>
 
-      <div class="service-card brightspeed">
-        <div class="s-card-top"></div>
-        <div class="s-card-body">
-          <a href="#intake" class="s-logo-link">
-            <div class="s-logo"><span class="text-logo" style="font-size:18px;font-weight:900;color:#6d2d8a">Brightspeed</span></div>
-          </a>
-          <div class="s-provider-label">✓ Availability Check Complete</div>
-          <div class="s-title">Good News!</div>
-          <div class="s-avail">Brightspeed Fiber Internet is available for you.</div>
-          <p class="s-desc">Reliable fiber internet with straightforward pricing and no hidden fees. Perfect for streaming and home offices.</p>
-          <div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div>
-        </div>
-        <div class="s-cta-wrap">
-          <a href="#intake" class="s-cta">🌐 Check Brightspeed Availability</a>
-          <div class="s-cta-sub"><span class="live-dot"></span> Live sales specialists available</div>
-        </div>
-        <div class="s-footer">Terms and conditions apply.</div>
-      </div>
+      <div class="service-card brightspeed"><div class="s-card-top"></div><div class="s-card-body"><a href="#intake" class="s-logo-link"><div class="s-logo"><span class="text-logo" style="font-size:18px;font-weight:900;color:#6d2d8a">Brightspeed</span></div></a><div class="s-provider-label">✓ Availability Check Complete</div><div class="s-title">Good News!</div><div class="s-avail">Brightspeed Fiber Internet is available.</div><p class="s-desc">Reliable fiber internet with straightforward pricing and no hidden fees.</p><div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div></div><div class="s-cta-wrap"><a href="#intake" class="s-cta">🌐 Check Brightspeed Availability</a><div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div></div><div class="s-footer">Terms and conditions apply.</div></div>
 
-      <div class="service-card frontier">
-        <div class="s-card-top"></div>
-        <div class="s-card-body">
-          <a href="#intake" class="s-logo-link">
-            <div class="s-logo"><span class="text-logo" style="font-size:18px;font-weight:900;color:#d71920">FRONTIER</span></div>
-          </a>
-          <div class="s-provider-label">✓ Availability Check Complete</div>
-          <div class="s-title">Good News!</div>
-          <div class="s-avail">Frontier Fiber Internet is available for you.</div>
-          <p class="s-desc">Frontier Fiber delivers symmetrical speeds for fast uploads and downloads. Ideal for work-from-home and gaming.</p>
-          <div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div>
-        </div>
-        <div class="s-cta-wrap">
-          <a href="#intake" class="s-cta">🌐 Check Frontier Availability</a>
-          <div class="s-cta-sub"><span class="live-dot"></span> Live sales specialists available</div>
-        </div>
-        <div class="s-footer">Terms and conditions apply.</div>
-      </div>
+      <div class="service-card frontier"><div class="s-card-top"></div><div class="s-card-body"><a href="#intake" class="s-logo-link"><div class="s-logo"><span class="text-logo" style="font-size:18px;font-weight:900;color:#d71920">FRONTIER</span></div></a><div class="s-provider-label">✓ Availability Check Complete</div><div class="s-title">Good News!</div><div class="s-avail">Frontier Fiber Internet is available.</div><p class="s-desc">Frontier Fiber delivers symmetrical speeds ideal for work-from-home and gaming.</p><div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div></div><div class="s-cta-wrap"><a href="#intake" class="s-cta">🌐 Check Frontier Availability</a><div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div></div><div class="s-footer">Terms and conditions apply.</div></div>
 
-      <div class="service-card optimum">
-        <div class="s-card-top"></div>
-        <div class="s-card-body">
-          <a href="#intake" class="s-logo-link">
-            <div class="s-logo"><span class="text-logo" style="font-size:18px;font-weight:900;color:#7d2b8b">Optimum</span></div>
-          </a>
-          <div class="s-provider-label">✓ Availability Check Complete</div>
-          <div class="s-title">Good News!</div>
-          <div class="s-avail">Optimum Internet is available for you.</div>
-          <p class="s-desc">Optimum offers cable and fiber internet with flexible plans and bundle options for TV and phone.</p>
-          <div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div>
-        </div>
-        <div class="s-cta-wrap">
-          <a href="#intake" class="s-cta">🌐 Check Optimum Availability</a>
-          <div class="s-cta-sub"><span class="live-dot"></span> Live sales specialists available</div>
-        </div>
-        <div class="s-footer">Terms and conditions apply.</div>
-      </div>
+      <div class="service-card optimum"><div class="s-card-top"></div><div class="s-card-body"><a href="#intake" class="s-logo-link"><div class="s-logo"><span class="text-logo" style="font-size:18px;font-weight:900;color:#7d2b8b">Optimum</span></div></a><div class="s-provider-label">✓ Availability Check Complete</div><div class="s-title">Good News!</div><div class="s-avail">Optimum Internet is available.</div><p class="s-desc">Optimum offers cable and fiber internet with flexible plans and bundle options.</p><div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div></div><div class="s-cta-wrap"><a href="#intake" class="s-cta">🌐 Check Optimum Availability</a><div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div></div><div class="s-footer">Terms and conditions apply.</div></div>
 
-      <div class="service-card kinetic">
-        <div class="s-card-top"></div>
-        <div class="s-card-body">
-          <a href="#intake" class="s-logo-link">
-            <div class="s-logo"><span class="text-logo" style="font-size:18px;font-weight:900;color:#004b8d">Kinetic</span></div>
-          </a>
-          <div class="s-provider-label">✓ Availability Check Complete</div>
-          <div class="s-title">Good News!</div>
-          <div class="s-avail">Kinetic by Windstream is available for you.</div>
-          <p class="s-desc">Kinetic delivers high-speed internet to rural and suburban areas with no data caps and reliable service.</p>
-          <div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div>
-        </div>
-        <div class="s-cta-wrap">
-          <a href="#intake" class="s-cta">🌐 Check Kinetic Availability</a>
-          <div class="s-cta-sub"><span class="live-dot"></span> Live sales specialists available</div>
-        </div>
-        <div class="s-footer">Terms and conditions apply.</div>
-      </div>
+      <div class="service-card kinetic"><div class="s-card-top"></div><div class="s-card-body"><a href="#intake" class="s-logo-link"><div class="s-logo"><span class="text-logo" style="font-size:18px;font-weight:900;color:#004b8d">Kinetic</span></div></a><div class="s-provider-label">✓ Availability Check Complete</div><div class="s-title">Good News!</div><div class="s-avail">Kinetic by Windstream is available.</div><p class="s-desc">High-speed internet to rural and suburban areas with no data caps.</p><div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div></div><div class="s-cta-wrap"><a href="#intake" class="s-cta">🌐 Check Kinetic Availability</a><div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div></div><div class="s-footer">Terms and conditions apply.</div></div>
 
-      <div class="service-card vivint">
-        <div class="s-card-top"></div>
-        <div class="s-card-body">
-          <a href="#intake" class="s-logo-link">
-            <div class="s-logo"><span class="text-logo" style="font-size:18px;font-weight:900;color:#1a1a2e">Vivint</span></div>
-          </a>
-          <div class="s-provider-label">✓ Availability Check Complete</div>
-          <div class="s-title">Good News!</div>
-          <div class="s-avail">Vivint Smart Home Security is available for you.</div>
-          <p class="s-desc">Smart home security with cameras, smart locks, and 24/7 monitoring — all controlled from one app.</p>
-          <div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div>
-        </div>
-        <div class="s-cta-wrap">
-          <a href="#intake" class="s-cta">🔒 Get Vivint Smart Security</a>
-          <div class="s-cta-sub"><span class="live-dot"></span> Live sales specialists available</div>
-        </div>
-        <div class="s-footer">Terms and conditions apply.</div>
-      </div>
+      <div class="service-card vivint"><div class="s-card-top"></div><div class="s-card-body"><a href="#intake" class="s-logo-link"><div class="s-logo"><span class="text-logo" style="font-size:18px;font-weight:900;color:#1a1a2e">Vivint</span></div></a><div class="s-provider-label">✓ Availability Check Complete</div><div class="s-title">Good News!</div><div class="s-avail">Vivint Smart Home Security is available.</div><p class="s-desc">Smart home security with cameras, smart locks, and 24/7 monitoring from one app.</p><div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div></div><div class="s-cta-wrap"><a href="#intake" class="s-cta">🔒 Get Vivint Smart Security</a><div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div></div><div class="s-footer">Terms and conditions apply.</div></div>
 
-      <div class="service-card earthlink">
-        <div class="s-card-top"></div>
-        <div class="s-card-body">
-          <a href="#intake" class="s-logo-link">
-            <div class="s-logo"><span class="text-logo" style="font-size:18px;font-weight:900;color:#0099cc">EarthLink</span></div>
-          </a>
-          <div class="s-provider-label">✓ Availability Check Complete</div>
-          <div class="s-title">Good News!</div>
-          <div class="s-avail">EarthLink Internet is available for you.</div>
-          <p class="s-desc">EarthLink partners with top networks to deliver reliable internet with no data caps and U.S.-based support.</p>
-          <div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div>
-        </div>
-        <div class="s-cta-wrap">
-          <a href="#intake" class="s-cta">🌐 Check EarthLink Availability</a>
-          <div class="s-cta-sub"><span class="live-dot"></span> Live sales specialists available</div>
-        </div>
-        <div class="s-footer">Terms and conditions apply.</div>
-      </div>
+      <div class="service-card earthlink"><div class="s-card-top"></div><div class="s-card-body"><a href="#intake" class="s-logo-link"><div class="s-logo"><span class="text-logo" style="font-size:18px;font-weight:900;color:#0099cc">EarthLink</span></div></a><div class="s-provider-label">✓ Availability Check Complete</div><div class="s-title">Good News!</div><div class="s-avail">EarthLink Internet is available.</div><p class="s-desc">Reliable internet with no data caps and U.S.-based customer support.</p><div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div></div><div class="s-cta-wrap"><a href="#intake" class="s-cta">🌐 Check EarthLink Availability</a><div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div></div><div class="s-footer">Terms and conditions apply.</div></div>
 
-      <div class="service-card altafiber">
-        <div class="s-card-top"></div>
-        <div class="s-card-body">
-          <a href="#intake" class="s-logo-link">
-            <div class="s-logo"><span class="text-logo" style="font-size:18px;font-weight:900;color:#e8720c">altafiber</span></div>
-          </a>
-          <div class="s-provider-label">✓ Availability Check Complete</div>
-          <div class="s-title">Good News!</div>
-          <div class="s-avail">altafiber Internet is available for you.</div>
-          <p class="s-desc">altafiber provides gigabit fiber internet with symmetrical speeds for ultra-fast uploads and downloads.</p>
-          <div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div>
-        </div>
-        <div class="s-cta-wrap">
-          <a href="#intake" class="s-cta">🌐 Check altafiber Availability</a>
-          <div class="s-cta-sub"><span class="live-dot"></span> Live sales specialists available</div>
-        </div>
-        <div class="s-footer">Terms and conditions apply.</div>
-      </div>
+      <div class="service-card altafiber"><div class="s-card-top"></div><div class="s-card-body"><a href="#intake" class="s-logo-link"><div class="s-logo"><span class="text-logo" style="font-size:18px;font-weight:900;color:#e8720c">altafiber</span></div></a><div class="s-provider-label">✓ Availability Check Complete</div><div class="s-title">Good News!</div><div class="s-avail">altafiber Internet is available.</div><p class="s-desc">Gigabit fiber internet with symmetrical speeds for ultra-fast uploads and downloads.</p><div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div></div><div class="s-cta-wrap"><a href="#intake" class="s-cta">🌐 Check altafiber Availability</a><div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div></div><div class="s-footer">Terms and conditions apply.</div></div>
 
-      <div class="service-card ziply">
-        <div class="s-card-top"></div>
-        <div class="s-card-body">
-          <a href="#intake" class="s-logo-link">
-            <div class="s-logo"><span class="text-logo" style="font-size:16px;font-weight:900;color:#0a2e5a">Ziply Fiber</span></div>
-          </a>
-          <div class="s-provider-label">✓ Availability Check Complete</div>
-          <div class="s-title">Good News!</div>
-          <div class="s-avail">Ziply Fiber Internet is available for you.</div>
-          <p class="s-desc">Ziply Fiber brings multi-gig speeds to the Pacific Northwest with no data caps and transparent pricing.</p>
-          <div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div>
-        </div>
-        <div class="s-cta-wrap">
-          <a href="#intake" class="s-cta">🌐 Check Ziply Fiber Availability</a>
-          <div class="s-cta-sub"><span class="live-dot"></span> Live sales specialists available</div>
-        </div>
-        <div class="s-footer">Terms and conditions apply.</div>
-      </div>
+      <div class="service-card ziply"><div class="s-card-top"></div><div class="s-card-body"><a href="#intake" class="s-logo-link"><div class="s-logo"><span class="text-logo" style="font-size:16px;font-weight:900;color:#0a2e5a">Ziply Fiber</span></div></a><div class="s-provider-label">✓ Availability Check Complete</div><div class="s-title">Good News!</div><div class="s-avail">Ziply Fiber Internet is available.</div><p class="s-desc">Multi-gig fiber speeds in the Pacific Northwest with no data caps.</p><div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div></div><div class="s-cta-wrap"><a href="#intake" class="s-cta">🌐 Check Ziply Fiber Availability</a><div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div></div><div class="s-footer">Terms and conditions apply.</div></div>
 
-      <div class="service-card metronet">
-        <div class="s-card-top"></div>
-        <div class="s-card-body">
-          <a href="#intake" class="s-logo-link">
-            <div class="s-logo"><span class="text-logo" style="font-size:18px;font-weight:900;color:#004f9f">Metronet</span></div>
-          </a>
-          <div class="s-provider-label">✓ Availability Check Complete</div>
-          <div class="s-title">Good News!</div>
-          <div class="s-avail">Metronet Fiber Internet is available for you.</div>
-          <p class="s-desc">Metronet offers 100% fiber internet with symmetrical gigabit speeds for homes and businesses.</p>
-          <div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div>
-        </div>
-        <div class="s-cta-wrap">
-          <a href="#intake" class="s-cta">🌐 Check Metronet Availability</a>
-          <div class="s-cta-sub"><span class="live-dot"></span> Live sales specialists available</div>
-        </div>
-        <div class="s-footer">Terms and conditions apply.</div>
-      </div>
+      <div class="service-card metronet"><div class="s-card-top"></div><div class="s-card-body"><a href="#intake" class="s-logo-link"><div class="s-logo"><span class="text-logo" style="font-size:18px;font-weight:900;color:#004f9f">Metronet</span></div></a><div class="s-provider-label">✓ Availability Check Complete</div><div class="s-title">Good News!</div><div class="s-avail">Metronet Fiber Internet is available.</div><p class="s-desc">100% fiber internet with symmetrical gigabit speeds for homes and businesses.</p><div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div></div><div class="s-cta-wrap"><a href="#intake" class="s-cta">🌐 Check Metronet Availability</a><div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div></div><div class="s-footer">Terms and conditions apply.</div></div>
 
-      </div>
-      <button class="slider-btn next" id="sliderNext" aria-label="Next">›</button>
-      <div class="slider-dots" id="sliderDots"></div>
     </div>
-  </section>
-
-  <!-- ═══ HOW IT WORKS ═══ -->
-  <section id="how">
-    <div class="section-label">The Process</div>
-    <h2 class="section-title">How It Works</h2>
-    <p class="section-sub">Getting set up with the right service takes just three simple steps.</p>
-    <div class="steps-row">
-      <div class="step"><div class="step-num">1</div><div class="step-title">Choose a Service</div><p class="step-desc">Select from internet, TV, satellite, or home security based on your needs.</p></div>
-      <div class="step"><div class="step-num">2</div><div class="step-title">Speak with a Specialist</div><p class="step-desc">Our live agents check availability, compare plans, and walk you through promotions.</p></div>
-      <div class="step"><div class="step-num">3</div><div class="step-title">Get Connected</div><p class="step-desc">Schedule installation at your convenience and start enjoying your new service.</p></div>
-    </div>
-  </section>
-
-  <!-- ═══ WHY HUSKY ═══ -->
-  <section id="why">
-    <div class="section-label">Why Choose Us</div>
-    <h2 class="section-title">The Husky Talent Advantage</h2>
-    <p class="section-sub">We're your neighbors, advocates, and experts in connecting families to the services they need.</p>
-    <div class="why-grid">
-      <div class="why-card"><div class="why-icon">🏅</div><div class="why-title">Authorized Dealer</div><p class="why-desc">Officially authorized by AT&amp;T, DIRECTV, Viasat, and ADT. Always genuine plans at official pricing.</p></div>
-      <div class="why-card"><div class="why-icon">🎁</div><div class="why-title">Exclusive Promotions</div><p class="why-desc">Access gift cards, reward cards, and special promotions not available elsewhere.</p></div>
-      <div class="why-card"><div class="why-icon">🤝</div><div class="why-title">Expert Guidance</div><p class="why-desc">No pushy sales. Our specialists listen first and recommend the plan that fits your home.</p></div>
-      <div class="why-card"><div class="why-icon">⚡</div><div class="why-title">Fast &amp; Simple</div><p class="why-desc">Check availability, compare plans, and get scheduled — all in one call, zero runaround.</p></div>
-    </div>
-  </section>
-
-  <!-- ═══ CTA STRIP ═══ -->
-  <div class="cta-strip">
-    <h2>Ready to Find the Right Plan?</h2>
-    <p>Speak with a live Husky Talent specialist today — no commitment required.</p>
-    <a href="#intake" class="btn-primary">📞 &nbsp;Check Availability Now</a>
+    <button class="slider-btn next" id="sliderNext">›</button>
+    <div class="slider-dots" id="sliderDots"></div>
   </div>
+</section>
 
-  <!-- ═══ FOOTER ═══ -->
-  <footer>
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="#" class="nav-logo">
-          <img src="logos/Husky talent.jpeg" alt="Husky Talent" class="nav-logo-img" />
-          <div><span class="nav-logo-text">Husky Talent</span><span class="nav-logo-sub">Empowering Connections</span></div>
-        </a>
-        <p>An authorized dealer for AT&amp;T, DIRECTV, Viasat, and ADT — connecting American families to the services they need.</p>
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="section-label">The Process</div>
+  <h2 class="section-title">How It Works</h2>
+  <p class="section-sub">Getting set up with the right service takes just three simple steps.</p>
+  <div class="steps-row">
+    <div class="step"><div class="step-num">1</div><div class="step-title">Choose a Service</div><p class="step-desc">Select from internet, TV, satellite, or home security based on your needs.</p></div>
+    <div class="step"><div class="step-num">2</div><div class="step-title">Speak with a Specialist</div><p class="step-desc">Our live agents check availability, compare plans, and walk you through promotions.</p></div>
+    <div class="step"><div class="step-num">3</div><div class="step-title">Get Connected</div><p class="step-desc">Schedule installation at your convenience and start enjoying your new service.</p></div>
+  </div>
+</section>
+
+<!-- WHY HUSKY -->
+<section id="why">
+  <div class="section-label">Why Choose Us</div>
+  <h2 class="section-title">The Husky Talent Advantage</h2>
+  <p class="section-sub">We're your neighbors, advocates, and experts in connecting families to the services they need.</p>
+  <div class="why-grid">
+    <div class="why-card"><div class="why-icon">🏅</div><div class="why-title">Authorized Dealer</div><p class="why-desc">Officially authorized by AT&amp;T, DIRECTV, Viasat, and ADT.</p></div>
+    <div class="why-card"><div class="why-icon">🎁</div><div class="why-title">Exclusive Promotions</div><p class="why-desc">Access gift cards, reward cards, and special promotions not available elsewhere.</p></div>
+    <div class="why-card"><div class="why-icon">🤝</div><div class="why-title">Expert Guidance</div><p class="why-desc">No pushy sales. Our specialists listen first and recommend the plan that fits your home.</p></div>
+    <div class="why-card"><div class="why-icon">⚡</div><div class="why-title">Fast &amp; Simple</div><p class="why-desc">Check availability, compare plans, and get scheduled — all in one call.</p></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-strip">
+  <h2>Ready to Find the Right Plan?</h2>
+  <p>Speak with a live Husky Talent specialist today — no commitment required.</p>
+  <a href="#intake" class="btn-primary">📞 &nbsp;Check Availability Now</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo">
+        <img src="logos/Husky talent.jpeg" alt="Husky Talent" class="nav-logo-img"/>
+        <div><span class="nav-logo-text">Husky Talent</span><span class="nav-logo-sub">Empowering Connections</span></div>
+      </a>
+      <p>An authorized dealer for AT&amp;T, DIRECTV, Viasat, and ADT — connecting American families to the services they need.</p>
+    </div>
+    <div class="footer-links-group">
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="https://www.attspoc.com/e/(S(plnxgaxi4prtlsde50nzh0cc))/oe/landing.aspx" target="_blank">AT&amp;T Internet</a>
+        <a href="https://residential.directvdealer.com/explore/?dealer_name=husky-talent&service=directv-stream" target="_blank">DIRECTV Stream</a>
+        <a href="https://huskytalent.viasatretailer.com/" target="_blank">Viasat Satellite</a>
+        <a href="https://www.getsafestreets.com/husky" target="_blank">ADT Security</a>
       </div>
-      <div class="footer-links-group">
-        <div class="footer-col">
-          <h4>Services</h4>
-          <a href="https://www.attspoc.com/e/(S(plnxgaxi4prtlsde50nzh0cc))/oe/landing.aspx" target="_blank">AT&amp;T Internet</a>
-          <a href="https://residential.directvdealer.com/explore/?dealer_name=husky-talent&service=directv-stream" target="_blank">DIRECTV Stream</a>
-          <a href="https://huskytalent.viasatretailer.com/" target="_blank">Viasat Satellite</a>
-          <a href="https://www.getsafestreets.com/husky" target="_blank">ADT Security</a>
-        </div>
       <div class="footer-col">
         <h4>Company</h4>
         <a href="#why">About Us</a>
@@ -602,94 +641,209 @@
         <h4>Contact</h4>
         <p class="footer-address">6028 Gully Grove Dr<br>Royse City, TX 75189</p>
       </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 Husky Talent. All rights reserved.</span>
-      <span>Availability, pricing, and promotions vary by location and eligibility. Terms apply.</span>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
-
-  <!-- ═══ FLOATING MESSAGE BUTTON ═══ -->
-  <button class="msg-fab" id="msgFab" aria-label="Open contact form">
-    <span class="msg-fab-pulse"></span>
-    <span class="msg-fab-icon">
-      <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
-    </span>
-    <span class="msg-fab-label">Message Us</span>
-  </button>
-
-  <!-- ═══ MODAL CONTACT FORM ═══ -->
-  <div class="msg-modal-backdrop" id="msgModal">
-    <div class="msg-modal">
-      <button class="msg-modal-close" id="msgModalClose" aria-label="Close">×</button>
-      <div class="intake-head">
-        <div class="intake-logo">
-          <img src="logos/Husky talent.jpeg" alt="Husky Talent" />
-          <div>
-            <div class="intake-logo-text">Husky Talent</div>
-            <div class="intake-logo-sub">Authorized Service Dealer</div>
-          </div>
-        </div>
-        <h2>Check Availability</h2>
-        <p>Fill in your details — we'll find the right plan for your home in seconds.</p>
-      </div>
-
-      <form class="intake-body" id="step-form-modal" action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" value="ce21fa6d-03b0-408b-941c-21f70ec6e314" />
-        <input type="hidden" name="subject" value="New Husky Talent Availability Check (Modal)" />
-        <input type="hidden" name="from_name" value="Husky Talent Website" />
-        <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
-
-        <div class="form-group">
-          <label for="svc-m">What service are you looking for?</label>
-          <select id="svc-m" name="service" required>
-            <option value="">— Select a service —</option>
-            <option value="internet">Internet / Fiber</option>
-            <option value="tv">DIRECTV / TV</option>
-            <option value="security">Home Security</option>
-            <option value="internet-tv">Internet + TV</option>
-            <option value="internet-security">Internet + Security</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="zip-m">ZIP Code</label>
-          <input type="text" id="zip-m" name="zip" placeholder="e.g. 90210" maxlength="5" inputmode="numeric" required />
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="fname-m">First Name</label>
-            <input type="text" id="fname-m" name="first_name" placeholder="John" required />
-          </div>
-          <div class="form-group">
-            <label for="lname-m">Last Name</label>
-            <input type="text" id="lname-m" name="last_name" placeholder="Smith" />
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="phone-m">Phone Number</label>
-          <input type="tel" id="phone-m" name="phone" placeholder="(555) 000-0000" required />
-        </div>
-
-        <div class="form-group">
-          <label for="email-m">Email Address</label>
-          <input type="email" id="email-m" name="email" placeholder="john@email.com" />
-        </div>
-
-        <div class="form-group">
-          <label for="desc-m">Description / Message</label>
-          <textarea id="desc-m" name="description" rows="4" placeholder="Tell us what you're looking for, any specific requirements, or questions you have..." style="width:100%;padding:12px 14px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:'Inter',sans-serif;color:#1a202c;background:#f9fafb;outline:none;resize:vertical;transition:border-color .2s,box-shadow .2s;"></textarea>
-        </div>
-
-        <button type="submit" class="submit-btn">Send My Request →</button>
-        <p class="form-legal">By submitting, you agree that Husky Talent may contact you by call, text, or email regarding your request. Consent is not a condition of purchase.</p>
-      </form>
     </div>
   </div>
+  <div class="footer-bottom">
+    <span>© 2026 Husky Talent. All rights reserved.</span>
+    <span>Availability, pricing, and promotions vary by location and eligibility. Terms apply.</span>
+  </div>
+</footer>
+
+<!-- FLOATING MESSAGE BUTTON -->
+<button class="msg-fab" id="msgFab">
+  <span class="msg-fab-pulse"></span>
+  <span class="msg-fab-icon"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg></span>
+  <span class="msg-fab-label">Message Us</span>
+</button>
+
+<!-- MODAL CONTACT FORM -->
+<div class="msg-modal-backdrop" id="msgModal">
+  <div class="msg-modal">
+    <button class="msg-modal-close" id="msgModalClose">×</button>
+    <div class="intake-head">
+      <div class="intake-logo">
+        <img src="logos/Husky talent.jpeg" alt="Husky Talent"/>
+        <div><div class="intake-logo-text">Husky Talent</div><div class="intake-logo-sub">Authorized Service Dealer</div></div>
+      </div>
+      <h2>Check Availability</h2>
+      <p>Fill in your details — we'll find the right plan for your home in seconds.</p>
+    </div>
+    <form class="intake-body" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="ce21fa6d-03b0-408b-941c-21f70ec6e314"/>
+      <input type="hidden" name="subject" value="New Husky Talent Availability Check (Modal)"/>
+      <input type="hidden" name="from_name" value="Husky Talent Website"/>
+      <input type="checkbox" name="botcheck" style="display:none"/>
+      <div class="form-group"><label for="svc-m">Service</label><select id="svc-m" name="service" required><option value="">— Select a service —</option><option value="internet">Internet / Fiber</option><option value="tv">DIRECTV / TV</option><option value="security">Home Security</option><option value="internet-tv">Internet + TV</option><option value="internet-security">Internet + Security</option></select></div>
+      <div class="form-group"><label for="zip-m">ZIP Code</label><input type="text" id="zip-m" name="zip" placeholder="e.g. 90210" maxlength="5" inputmode="numeric" required/></div>
+      <div class="form-row">
+        <div class="form-group"><label for="fname-m">First Name</label><input type="text" id="fname-m" name="first_name" placeholder="John" required/></div>
+        <div class="form-group"><label for="lname-m">Last Name</label><input type="text" id="lname-m" name="last_name" placeholder="Smith"/></div>
+      </div>
+      <div class="form-group"><label for="phone-m">Phone Number</label><input type="tel" id="phone-m" name="phone" placeholder="(555) 000-0000" required/></div>
+      <div class="form-group"><label for="email-m">Email Address</label><input type="email" id="email-m" name="email" placeholder="john@email.com"/></div>
+      <div class="form-group"><label for="desc-m">Message</label><textarea id="desc-m" name="description" rows="3" placeholder="Tell us what you're looking for..."></textarea></div>
+      <button type="submit" class="submit-btn">Send My Request →</button>
+      <p class="form-legal">By submitting, you agree that Husky Talent may contact you. Consent is not a condition of purchase.</p>
+    </form>
+  </div>
+</div>
+
+<script>
+// ── PROVIDER DATA ──────────────────────────────────────
+const PROVIDERS = [
+  { id:'att',         name:'AT&T',        logo:'logos/AT&T.webp',                  link:'https://www.attspoc.com/e/(S(plnxgaxi4prtlsde50nzh0cc))/oe/landing.aspx', avail:'AT&T Internet & Fiber is available for your address.',        cat:['internet','internet-tv','internet-security'], color:'#00a8e0' },
+  { id:'directv',     name:'DIRECTV',     logo:'logos/directTV.png',               link:'https://residential.directvdealer.com/explore/?dealer_name=husky-talent&service=directv-stream', avail:'DIRECTV Stream is available for your address.', cat:['tv','internet-tv'], color:'#0069c0' },
+  { id:'brightspeed', name:'Brightspeed', logo:null,                               link:null, avail:'Brightspeed Fiber Internet is available for your address.',  cat:['internet','internet-tv','internet-security'], color:'#6d2d8a' },
+  { id:'frontier',    name:'Frontier',    logo:null,                               link:null, avail:'Frontier Fiber Internet is available for your address.',      cat:['internet','internet-tv','internet-security'], color:'#d71920' },
+  { id:'optimum',     name:'Optimum',     logo:null,                               link:null, avail:'Optimum Internet is available for your address.',             cat:['internet','internet-tv','internet-security'], color:'#7d2b8b' },
+  { id:'kinetic',     name:'Kinetic',     logo:null,                               link:null, avail:'Kinetic by Windstream is available for your address.',         cat:['internet','internet-tv','internet-security'], color:'#004b8d' },
+  { id:'vivint',      name:'Vivint',      logo:null,                               link:null, avail:'Vivint Smart Home Security is available for your address.',    cat:['security','internet-security'], color:'#1a1a2e' },
+  { id:'adt',         name:'ADT',         logo:'logos/adt.png',                    link:'https://www.getsafestreets.com/husky', avail:'ADT Home Security is available for your address.',            cat:['security','internet-security'], color:'#1b3a6b' },
+  { id:'earthlink',   name:'EarthLink',   logo:null,                               link:null, avail:'EarthLink Internet is available for your address.',           cat:['internet','internet-tv','internet-security'], color:'#0099cc' },
+  { id:'altafiber',   name:'altafiber',   logo:null,                               link:null, avail:'altafiber Internet is available for your address.',           cat:['internet','internet-tv','internet-security'], color:'#e8720c' },
+  { id:'ziply',       name:'Ziply Fiber', logo:null,                               link:null, avail:'Ziply Fiber Internet is available for your address.',         cat:['internet','internet-tv','internet-security'], color:'#0a2e5a' },
+  { id:'metronet',    name:'Metronet',    logo:null,                               link:null, avail:'Metronet Fiber Internet is available for your address.',      cat:['internet','internet-tv','internet-security'], color:'#004f9f' },
+  { id:'viasat',      name:'Viasat',      logo:'logos/Viasat-Logo-500x313.jpg',   link:'https://huskytalent.viasatretailer.com/', avail:'Viasat Satellite Internet is available for your address.', cat:['internet','internet-tv','internet-security'], color:'#e31837' }
+];
+
+// ── FORM SUBMIT ────────────────────────────────────────
+function handleFormSubmit(e) {
+  e.preventDefault();
+  const svc  = document.getElementById('svc').value;
+  const zip  = document.getElementById('zip').value.trim();
+  const fn   = document.getElementById('fname').value.trim();
+  const ph   = document.getElementById('phone').value.trim();
+  if(!svc){alert('Please select a service.');return false;}
+  if(zip.length<5){alert('Please enter a valid 5-digit ZIP code.');return false;}
+  if(!fn){alert('Please enter your first name.');return false;}
+  if(!ph){alert('Please enter your phone number.');return false;}
+  // Submit form data in background
+  const form = e.target;
+  fetch(form.action,{method:'POST',body:new FormData(form)}).catch(()=>{});
+  buildGrid(svc);
+  showStep('step-providers');
+  return false;
+}
+
+function buildGrid(svc) {
+  const grid = document.getElementById('logo-grid');
+  grid.innerHTML = '';
+  PROVIDERS.filter(p=>p.cat.includes(svc)).forEach(p=>{
+    const tile = document.createElement('div');
+    tile.className = 'logo-tile';
+    tile.title = p.name;
+    tile.onclick = ()=>providerClick(p);
+    if(p.logo){
+      const img = document.createElement('img');
+      img.src = p.logo; img.alt = p.name;
+      img.style.cssText='width:100%;height:100%;object-fit:contain;padding:14px 20px';
+      img.onerror=function(){this.remove();addTextFallback(tile,p);};
+      tile.appendChild(img);
+    } else {
+      addTextFallback(tile,p);
+    }
+    grid.appendChild(tile);
+  });
+}
+
+function addTextFallback(tile,p){
+  const fb=document.createElement('div');
+  fb.className='logo-tile-text';
+  fb.style.background=p.color;
+  fb.textContent=p.name;
+  tile.appendChild(fb);
+}
+
+function providerClick(p){
+  if(p.link){ window.open(p.link,'_blank','noopener'); }
+  else { document.getElementById('gn-avail').textContent=p.avail; showStep('step-goodnews'); }
+}
+
+function showStep(id){
+  ['step-form','step-providers','step-goodnews'].forEach(s=>{
+    const el=document.getElementById(s);
+    if(el) el.style.display='none';
+  });
+  const target=document.getElementById(id);
+  if(target){ target.style.display='block'; }
+  // Show/hide provider-picker and goodnews-wrap (they use CSS display:none by default)
+  if(id==='step-providers') document.getElementById('step-providers').style.display='block';
+  if(id==='step-goodnews')  document.getElementById('step-goodnews').style.display='block';
+  document.querySelector('.intake-card').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// ── SLIDER ────────────────────────────────────────────
+const track = document.getElementById('servicesTrack');
+const dotsContainer = document.getElementById('sliderDots');
+const cards = document.querySelectorAll('.service-card');
+const cardWidth = 300;
+let currentIndex = 0;
+
+cards.forEach((_,i)=>{
+  const dot=document.createElement('button');
+  dot.className='slider-dot'+(i===0?' active':'');
+  dot.onclick=()=>scrollToCard(i);
+  dotsContainer.appendChild(dot);
+});
+
+function scrollToCard(i){
+  currentIndex=Math.max(0,Math.min(i,cards.length-1));
+  track.scrollTo({left:currentIndex*cardWidth,behavior:'smooth'});
+  document.querySelectorAll('.slider-dot').forEach((d,j)=>d.classList.toggle('active',j===currentIndex));
+}
+document.getElementById('sliderPrev').onclick=()=>scrollToCard(currentIndex-1);
+document.getElementById('sliderNext').onclick=()=>scrollToCard(currentIndex+1);
+
+// ── MODALS ────────────────────────────────────────────
+document.getElementById('msgFab').onclick=()=>{
+  document.getElementById('msgModal').classList.add('open');
+  document.body.style.overflow='hidden';
+};
+document.getElementById('msgModalClose').onclick=()=>{
+  document.getElementById('msgModal').classList.remove('open');
+  document.body.style.overflow='';
+};
+document.getElementById('zipModalClose').onclick=()=>{
+  document.getElementById('zipModal').classList.remove('open');
+  document.body.style.overflow='';
+};
+document.querySelectorAll('.msg-modal-backdrop').forEach(b=>{
+  b.onclick=e=>{ if(e.target===b){ b.classList.remove('open'); document.body.style.overflow=''; } };
+});
+
+// ── ZIP SEARCH ────────────────────────────────────────
+function handleZipSearch(e){
+  e.preventDefault();
+  const zip=document.getElementById('zipSearchInput').value.trim();
+  if(zip.length<5){alert('Please enter a valid 5-digit ZIP code.');return false;}
+  document.getElementById('zipEcho').textContent=zip;
+  const resultsGrid=document.getElementById('zipResultsGrid');
+  resultsGrid.innerHTML='';
+  PROVIDERS.forEach(p=>{
+    const tile=document.createElement('div');
+    tile.className='zip-provider-tile';
+    tile.onclick=()=>{
+      document.getElementById('zipModal').classList.remove('open');
+      document.body.style.overflow='';
+      if(p.link) window.open(p.link,'_blank','noopener');
+      else { document.getElementById('gn-avail').textContent=p.avail; showStep('step-goodnews'); document.querySelector('#intake').scrollIntoView({behavior:'smooth'}); }
+    };
+    if(p.logo){
+      const img=document.createElement('img');
+      img.src=p.logo; img.alt=p.name;
+      img.onerror=function(){this.remove(); const s=document.createElement('span'); s.style.cssText=`font-weight:800;font-size:13px;color:${p.color}`; s.textContent=p.name; tile.appendChild(s);};
+      tile.appendChild(img);
+    } else {
+      const s=document.createElement('span');
+      s.style.cssText=`font-weight:800;font-size:13px;color:${p.color}`;
+      s.textContent=p.name;
+      tile.appendChild(s);
+    }
+    resultsGrid.appendChild(tile);
+  });
+  document.getElementById('zipResult').style.display='block';
+  return false;
+}
+</script>
 </body>
 </html>
