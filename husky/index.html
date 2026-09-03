@@ -47,6 +47,7 @@
     <p class="hero-sub">Internet, TV, Satellite &amp; Home Security — all from one authorized dealer. Get the best plans for your address in minutes.</p>
     <div class="hero-btns">
       <a href="tel:000" class="btn-outline">📞 Call a Specialist</a>
+      <button type="button" class="btn-outline" onclick="document.getElementById('zipModal').classList.add('open');document.body.style.overflow='hidden';">📍 Search by ZIP</button>
     </div>
   </section>
 
@@ -188,6 +189,93 @@
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- ═══ ZIP SEARCH MODAL ═══ -->
+  <div class="msg-modal-backdrop" id="zipModal">
+    <div class="msg-modal">
+      <button class="msg-modal-close" id="zipModalClose" aria-label="Close">×</button>
+      <div class="intake-head">
+        <div class="intake-logo">
+          <img src="logos/Husky talent.jpeg" alt="Husky Talent" />
+          <div>
+            <div class="intake-logo-text">Husky Talent</div>
+            <div class="intake-logo-sub">Authorized Service Dealer</div>
+          </div>
+        </div>
+        <h2>Check Services in Your Area</h2>
+        <p>Enter your ZIP code to see all services available at your address.</p>
+      </div>
+
+      <div class="intake-body">
+        <form class="zip-search-form" id="zipSearchForm" onsubmit="return handleZipSearch(event)">
+          <div class="zip-input-wrap">
+            <svg class="zip-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            <input type="text" id="zipSearchInput" placeholder="Enter ZIP code (e.g. 75189)" maxlength="5" inputmode="numeric" />
+          </div>
+          <button type="submit" class="zip-search-btn">Search Now</button>
+        </form>
+
+        <div class="zip-result" id="zipResult">
+          <div class="zip-result-success">
+            <div class="zip-success-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="zip-success-label">✓ Availability Check Complete</div>
+            <h3 class="zip-success-title">Good News!</h3>
+            <p class="zip-success-msg">All of these services are available in <strong id="zipEcho">your area</strong>:</p>
+          </div>
+          <div class="zip-results-grid" id="zipResultsGrid"></div>
+          <p class="zip-result-disclaimer">Availability, pricing, and promotions vary by exact address and eligibility. Terms apply.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+    <div class="section-label">What We Offer</div>
+    <h2 class="section-title">Our Services</h2>
+    <p class="section-sub">Reliable home services from trusted providers — all in one place.</p>
+    <div class="our-services-grid">
+
+      <a href="#intake" class="our-service-tile os-internet">
+        <div class="os-icon">🌐</div>
+        <h3 class="os-title">Internet &amp; Fiber</h3>
+        <p class="os-desc">High-speed internet and fiber connections for streaming, gaming, working from home, and connecting every device in your household.</p>
+        <ul class="os-features">
+          <li>Speeds up to 5 Gig</li>
+          <li>No data caps on fiber</li>
+          <li>Free professional installation</li>
+        </ul>
+        <span class="os-link">Check Availability →</span>
+      </a>
+
+      <a href="#intake" class="our-service-tile os-tv">
+        <div class="os-icon">📺</div>
+        <h3 class="os-title">DIRECTV &amp; Entertainment</h3>
+        <p class="os-desc">Live TV, sports, movies, and on-demand entertainment. Stream your favorite channels anywhere with no satellite dish required.</p>
+        <ul class="os-features">
+          <li>90+ channels included</li>
+          <li>Watch on any device</li>
+          <li>No long-term contracts</li>
+        </ul>
+        <span class="os-link">Check Availability →</span>
+      </a>
+
+      <a href="#intake" class="our-service-tile os-security">
+        <div class="os-icon">🔒</div>
+        <h3 class="os-title">Home Security</h3>
+        <p class="os-desc">24/7 professional monitoring to protect what matters most. Smart cameras, sensors, and alarms — all backed by America's #1 security provider.</p>
+        <ul class="os-features">
+          <li>24/7 professional monitoring</li>
+          <li>Smart home integration</li>
+          <li>Same-day installation available</li>
+        </ul>
+        <span class="os-link">Check Availability →</span>
+      </a>
+
     </div>
   </section>
 
