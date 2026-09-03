@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Husky Talent — Empowering Connections</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ═══ NAV ═══ -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <img src="logos/Husky talent.jpeg" alt="Husky Talent" class="nav-logo-img" />
+      <div>
+        <span class="nav-logo-text">Husky Talent</span>
+        <span class="nav-logo-sub">Empowering Connections</span>
+      </div>
+    </a>
+
+    <div class="nav-links">
+      <a href="#intake">Check Availability</a>
+      <a href="#our-services">Our Services</a>
+      <a href="#services">Providers</a>
+      <a href="#how">How It Works</a>
+      <a href="#why">Why Us</a>
+    </div>
+
+    <a href="#intake" class="nav-cta">Get Started</a>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>Live Specialists Available Now
+    </div>
+    <h1>Your Trusted Partner for<br><span class="accent-multi">Home Services</span></h1>
+    <p class="hero-sub">Internet, TV, Satellite &amp; Home Security — all from one authorized dealer. Get the best plans for your address in minutes.</p>
+    <div class="hero-btns">
+      <a href="#intake" class="btn-primary">
+        <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        Check Availability
+      </a>
+      <a href="tel:000" class="btn-outline">📞 Call a Specialist</a>
+    </div>
+  </section>
+
+  <!-- ═══ TRUST BAR ═══ -->
+  <div class="trust-bar">
+    <div class="trust-item">
+      <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Authorized Dealer
+    </div>
+    <div class="trust-item">
+      <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      No Hidden Fees
+    </div>
+    <div class="trust-item">
+      <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Free Expert Consultation
+    </div>
+    <div class="trust-item">
+      <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+      Gift &amp; Reward Card Offers
+    </div>
+  </div>
+
+  <!-- ═══ INTAKE FORM ═══ -->
+  <section id="intake">
+    <div class="section-label">Get Started</div>
+    <h2 class="section-title">What Service Are You<br>Looking For?</h2>
+    <p class="section-sub">Share your interest and we'll match you with the best available options for your address.</p>
+
+    <div class="intake-wrap">
+      <div class="intake-card">
+
+        <!-- STEP 1: FORM -->
+        <div class="intake-head">
+          <div class="intake-logo">
+            <img src="logos/Husky talent.jpeg" alt="Husky Talent" />
+            <div>
+              <div class="intake-logo-text">Husky Talent</div>
+              <div class="intake-logo-sub">Authorized Service Dealer</div>
+            </div>
+          </div>
+          <h2>Check Availability</h2>
+          <p>Fill in your details — we'll find the right plan for your home in seconds.</p>
+        </div>
+
+        <form class="intake-body" id="step-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="ce21fa6d-03b0-408b-941c-21f70ec6e314" />
+          <input type="hidden" name="subject" value="New Husky Talent Availability Check" />
+          <input type="hidden" name="from_name" value="Husky Talent Website" />
+          <input type="hidden" name="redirect" value="" />
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
+
+          <div class="form-group">
+            <label for="svc">What service are you looking for?</label>
+            <select id="svc" name="service" required>
+              <option value="">— Select a service —</option>
+              <option value="internet">Internet / Fiber</option>
+              <option value="tv">DIRECTV / TV</option>
+              <option value="security">Home Security</option>
+              <option value="internet-tv">Internet + TV</option>
+              <option value="internet-security">Internet + Security</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="zip">ZIP Code</label>
+            <input type="text" id="zip" name="zip" placeholder="e.g. 90210" maxlength="5" inputmode="numeric" required />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="first_name" placeholder="John" required />
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="last_name" placeholder="Smith" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="john@email.com" />
+          </div>
+
+          <div class="form-group">
+            <label for="desc">Description / Message</label>
+            <textarea id="desc" name="description" rows="4" placeholder="Tell us what you're looking for, any specific requirements, or questions you have..." style="width:100%;padding:12px 14px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:'Inter',sans-serif;color:#1a202c;background:#f9fafb;outline:none;resize:vertical;transition:border-color .2s,box-shadow .2s;"></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Send My Request →</button>
+          <p class="form-legal">By submitting, you agree that Husky Talent may contact you by call, text, or email regarding your request. Consent is not a condition of purchase.</p>
+        </form></oldString>
+
+        <!-- STEP 2: PROVIDER LOGO GRID -->
+        <div class="provider-picker" id="step-providers">
+          <div class="provider-picker-head">
+            <h3>Great — Service is Available!</h3>
+            <p>Select your preferred provider to see plans and connect with a live specialist.</p>
+          </div>
+          <div class="logo-grid" id="logo-grid"></div>
+          <div style="text-align:center;">
+            <button class="back-btn" onclick="goBack('step-form')">← Start over</button>
+          </div>
+        </div>
+
+        <!-- STEP 3: GOOD NEWS CARD -->
+        <div class="goodnews-wrap" id="step-goodnews">
+          <div class="goodnews-card">
+            <div class="gn-bar"></div>
+            <div class="gn-body">
+              <div class="gn-check">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="gn-label">✓ Your Availability Check Is Complete</div>
+              <div class="gn-title">Good News!</div>
+              <div class="gn-avail" id="gn-avail">Service is available for you.</div>
+              <p class="gn-desc">Speak with a live specialist to check plans, pricing, installation options, and current promotions available for your address.</p>
+              <div class="gn-promo">
+                <div class="gn-promo-icon">🎁</div>
+                <div>
+                  <div class="gn-promo-title">Gift Card &amp; Reward Card Offers</div>
+                  <div class="gn-promo-sub">Promotions may be available based on provider, location, and eligibility.</div>
+                </div>
+              </div>
+              <a href="tel:000" class="gn-cta" id="gn-cta">📞 &nbsp;000</a>
+              <div class="gn-live"><span class="live-dot"></span> Live sales specialists available</div>
+            </div>
+            <div class="gn-footer">Availability, pricing, promotional offers, and reward cards vary by provider, service area, plan, and eligibility. Terms and conditions apply.</div>
+          </div>
+          <div style="text-align:center;">
+            <button class="gn-back" onclick="goBack('step-providers')">← Back to providers</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ OUR SERVICES ═══ -->
+  <section id="our-services">
+    <div class="section-label">What We Offer</div>
+    <h2 class="section-title">Our Services</h2>
+    <p class="section-sub">Reliable home services from trusted providers — all in one place.</p>
+    <div class="our-services-grid">
+
+      <a href="#intake" class="our-service-tile os-internet">
+        <div class="os-icon">🌐</div>
+        <h3 class="os-title">Internet &amp; Fiber</h3>
+        <p class="os-desc">High-speed internet and fiber connections for streaming, gaming, working from home, and connecting every device in your household.</p>
+        <ul class="os-features">
+          <li>Speeds up to 5 Gig</li>
+          <li>No data caps on fiber</li>
+          <li>Free professional installation</li>
+        </ul>
+        <span class="os-link">Check Availability →</span>
+      </a>
+
+      <a href="#intake" class="our-service-tile os-tv">
+        <div class="os-icon">📺</div>
+        <h3 class="os-title">DIRECTV &amp; Entertainment</h3>
+        <p class="os-desc">Live TV, sports, movies, and on-demand entertainment. Stream your favorite channels anywhere with no satellite dish required.</p>
+        <ul class="os-features">
+          <li>90+ channels included</li>
+          <li>Watch on any device</li>
+          <li>No long-term contracts</li>
+        </ul>
+        <span class="os-link">Check Availability →</span>
+      </a>
+
+      <a href="#intake" class="our-service-tile os-security">
+        <div class="os-icon">🔒</div>
+        <h3 class="os-title">Home Security</h3>
+        <p class="os-desc">24/7 professional monitoring to protect what matters most. Smart cameras, sensors, and alarms — all backed by America's #1 security provider.</p>
+        <ul class="os-features">
+          <li>24/7 professional monitoring</li>
+          <li>Smart home integration</li>
+          <li>Same-day installation available</li>
+        </ul>
+        <span class="os-link">Check Availability →</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ═══ STATIC SERVICE CARDS ═══ -->
+  <section id="services">
+    <div class="section-label">Our Partners</div>
+    <h2 class="section-title">All Available Services</h2>
+    <p class="section-sub">We represent the nation's leading providers. Click any card to get started directly.</p>
+    <div class="services-grid">
+
+      <div class="service-card att">
+        <div class="s-card-top"></div>
+        <div class="s-card-body">
+          <a href="https://www.attspoc.com/e/(S(plnxgaxi4prtlsde50nzh0cc))/oe/landing.aspx" target="_blank" rel="noopener" class="s-logo-link">
+            <div class="s-logo"><img src="logos/AT&T.webp" alt="AT&T" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/><span style="display:none;font-size:22px;font-weight:900;color:#00a8e0">AT&T</span></div>
+          </a>
+          <div class="s-provider-label">✓ Availability Check Complete</div>
+          <div class="s-title">Good News!</div>
+          <div class="s-avail">AT&amp;T Service is available for you.</div>
+          <p class="s-desc">Check plans, pricing, and installation options for AT&amp;T Internet and phone service. Speak with a live specialist today.</p>
+          <div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div>
+        </div>
+        <div class="s-cta-wrap">
+          <a href="https://www.attspoc.com/e/(S(plnxgaxi4prtlsde50nzh0cc))/oe/landing.aspx" target="_blank" rel="noopener" class="s-cta">📞 Connect with AT&amp;T Specialist</a>
+          <div class="s-cta-sub"><span class="live-dot"></span> Live sales specialists available</div>
+        </div>
+        <div class="s-footer">Terms and conditions apply.</div>
+      </div>
+
+      <div class="service-card dtv">
+        <div class="s-card-top"></div>
+        <div class="s-card-body">
+          <a href="https://residential.directvdealer.com/explore/?dealer_name=husky-talent&service=directv-stream" target="_blank" rel="noopener" class="s-logo-link">
+            <div class="s-logo"><img src="logos/directTV.png" alt="DIRECTV" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/><span style="display:none;font-size:16px;font-weight:900;color:#0069c0">DIRECTV</span></div>
+          </a>
+          <div class="s-provider-label">✓ Availability Check Complete</div>
+          <div class="s-title">Good News!</div>
+          <div class="s-avail">DIRECTV Service is available for you.</div>
+          <p class="s-desc">Stream live TV, sports, and entertainment with DIRECTV Stream. No satellite dish required.</p>
+          <div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div>
+        </div>
+        <div class="s-cta-wrap">
+          <a href="https://residential.directvdealer.com/explore/?dealer_name=husky-talent&service=directv-stream" target="_blank" rel="noopener" class="s-cta">📺 Explore DIRECTV Plans</a>
+          <div class="s-cta-sub"><span class="live-dot"></span> Live sales specialists available</div>
+        </div>
+        <div class="s-footer">Terms and conditions apply.</div>
+      </div>
+
+      <div class="service-card viasat">
+        <div class="s-card-top"></div>
+        <div class="s-card-body">
+          <a href="https://huskytalent.viasatretailer.com/" target="_blank" rel="noopener" class="s-logo-link">
+            <div class="s-logo"><img src="logos/Viasat-Logo-500x313.jpg" alt="Viasat" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/><span style="display:none;font-size:18px;font-weight:900;color:#e31837">VIASAT</span></div>
+          </a>
+          <div class="s-provider-label">✓ Availability Check Complete</div>
+          <div class="s-title">Good News!</div>
+          <div class="s-avail">Viasat Satellite Internet is available for you.</div>
+          <p class="s-desc">High-speed satellite internet available virtually everywhere, especially rural areas.</p>
+          <div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div>
+        </div>
+        <div class="s-cta-wrap">
+          <a href="https://huskytalent.viasatretailer.com/" target="_blank" rel="noopener" class="s-cta">🛰️ Check Viasat Availability</a>
+          <div class="s-cta-sub"><span class="live-dot"></span> Live sales specialists available</div>
+        </div>
+        <div class="s-footer">Terms and conditions apply.</div>
+      </div>
+
+      <div class="service-card adt">
+        <div class="s-card-top"></div>
+        <div class="s-card-body">
+          <a href="https://www.getsafestreets.com/husky" target="_blank" rel="noopener" class="s-logo-link">
+            <div class="s-logo"><img src="logos/adt.png" alt="ADT" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/><span style="display:none;font-size:22px;font-weight:900;color:#1b3a6b">ADT</span></div>
+          </a>
+          <div class="s-provider-label">✓ Availability Check Complete</div>
+          <div class="s-title">Good News!</div>
+          <div class="s-avail">ADT Home Security is available for you.</div>
+          <p class="s-desc">Protect your home with ADT — America's #1 home security provider. 24/7 professional monitoring.</p>
+          <div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div>
+        </div>
+        <div class="s-cta-wrap">
+          <a href="https://www.getsafestreets.com/husky" target="_blank" rel="noopener" class="s-cta">🔒 Get ADT Home Security</a>
+          <div class="s-cta-sub"><span class="live-dot"></span> Live sales specialists available</div>
+        </div>
+        <div class="s-footer">Terms and conditions apply.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ HOW IT WORKS ═══ -->
+  <section id="how">
+    <div class="section-label">The Process</div>
+    <h2 class="section-title">How It Works</h2>
+    <p class="section-sub">Getting set up with the right service takes just three simple steps.</p>
+    <div class="steps-row">
+      <div class="step"><div class="step-num">1</div><div class="step-title">Choose a Service</div><p class="step-desc">Select from internet, TV, satellite, or home security based on your needs.</p></div>
+      <div class="step"><div class="step-num">2</div><div class="step-title">Speak with a Specialist</div><p class="step-desc">Our live agents check availability, compare plans, and walk you through promotions.</p></div>
+      <div class="step"><div class="step-num">3</div><div class="step-title">Get Connected</div><p class="step-desc">Schedule installation at your convenience and start enjoying your new service.</p></div>
+    </div>
+  </section>
+
+  <!-- ═══ WHY HUSKY ═══ -->
+  <section id="why">
+    <div class="section-label">Why Choose Us</div>
+    <h2 class="section-title">The Husky Talent Advantage</h2>
+    <p class="section-sub">We're your neighbors, advocates, and experts in connecting families to the services they need.</p>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-icon">🏅</div><div class="why-title">Authorized Dealer</div><p class="why-desc">Officially authorized by AT&amp;T, DIRECTV, Viasat, and ADT. Always genuine plans at official pricing.</p></div>
+      <div class="why-card"><div class="why-icon">🎁</div><div class="why-title">Exclusive Promotions</div><p class="why-desc">Access gift cards, reward cards, and special promotions not available elsewhere.</p></div>
+      <div class="why-card"><div class="why-icon">🤝</div><div class="why-title">Expert Guidance</div><p class="why-desc">No pushy sales. Our specialists listen first and recommend the plan that fits your home.</p></div>
+      <div class="why-card"><div class="why-icon">⚡</div><div class="why-title">Fast &amp; Simple</div><p class="why-desc">Check availability, compare plans, and get scheduled — all in one call, zero runaround.</p></div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA STRIP ═══ -->
+  <div class="cta-strip">
+    <h2>Ready to Find the Right Plan?</h2>
+    <p>Speak with a live Husky Talent specialist today — no commitment required.</p>
+    <a href="#intake" class="btn-primary">📞 &nbsp;Check Availability Now</a>
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">
+          <img src="logos/Husky talent.jpeg" alt="Husky Talent" class="nav-logo-img" />
+          <div><span class="nav-logo-text">Husky Talent</span><span class="nav-logo-sub">Empowering Connections</span></div>
+        </a>
+        <p>An authorized dealer for AT&amp;T, DIRECTV, Viasat, and ADT — connecting American families to the services they need.</p>
+      </div>
+      <div class="footer-links-group">
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="https://www.attspoc.com/e/(S(plnxgaxi4prtlsde50nzh0cc))/oe/landing.aspx" target="_blank">AT&amp;T Internet</a>
+          <a href="https://residential.directvdealer.com/explore/?dealer_name=husky-talent&service=directv-stream" target="_blank">DIRECTV Stream</a>
+          <a href="https://huskytalent.viasatretailer.com/" target="_blank">Viasat Satellite</a>
+          <a href="https://www.getsafestreets.com/husky" target="_blank">ADT Security</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#why">About Us</a>
+          <a href="#how">How It Works</a>
+          <a href="#intake">Check Availability</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Husky Talent. All rights reserved.</span>
+      <span>Availability, pricing, and promotions vary by location and eligibility. Terms apply.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <!-- ═══ FLOATING MESSAGE BUTTON ═══ -->
+  <button class="msg-fab" id="msgFab" aria-label="Open contact form">
+    <span class="msg-fab-pulse"></span>
+    <span class="msg-fab-icon">
+      <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+    </span>
+    <span class="msg-fab-label">Message Us</span>
+  </button>
+
+  <!-- ═══ MODAL CONTACT FORM ═══ -->
+  <div class="msg-modal-backdrop" id="msgModal">
+    <div class="msg-modal">
+      <button class="msg-modal-close" id="msgModalClose" aria-label="Close">×</button>
+      <div class="intake-head">
+        <div class="intake-logo">
+          <img src="logos/Husky talent.jpeg" alt="Husky Talent" />
+          <div>
+            <div class="intake-logo-text">Husky Talent</div>
+            <div class="intake-logo-sub">Authorized Service Dealer</div>
+          </div>
+        </div>
+        <h2>Check Availability</h2>
+        <p>Fill in your details — we'll find the right plan for your home in seconds.</p>
+      </div>
+
+      <form class="intake-body" id="step-form-modal" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="ce21fa6d-03b0-408b-941c-21f70ec6e314" />
+        <input type="hidden" name="subject" value="New Husky Talent Availability Check (Modal)" />
+        <input type="hidden" name="from_name" value="Husky Talent Website" />
+        <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
+
+        <div class="form-group">
+          <label for="svc-m">What service are you looking for?</label>
+          <select id="svc-m" name="service" required>
+            <option value="">— Select a service —</option>
+            <option value="internet">Internet / Fiber</option>
+            <option value="tv">DIRECTV / TV</option>
+            <option value="security">Home Security</option>
+            <option value="internet-tv">Internet + TV</option>
+            <option value="internet-security">Internet + Security</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="zip-m">ZIP Code</label>
+          <input type="text" id="zip-m" name="zip" placeholder="e.g. 90210" maxlength="5" inputmode="numeric" required />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname-m">First Name</label>
+            <input type="text" id="fname-m" name="first_name" placeholder="John" required />
+          </div>
+          <div class="form-group">
+            <label for="lname-m">Last Name</label>
+            <input type="text" id="lname-m" name="last_name" placeholder="Smith" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="phone-m">Phone Number</label>
+          <input type="tel" id="phone-m" name="phone" placeholder="(555) 000-0000" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email-m">Email Address</label>
+          <input type="email" id="email-m" name="email" placeholder="john@email.com" />
+        </div>
+
+        <div class="form-group">
+          <label for="desc-m">Description / Message</label>
+          <textarea id="desc-m" name="description" rows="4" placeholder="Tell us what you're looking for, any specific requirements, or questions you have..." style="width:100%;padding:12px 14px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:'Inter',sans-serif;color:#1a202c;background:#f9fafb;outline:none;resize:vertical;transition:border-color .2s,box-shadow .2s;"></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Send My Request →</button>
+        <p class="form-legal">By submitting, you agree that Husky Talent may contact you by call, text, or email regarding your request. Consent is not a condition of purchase.</p>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
