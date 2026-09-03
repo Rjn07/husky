@@ -258,7 +258,67 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal && modal.classList.contains('open')) closeModal();
   });
+
+  initServicesSlider();
 });
+
+function initServicesSlider() {
+  const track = document.getElementById('servicesTrack');
+  const prevBtn = document.getElementById('sliderPrev');
+  const nextBtn = document.getElementById('sliderNext');
+  const dotsContainer = document.getElementById('sliderDots');
+  if (!track) return;
+
+  const cards = track.querySelectorAll('.service-card');
+  const total = cards.length;
+  let current = 0;
+
+  for (let i = 0; i < total; i++) {
+    const dot = document.createElement('button');
+    dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  }
+  const dots = dotsContainer.querySelectorAll('.slider-dot');
+
+  function update() {
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    const card = cards[current];
+    if (card) {
+      const left = card.offsetLeft - (track.clientWidth - card.clientWidth) / 2;
+      track.scrollTo({ left: Math.max(left, 0), behavior: 'smooth' });
+    }
+  }
+
+  function goTo(i) {
+    current = (i + total) % total;
+    update();
+  }
+
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+  nextBtn.addEventListener('click', () => goTo(current + 1));
+
+  track.addEventListener('scroll', () => {
+    const center = track.scrollLeft + track.clientWidth / 2;
+    let closest = 0;
+    let closestDist = Infinity;
+    cards.forEach((c, i) => {
+      const cardCenter = c.offsetLeft + c.clientWidth / 2;
+      const dist = Math.abs(center - cardCenter);
+      if (dist < closestDist) { closestDist = dist; closest = i; }
+    });
+    if (closest !== current) {
+      current = closest;
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    clearTimeout(window._sliderResize);
+    window._sliderResize = setTimeout(update, 100);
+  });
+}
 
 function handleModalSubmit(event) {
   event.preventDefault();
