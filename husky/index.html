@@ -30,7 +30,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(10,22,40,.97);backdrop-fil
 .hero-badge-dot{width:7px;height:7px;border-radius:50%;background:#34a853;animation:glow 2s ease-in-out infinite}
 @keyframes glow{0%,100%{box-shadow:0 0 0 2px rgba(52,168,83,.3)}50%{box-shadow:0 0 0 6px rgba(52,168,83,.08)}}
 .hero h1{font-family:'Sora',sans-serif;font-size:clamp(32px,6vw,64px);font-weight:800;line-height:1.09;letter-spacing:-1.5px;max-width:800px;margin:0 auto 18px}
-.accent-multi{background:linear-gradient(90deg,#f4511e,#fbbc04,#34a853,#00b4ff,#e91e8c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.accent-multi{background:none;-webkit-background-clip:initial;-webkit-text-fill-color:#fff;background-clip:initial;color:#fff}
 .hero-sub{color:rgba(255,255,255,.6);font-size:18px;line-height:1.6;max-width:520px;margin:0 auto 30px}
 .hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
 .hero-btns-top{margin-bottom:20px}
@@ -128,6 +128,17 @@ section{padding:72px 5%}
 .zip-provider-tile img{max-width:100px;max-height:36px;object-fit:contain}
 .zip-provider-tile span{font-weight:800;font-size:14px}
 .zip-result-disclaimer{font-size:10px;color:#9ca3af;text-align:center;line-height:1.5}
+.zip-call-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;border-radius:11px;font-size:15px;font-weight:700;color:#fff;text-decoration:none;background:linear-gradient(135deg,#1a73e8,#0d47a1);transition:opacity .2s;margin-top:14px;margin-bottom:6px}
+.zip-call-btn:hover{opacity:.88}
+.check-choice-body{padding:20px 28px 28px;display:flex;flex-direction:column;gap:12px}
+.check-choice-btn{display:flex;align-items:center;gap:14px;width:100%;padding:16px 18px;border-radius:14px;text-decoration:none;color:#0a1628;background:#f8fafc;border:2px solid #e2e8f0;cursor:pointer;font-family:'Inter',sans-serif;text-align:left;transition:all .2s}
+.check-choice-btn:hover{border-color:#1a73e8;background:#eef4ff;transform:translateY(-2px);box-shadow:0 8px 24px rgba(26,115,232,.15)}
+.check-choice-call:hover{border-color:#34a853;background:#e8f5ec;box-shadow:0 8px 24px rgba(52,168,83,.18)}
+.check-choice-icon{width:48px;height:48px;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;border:1px solid #e2e8f0}
+.check-choice-text{flex:1}
+.check-choice-title{font-family:'Sora',sans-serif;font-size:16px;font-weight:800;color:#0a1628;margin-bottom:2px}
+.check-choice-sub{font-size:12px;color:#6b7280}
+.check-choice-arrow{font-size:20px;color:#9ca3af;font-weight:700}
 
 /* ─── OUR SERVICES SECTION (ONLY ONCE) ─── */
 #our-services{background:#132040}
@@ -280,15 +291,15 @@ footer{background:#060e1a;padding:46px 5% 28px}
   <div class="hero-badge"><span class="hero-badge-dot"></span>Live Specialists Available Now</div>
   <h1>Your Trusted Partner for<br><span class="accent-multi">Home Services</span></h1>
   <div class="hero-btns hero-btns-top">
-    <a href="#intake" class="btn-primary">
-      <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      Check Availability
-    </a>
+    <button type="button" class="btn-primary" onclick="document.getElementById('zipModal').classList.add('open');document.body.style.overflow='hidden';">📍 Enter your ZIP code to check availability in your area</button>
   </div>
   <p class="hero-sub">Internet, TV, Satellite &amp; Home Security — all from one authorized dealer. Get the best plans for your address in minutes.</p>
   <div class="hero-btns">
+    <a href="#" onclick="openCheckChoice();return false;" class="btn-primary">
+      <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      Check Availability
+    </a>
     <a href="tel:000" class="btn-outline">📞 Call a Specialist</a>
-    <button type="button" class="btn-outline" onclick="document.getElementById('zipModal').classList.add('open');document.body.style.overflow='hidden';">📍 Search by ZIP</button>
   </div>
 </section>
 
@@ -434,6 +445,7 @@ footer{background:#060e1a;padding:46px 5% 28px}
           <div class="zip-success-label">✓ Availability Check Complete</div>
           <h3 class="zip-success-title">Good News!</h3>
           <p class="zip-success-msg">Services available in <strong id="zipEcho">your area</strong>:</p>
+          <a href="tel:000" class="zip-call-btn">📞 Call Our Agent Now</a>
         </div>
         <div class="zip-results-grid" id="zipResultsGrid"></div>
         <p class="zip-result-disclaimer">Availability, pricing, and promotions vary by exact address and eligibility. Terms apply.</p>
@@ -688,6 +700,42 @@ footer{background:#060e1a;padding:46px 5% 28px}
   </div>
 </div>
 
+<!-- CHECK CHOICE MODAL -->
+<div class="msg-modal-backdrop" id="checkChoiceModal">
+  <div class="msg-modal check-choice-modal">
+    <button class="msg-modal-close" id="checkChoiceClose">×</button>
+    <div class="intake-head">
+      <div class="intake-logo">
+        <img src="logos/Husky talent.jpeg" alt="Husky Talent"/>
+        <div>
+          <div class="intake-logo-text">Husky Talent</div>
+          <div class="intake-logo-sub">Authorized Service Dealer</div>
+        </div>
+      </div>
+      <h2>How would you like to check availability?</h2>
+      <p>Choose the option that works best for you.</p>
+    </div>
+    <div class="check-choice-body">
+      <a href="tel:000" class="check-choice-btn check-choice-call">
+        <div class="check-choice-icon">📞</div>
+        <div class="check-choice-text">
+          <div class="check-choice-title">Call Our Agent</div>
+          <div class="check-choice-sub">Speak with a live specialist now</div>
+        </div>
+        <div class="check-choice-arrow">→</div>
+      </a>
+      <button type="button" class="check-choice-btn check-choice-form" onclick="closeCheckChoice();document.getElementById('intake').scrollIntoView({behavior:'smooth'});">
+        <div class="check-choice-icon">📝</div>
+        <div class="check-choice-text">
+          <div class="check-choice-title">Fill the Check Availability Form</div>
+          <div class="check-choice-sub">We'll contact you within 24 hours</div>
+        </div>
+        <div class="check-choice-arrow">→</div>
+      </button>
+    </div>
+  </div>
+</div>
+
 <script>
 // ── PROVIDER DATA ──────────────────────────────────────
 const PROVIDERS = [
@@ -810,6 +858,18 @@ document.getElementById('zipModalClose').onclick=()=>{
 document.querySelectorAll('.msg-modal-backdrop').forEach(b=>{
   b.onclick=e=>{ if(e.target===b){ b.classList.remove('open'); document.body.style.overflow=''; } };
 });
+
+// ── CHECK CHOICE MODAL ─────────────────────────────────
+function openCheckChoice(){
+  document.getElementById('checkChoiceModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeCheckChoice(){
+  const m=document.getElementById('checkChoiceModal');
+  if(m){m.classList.remove('open');document.body.style.overflow='';}
+}
+const ccClose=document.getElementById('checkChoiceClose');
+if(ccClose)ccClose.onclick=closeCheckChoice;
 
 // ── ZIP SEARCH ────────────────────────────────────────
 function handleZipSearch(e){
