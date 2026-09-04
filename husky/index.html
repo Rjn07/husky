@@ -135,6 +135,8 @@ section{padding:72px 5%}
 .gn-promo-sub{font-size:11px;color:#78350f;margin-top:2px}
 .gn-cta{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;padding:14px;border-radius:11px;font-size:15px;font-weight:700;color:#fff;text-decoration:none;background:linear-gradient(135deg,#1a73e8,#0d47a1);transition:opacity .2s}
 .gn-cta:hover{opacity:.88}
+.gn-call-icon{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;animation:phoneShake 1.1s ease-in-out infinite;transform-origin:50% 50%;color:#fff}
+.gn-call-icon svg{stroke:#fff;width:14px;height:14px}
 .gn-live{display:flex;align-items:center;justify-content:center;gap:6px;font-size:11px;color:#34a853;font-weight:600;margin-top:9px}
 .live-dot{width:7px;height:7px;border-radius:50%;background:#34a853;animation:glow 2s ease-in-out infinite;display:inline-block}
 .gn-footer{padding:9px 18px 13px;border-top:1px solid #e2e8f0;font-size:10px;color:#9ca3af;text-align:center;line-height:1.5}
@@ -174,6 +176,8 @@ section{padding:72px 5%}
 .zip-result-disclaimer{font-size:10px;color:#9ca3af;text-align:center;line-height:1.5}
 .zip-call-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;border-radius:11px;font-size:15px;font-weight:700;color:#fff;text-decoration:none;background:linear-gradient(135deg,#1a73e8,#0d47a1);transition:opacity .2s;margin-top:14px;margin-bottom:6px}
 .zip-call-btn:hover{opacity:.88}
+.zip-call-icon{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;animation:phoneShake 1.1s ease-in-out infinite;transform-origin:50% 50%}
+.zip-call-icon svg{stroke:#fff;width:13px;height:13px}
 .check-choice-body{padding:20px 28px 28px;display:flex;flex-direction:column;gap:12px}
 .check-choice-btn{display:flex;align-items:center;gap:14px;width:100%;padding:16px 18px;border-radius:14px;text-decoration:none;color:#0a1628;background:#f8fafc;border:2px solid #e2e8f0;cursor:pointer;font-family:'Inter',sans-serif;text-align:left;transition:all .2s}
 .check-choice-btn:hover{border-color:#1a73e8;background:#eef4ff;transform:translateY(-2px);box-shadow:0 8px 24px rgba(26,115,232,.15)}
@@ -528,7 +532,14 @@ footer{background:#060e1a;padding:46px 5% 28px}
               <div class="gn-promo-icon">🎁</div>
               <div><div class="gn-promo-title">Gift Card &amp; Reward Card Offers</div><div class="gn-promo-sub">Promotions may be available based on provider, location, and eligibility.</div></div>
             </div>
-            <a href="tel:3613574943" class="gn-cta" id="gn-cta">📞 &nbsp;(361) 357-4943</a>
+            <a href="tel:3613574943" class="gn-cta" id="gn-cta">
+              <span class="gn-call-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </span>
+              Call Our Agent Now · (361) 357-4943
+            </a>
             <div class="gn-live"><span class="live-dot"></span> Live sales specialists available</div>
           </div>
           <div class="gn-footer">Availability, pricing, promotional offers, and reward cards vary by provider, service area, plan, and eligibility. Terms and conditions apply.</div>
@@ -568,7 +579,14 @@ footer{background:#060e1a;padding:46px 5% 28px}
           <div class="zip-success-label">✓ Availability Check Complete</div>
           <h3 class="zip-success-title">Good News!</h3>
           <p class="zip-success-msg">Service available in <strong id="zipEcho">your area</strong>:</p>
-          <a href="tel:3613574943" class="zip-call-btn">📞 Call Our Agent Now</a>
+          <a href="tel:3613574943" class="zip-call-btn">
+            <span class="zip-call-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </span>
+            Call Our Agent Now · (361) 357-4943
+          </a>
         </div>
         <div class="zip-results-grid" id="zipResultsGrid"></div>
         <p class="zip-result-disclaimer">Availability, pricing, and promotions vary by exact address and eligibility. Terms apply.</p>
@@ -743,7 +761,7 @@ footer{background:#060e1a;padding:46px 5% 28px}
 <div class="cta-strip">
   <h2>Ready to Find the Right Plan?</h2>
   <p>Speak with a live Husky Talent specialist today — no commitment required.</p>
-  <a href="#intake" class="btn-primary">📞 &nbsp;Check Availability Now</a>
+  <a href="#" onclick="document.getElementById('zipModal').classList.add('open');document.body.style.overflow='hidden';return false;" class="btn-primary">📞 &nbsp;Check Availability Now</a>
 </div>
 
 <!-- FOOTER -->
@@ -1141,7 +1159,14 @@ footer{background:#060e1a;padding:46px 5% 28px}
           <div class="gn-promo-sub">Promotions may be available based on provider, location, and eligibility.</div>
         </div>
       </div>
-      <a href="tel:3613574943" class="gn-cta">📞 &nbsp;Call Our Agent Now — (361) 357-4943</a>
+      <a href="tel:3613574943" class="gn-cta">
+        <span class="gn-call-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </span>
+        Call Our Agent Now · (361) 357-4943
+      </a>
       <div class="gn-live"><span class="live-dot"></span> Live sales specialists available</div>
     </div>
     <div class="gn-footer">Availability, pricing, promotional offers, and reward cards vary by provider, service area, plan, and eligibility. Terms and conditions apply.</div>
@@ -1314,12 +1339,33 @@ document.getElementById('msgModalClose').onclick=()=>{
   document.getElementById('msgModal').classList.remove('open');
   document.body.style.overflow='';
 };
-document.getElementById('zipModalClose').onclick=()=>{
-  document.getElementById('zipModal').classList.remove('open');
+function closeZipModal(){
+  const m=document.getElementById('zipModal');
+  if(m)m.classList.remove('open');
+  // Clear the ZIP inputs
+  const zin=document.getElementById('zipSearchInput');
+  if(zin)zin.value='';
+  const hin=document.getElementById('heroZipInput');
+  if(hin)hin.value='';
+  // Hide the results section
+  const zr=document.getElementById('zipResult');
+  if(zr){zr.style.display='none';zr.classList.remove('open');}
+  // Clear provider tiles
+  const zg=document.getElementById('zipResultsGrid');
+  if(zg)zg.innerHTML='';
+  // Reset the location label
+  const ze=document.getElementById('zipEcho');
+  if(ze)ze.textContent='your area';
   document.body.style.overflow='';
-};
+}
+document.getElementById('zipModalClose').onclick=closeZipModal;
 document.querySelectorAll('.msg-modal-backdrop').forEach(b=>{
-  b.onclick=e=>{ if(e.target===b){ b.classList.remove('open'); document.body.style.overflow=''; } };
+  b.onclick=e=>{
+    if(e.target===b){
+      if(b.id==='zipModal'){ closeZipModal(); }
+      else { b.classList.remove('open'); document.body.style.overflow=''; }
+    }
+  };
 });
 
 // ── CHECK CHOICE MODAL ─────────────────────────────────
