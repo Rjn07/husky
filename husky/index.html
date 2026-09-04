@@ -39,6 +39,17 @@ nav{position:sticky;top:0;z-index:200;background:rgba(10,22,40,.97);backdrop-fil
 .btn-outline{background:transparent;color:#fff;padding:13px 28px;border-radius:10px;font-size:15px;font-weight:600;text-decoration:none;border:1.5px solid rgba(255,255,255,.25);transition:all .2s;cursor:pointer;font-family:'Inter',sans-serif}
 .btn-outline:hover{border-color:rgba(255,255,255,.6)}
 
+/* ─── HERO ZIP BOX ─── */
+.hero-zip-wrapper{max-width:480px;margin:0 auto 20px;text-align:center}
+.hero-zip-label{font-size:15px;font-weight:600;color:#fff;margin-bottom:12px;display:block}
+.hero-zip-box{display:flex;align-items:center;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 8px 40px rgba(26,115,232,.35);border:2px solid rgba(26,115,232,.4)}
+.hero-zip-icon{padding:0 14px;color:#9ca3af;flex-shrink:0;display:flex;align-items:center}
+.hero-zip-input{flex:1;padding:16px 8px;font-size:17px;font-family:'Inter',sans-serif;color:#0a1628;font-weight:600;outline:none;border:none;background:transparent;letter-spacing:2px}
+.hero-zip-input::placeholder{color:#b0bec5;font-weight:400;letter-spacing:0}
+.hero-zip-btn{background:linear-gradient(135deg,#1a73e8,#0d47a1);color:#fff;border:none;padding:14px 22px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:opacity .2s;white-space:nowrap;display:flex;align-items:center;gap:8px}
+.hero-zip-btn:hover{opacity:.9}
+.hero-zip-hint{font-size:12px;color:rgba(255,255,255,.4);margin-top:8px}
+
 /* ─── TRUST BAR ─── */
 .trust-bar{border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);padding:18px 5%;display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;background:rgba(255,255,255,.03)}
 .trust-item{display:flex;align-items:center;gap:9px;color:rgba(255,255,255,.5);font-size:13px;font-weight:500}
@@ -115,6 +126,11 @@ section{padding:72px 5%}
 .zip-input-wrap input:focus{border-color:#1a73e8;box-shadow:0 0 0 3px rgba(26,115,232,.1);background:#fff}
 .zip-search-btn{width:100%;padding:14px;background:linear-gradient(135deg,#1a73e8,#0d47a1);color:#fff;border:none;border-radius:11px;font-size:15px;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;transition:opacity .2s}
 .zip-search-btn:hover{opacity:.9}
+@media(max-width:600px){
+  .zip-input-wrap input{font-size:16px;padding:14px 14px 14px 44px}
+  .zip-input-wrap{margin-bottom:12px}
+  .zip-search-btn{padding:15px;font-size:16px}
+}
 .zip-result{display:none;margin-top:22px}
 .zip-result-success{text-align:center;margin-bottom:20px}
 .zip-success-icon{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#34a853,#22c55e);display:flex;align-items:center;justify-content:center;margin:0 auto 10px}
@@ -139,8 +155,33 @@ section{padding:72px 5%}
 .check-choice-title{font-family:'Sora',sans-serif;font-size:16px;font-weight:800;color:#0a1628;margin-bottom:2px}
 .check-choice-sub{font-size:12px;color:#6b7280}
 .check-choice-arrow{font-size:20px;color:#9ca3af;font-weight:700}
+.terms-body{padding:24px 32px 32px;max-height:65vh;overflow-y:auto;color:#374151;font-size:14px;line-height:1.65}
+.terms-body h3{font-family:'Sora',sans-serif;font-size:16px;font-weight:800;color:#0a1628;margin:18px 0 8px}
+.terms-body h3:first-child{margin-top:4px}
+.terms-body p{margin-bottom:10px}
+.terms-body ul{padding-left:22px;margin-bottom:10px}
+.terms-body ul li{margin-bottom:4px}
+.terms-body a{color:#1a73e8;text-decoration:none;font-weight:600}
+.terms-body a:hover{text-decoration:underline}
+.terms-contact{background:#f0f4ff;border:1px solid #c7d7f7;border-radius:10px;padding:14px 18px;margin-top:8px;font-size:13px;color:#0a1628;line-height:1.6}
+.terms-copyright{text-align:center;color:#6b7280;font-size:12px;margin-top:24px;padding-top:16px;border-top:1px solid #e2e8f0}
 
-/* ─── OUR SERVICES SECTION (ONLY ONCE) ─── */
+/* ─── CONTACT SECTION ─── */
+#contact{background:#0a1628;padding:80px 5%}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:1100px;margin:0 auto}
+.contact-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:28px 24px;text-align:center;transition:background .2s,transform .2s}
+.contact-card:hover{background:rgba(255,255,255,.07);transform:translateY(-3px)}
+.contact-card-phone{background:linear-gradient(135deg,rgba(26,115,232,.18),rgba(13,71,161,.18));border-color:rgba(26,115,232,.35)}
+.contact-icon{width:54px;height:54px;border-radius:14px;background:rgba(26,115,232,.18);display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 14px}
+.contact-card-phone .contact-icon{background:linear-gradient(135deg,#1a73e8,#0d47a1)}
+.contact-label{font-size:11px;font-weight:700;letter-spacing:1.5px;color:#7a8fa6;text-transform:uppercase;margin-bottom:8px}
+.contact-value{font-size:15px;font-weight:600;color:#fff;line-height:1.65}
+.contact-value a{color:#fff;text-decoration:none;border-bottom:1.5px solid rgba(26,115,232,.5);transition:color .2s,border-color .2s}
+.contact-value a:hover{color:#1a73e8;border-color:#1a73e8}
+.contact-sub{font-size:12px;color:#34a853;font-weight:600;margin-top:10px;display:flex;align-items:center;justify-content:center;gap:6px}
+.contact-sub::before{content:'';width:7px;height:7px;border-radius:50%;background:#34a853;box-shadow:0 0 0 3px rgba(52,168,83,.25);animation:glow 2s ease-in-out infinite}
+
+/* ─── OUR SERVICES SECTION ─── */
 #our-services{background:#132040}
 .our-services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;max-width:1100px;margin:0 auto}
 .our-service-tile{background:#fff;border-radius:18px;padding:28px 26px;text-decoration:none;color:inherit;display:block;transition:transform .22s,box-shadow .22s;border:2px solid transparent;position:relative;overflow:hidden}
@@ -206,6 +247,9 @@ section{padding:72px 5%}
 .altafiber .s-card-top,.altafiber .s-cta{background:linear-gradient(90deg,#e8720c,#c45a00)}
 .ziply .s-card-top,.ziply .s-cta{background:linear-gradient(90deg,#0a2e5a,#061a33)}
 .metronet .s-card-top,.metronet .s-cta{background:linear-gradient(90deg,#004f9f,#003370)}
+.wow .s-card-top,.wow .s-cta{background:linear-gradient(90deg,#e60028,#b3001f)}
+.hawaiian .s-card-top,.hawaiian .s-cta{background:linear-gradient(90deg,#0072ce,#004f8a)}
+.hugsnet .s-card-top,.hugsnet .s-cta{background:linear-gradient(90deg,#7c3aed,#5b21b6)}
 
 /* ─── HOW IT WORKS ─── */
 #how{background:#132040}
@@ -261,7 +305,17 @@ footer{background:#060e1a;padding:46px 5% 28px}
   .form-row{grid-template-columns:1fr}
   .intake-body,.provider-picker,.goodnews-wrap{padding-left:18px;padding-right:18px}
   .intake-head{padding:22px 18px 18px}
+  .msg-modal{max-width:100%;border-radius:18px 18px 0 0;max-height:96vh;align-self:flex-end}
+  .msg-modal-backdrop{padding:0;align-items:flex-end}
+  .zip-input-wrap input{width:100%;min-width:0;font-size:16px;padding:14px 14px 14px 44px;box-sizing:border-box}
+  .zip-search-btn{width:100%;padding:15px;font-size:16px;box-sizing:border-box}
+  .zip-call-btn{width:100%;box-sizing:border-box}
+  .gn-cta{width:100%;box-sizing:border-box}
+  .form-group input,.form-group select,.form-group textarea{width:100%;box-sizing:border-box;min-width:0}
+  .submit-btn{width:100%;box-sizing:border-box}
   .zip-results-grid{grid-template-columns:1fr 1fr}
+  .hero-zip-box{border-radius:12px}
+  .hero-zip-btn{padding:14px 16px;font-size:14px}
 }
 </style>
 </head>
@@ -290,16 +344,38 @@ footer{background:#060e1a;padding:46px 5% 28px}
 <section class="hero">
   <div class="hero-badge"><span class="hero-badge-dot"></span>Live Specialists Available Now</div>
   <h1>Your Trusted Partner for<br><span class="accent-multi">Home Services</span></h1>
-  <div class="hero-btns hero-btns-top">
-    <button type="button" class="btn-primary" onclick="document.getElementById('zipModal').classList.add('open');document.body.style.overflow='hidden';">📍 Enter your ZIP code to check availability in your area</button>
+
+  <!-- ZIP INPUT BOX - DIRECTLY IN HERO -->
+  <div class="hero-zip-wrapper">
+    <span class="hero-zip-label">📍 Enter your ZIP code to check availability in your area</span>
+    <div class="hero-zip-box">
+      <div class="hero-zip-icon">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <input
+        type="text"
+        class="hero-zip-input"
+        id="heroZipInput"
+        placeholder="e.g. 75189"
+        maxlength="5"
+        inputmode="numeric"
+        autocomplete="postal-code"
+      />
+      <button class="hero-zip-btn" onclick="handleHeroZip()">
+        Check Now
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+    <div class="hero-zip-hint">Free check · No commitment · Instant results</div>
   </div>
+
   <p class="hero-sub">Internet, TV, Satellite &amp; Home Security — all from one authorized dealer. Get the best plans for your address in minutes.</p>
   <div class="hero-btns">
     <a href="#" onclick="openCheckChoice();return false;" class="btn-primary">
       <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
       Check Availability
     </a>
-    <a href="tel:000" class="btn-outline">📞 Call a Specialist</a>
+    <a href="tel:3613574943" class="btn-outline">📞 Call a Specialist</a>
   </div>
 </section>
 
@@ -405,7 +481,7 @@ footer{background:#060e1a;padding:46px 5% 28px}
               <div class="gn-promo-icon">🎁</div>
               <div><div class="gn-promo-title">Gift Card &amp; Reward Card Offers</div><div class="gn-promo-sub">Promotions may be available based on provider, location, and eligibility.</div></div>
             </div>
-            <a href="tel:000" class="gn-cta" id="gn-cta">📞 &nbsp;000</a>
+            <a href="tel:3613574943" class="gn-cta" id="gn-cta">📞 &nbsp;(361) 357-4943</a>
             <div class="gn-live"><span class="live-dot"></span> Live sales specialists available</div>
           </div>
           <div class="gn-footer">Availability, pricing, promotional offers, and reward cards vary by provider, service area, plan, and eligibility. Terms and conditions apply.</div>
@@ -445,7 +521,7 @@ footer{background:#060e1a;padding:46px 5% 28px}
           <div class="zip-success-label">✓ Availability Check Complete</div>
           <h3 class="zip-success-title">Good News!</h3>
           <p class="zip-success-msg">Services available in <strong id="zipEcho">your area</strong>:</p>
-          <a href="tel:000" class="zip-call-btn">📞 Call Our Agent Now</a>
+          <a href="tel:3613574943" class="zip-call-btn">📞 Call Our Agent Now</a>
         </div>
         <div class="zip-results-grid" id="zipResultsGrid"></div>
         <p class="zip-result-disclaimer">Availability, pricing, and promotions vary by exact address and eligibility. Terms apply.</p>
@@ -454,7 +530,7 @@ footer{background:#060e1a;padding:46px 5% 28px}
   </div>
 </div>
 
-<!-- OUR SERVICES — ONLY ONCE -->
+<!-- OUR SERVICES -->
 <section id="our-services">
   <div class="section-label">What We Offer</div>
   <h2 class="section-title">Our Services</h2>
@@ -569,23 +645,21 @@ footer{background:#060e1a;padding:46px 5% 28px}
         <div class="s-footer">Terms and conditions apply.</div>
       </div>
 
-      <div class="service-card brightspeed"><div class="s-card-top"></div><div class="s-card-body"><a href="#intake" class="s-logo-link"><div class="s-logo"><span class="text-logo" style="font-size:18px;font-weight:900;color:#6d2d8a">Brightspeed</span></div></a><div class="s-provider-label">✓ Availability Check Complete</div><div class="s-title">Good News!</div><div class="s-avail">Brightspeed Fiber Internet is available.</div><p class="s-desc">Reliable fiber internet with straightforward pricing and no hidden fees.</p><div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div></div><div class="s-cta-wrap"><a href="#intake" class="s-cta">🌐 Check Brightspeed Availability</a><div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div></div><div class="s-footer">Terms and conditions apply.</div></div>
+      <div class="service-card brightspeed"><div class="s-card-top"></div><div class="s-card-body"><a href="#" onclick="openProviderGoodNews('Brightspeed');return false;" class="s-logo-link"><div class="s-logo"><img src="logos/brightspeed.png" alt="Brightspeed" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/><span style="display:none;font-size:18px;font-weight:900;color:#6d2d8a" class="text-logo">Brightspeed</span></div></a><div class="s-provider-label">✓ Availability Check Complete</div><div class="s-title">Good News!</div><div class="s-avail">Brightspeed Fiber Internet is available.</div><p class="s-desc">Reliable fiber internet with straightforward pricing and no hidden fees.</p><div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div></div><div class="s-cta-wrap"><a href="#" onclick="openProviderGoodNews('Brightspeed');return false;" class="s-cta">🌐 Check Brightspeed Availability</a><div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div></div><div class="s-footer">Terms and conditions apply.</div></div>
+      <div class="service-card frontier"><div class="s-card-top"></div><div class="s-card-body"><a href="#" onclick="openProviderGoodNews('Frontier');return false;" class="s-logo-link"><div class="s-logo"><img src="logos/Frontier.png" alt="Frontier" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/><span style="display:none;font-size:18px;font-weight:900;color:#d71920" class="text-logo">FRONTIER</span></div></a><div class="s-provider-label">✓ Availability Check Complete</div><div class="s-title">Good News!</div><div class="s-avail">Frontier Fiber Internet is available.</div><p class="s-desc">Frontier Fiber delivers symmetrical speeds ideal for work-from-home and gaming.</p><div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div></div><div class="s-cta-wrap"><a href="#" onclick="openProviderGoodNews('Frontier');return false;" class="s-cta">🌐 Check Frontier Availability</a><div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div></div><div class="s-footer">Terms and conditions apply.</div></div>
+      <div class="service-card optimum"><div class="s-card-top"></div><div class="s-card-body"><a href="#" onclick="openProviderGoodNews('Optimum');return false;" class="s-logo-link"><div class="s-logo"><img src="logos/optimum.png" alt="Optimum" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/><span style="display:none;font-size:18px;font-weight:900;color:#7d2b8b" class="text-logo">Optimum</span></div></a><div class="s-provider-label">✓ Availability Check Complete</div><div class="s-title">Good News!</div><div class="s-avail">Optimum Internet is available.</div><p class="s-desc">Optimum offers cable and fiber internet with flexible plans and bundle options.</p><div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div></div><div class="s-cta-wrap"><a href="#" onclick="openProviderGoodNews('Optimum');return false;" class="s-cta">🌐 Check Optimum Availability</a><div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div></div><div class="s-footer">Terms and conditions apply.</div></div>
+      <div class="service-card kinetic"><div class="s-card-top"></div><div class="s-card-body"><a href="#" onclick="openProviderGoodNews('Kinetic');return false;" class="s-logo-link"><div class="s-logo"><img src="logos/kinetic.png" alt="Kinetic" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/><span style="display:none;font-size:18px;font-weight:900;color:#004b8d" class="text-logo">Kinetic</span></div></a><div class="s-provider-label">✓ Availability Check Complete</div><div class="s-title">Good News!</div><div class="s-avail">Kinetic by Windstream is available.</div><p class="s-desc">High-speed internet to rural and suburban areas with no data caps.</p><div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div></div><div class="s-cta-wrap"><a href="#" onclick="openProviderGoodNews('Kinetic');return false;" class="s-cta">🌐 Check Kinetic Availability</a><div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div></div><div class="s-footer">Terms and conditions apply.</div></div>
+      <div class="service-card vivint"><div class="s-card-top"></div><div class="s-card-body"><a href="#" onclick="openProviderGoodNews('Vivint');return false;" class="s-logo-link"><div class="s-logo"><span class="text-logo" style="font-size:18px;font-weight:900;color:#1a1a2e">Vivint</span></div></a><div class="s-provider-label">✓ Availability Check Complete</div><div class="s-title">Good News!</div><div class="s-avail">Vivint Smart Home Security is available.</div><p class="s-desc">Smart home security with cameras, smart locks, and 24/7 monitoring from one app.</p><div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div></div><div class="s-cta-wrap"><a href="#" onclick="openProviderGoodNews('Vivint');return false;" class="s-cta">🔒 Get Vivint Smart Security</a><div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div></div><div class="s-footer">Terms and conditions apply.</div></div>
+      <div class="service-card earthlink"><div class="s-card-top"></div><div class="s-card-body"><a href="#" onclick="openProviderGoodNews('EarthLink');return false;" class="s-logo-link"><div class="s-logo"><img src="logos/Earthlink.jpg" alt="EarthLink" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/><span style="display:none;font-size:18px;font-weight:900;color:#0099cc" class="text-logo">EarthLink</span></div></a><div class="s-provider-label">✓ Availability Check Complete</div><div class="s-title">Good News!</div><div class="s-avail">EarthLink Internet is available.</div><p class="s-desc">Reliable internet with no data caps and U.S.-based customer support.</p><div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div></div><div class="s-cta-wrap"><a href="#" onclick="openProviderGoodNews('EarthLink');return false;" class="s-cta">🌐 Check EarthLink Availability</a><div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div></div><div class="s-footer">Terms and conditions apply.</div></div>
+      <div class="service-card altafiber"><div class="s-card-top"></div><div class="s-card-body"><a href="#" onclick="openProviderGoodNews('altafiber');return false;" class="s-logo-link"><div class="s-logo"><img src="logos/altagibre.png" alt="altafiber" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/><span style="display:none;font-size:18px;font-weight:900;color:#e8720c" class="text-logo">altafiber</span></div></a><div class="s-provider-label">✓ Availability Check Complete</div><div class="s-title">Good News!</div><div class="s-avail">altafiber Internet is available.</div><p class="s-desc">Gigabit fiber internet with symmetrical speeds for ultra-fast uploads and downloads.</p><div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div></div><div class="s-cta-wrap"><a href="#" onclick="openProviderGoodNews('altafiber');return false;" class="s-cta">🌐 Check altafiber Availability</a><div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div></div><div class="s-footer">Terms and conditions apply.</div></div>
+      <div class="service-card ziply"><div class="s-card-top"></div><div class="s-card-body"><a href="#" onclick="openProviderGoodNews('Ziply Fiber');return false;" class="s-logo-link"><div class="s-logo"><img src="logos/Ziply Fiber.png" alt="Ziply Fiber" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/><span style="display:none;font-size:16px;font-weight:900;color:#0a2e5a" class="text-logo">Ziply Fiber</span></div></a><div class="s-provider-label">✓ Availability Check Complete</div><div class="s-title">Good News!</div><div class="s-avail">Ziply Fiber Internet is available.</div><p class="s-desc">Multi-gig fiber speeds in the Pacific Northwest with no data caps.</p><div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div></div><div class="s-cta-wrap"><a href="#" onclick="openProviderGoodNews('Ziply Fiber');return false;" class="s-cta">🌐 Check Ziply Fiber Availability</a><div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div></div><div class="s-footer">Terms and conditions apply.</div></div>
+      <div class="service-card metronet"><div class="s-card-top"></div><div class="s-card-body"><a href="#" onclick="openProviderGoodNews('Metronet');return false;" class="s-logo-link"><div class="s-logo"><img src="logos/Metronet.png" alt="Metronet" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/><span style="display:none;font-size:18px;font-weight:900;color:#004f9f" class="text-logo">Metronet</span></div></a><div class="s-provider-label">✓ Availability Check Complete</div><div class="s-title">Good News!</div><div class="s-avail">Metronet Fiber Internet is available.</div><p class="s-desc">100% fiber internet with symmetrical gigabit speeds for homes and businesses.</p><div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div></div><div class="s-cta-wrap"><a href="#" onclick="openProviderGoodNews('Metronet');return false;" class="s-cta">🌐 Check Metronet Availability</a><div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div></div><div class="s-footer">Terms and conditions apply.</div></div>
 
-      <div class="service-card frontier"><div class="s-card-top"></div><div class="s-card-body"><a href="#intake" class="s-logo-link"><div class="s-logo"><span class="text-logo" style="font-size:18px;font-weight:900;color:#d71920">FRONTIER</span></div></a><div class="s-provider-label">✓ Availability Check Complete</div><div class="s-title">Good News!</div><div class="s-avail">Frontier Fiber Internet is available.</div><p class="s-desc">Frontier Fiber delivers symmetrical speeds ideal for work-from-home and gaming.</p><div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div></div><div class="s-cta-wrap"><a href="#intake" class="s-cta">🌐 Check Frontier Availability</a><div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div></div><div class="s-footer">Terms and conditions apply.</div></div>
+      <div class="service-card wow"><div class="s-card-top"></div><div class="s-card-body"><a href="#" onclick="openProviderGoodNews('WOW!');return false;" class="s-logo-link"><div class="s-logo"><img src="logos/WOW.png" alt="WOW!" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/><span style="display:none;font-size:18px;font-weight:900;color:#e60028" class="text-logo">WOW!</span></div></a><div class="s-provider-label">✓ Availability Check Complete</div><div class="s-title">Good News!</div><div class="s-avail">WOW! Internet, TV &amp; Phone is available.</div><p class="s-desc">High-speed cable internet with no contract required, plus TV and home phone bundles.</p><div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div></div><div class="s-cta-wrap"><a href="#" onclick="openProviderGoodNews('WOW!');return false;" class="s-cta">🌐 Check WOW! Availability</a><div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div></div><div class="s-footer">Terms and conditions apply.</div></div>
 
-      <div class="service-card optimum"><div class="s-card-top"></div><div class="s-card-body"><a href="#intake" class="s-logo-link"><div class="s-logo"><span class="text-logo" style="font-size:18px;font-weight:900;color:#7d2b8b">Optimum</span></div></a><div class="s-provider-label">✓ Availability Check Complete</div><div class="s-title">Good News!</div><div class="s-avail">Optimum Internet is available.</div><p class="s-desc">Optimum offers cable and fiber internet with flexible plans and bundle options.</p><div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div></div><div class="s-cta-wrap"><a href="#intake" class="s-cta">🌐 Check Optimum Availability</a><div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div></div><div class="s-footer">Terms and conditions apply.</div></div>
+      <div class="service-card hawaiian"><div class="s-card-top"></div><div class="s-card-body"><a href="#" onclick="openProviderGoodNews('Hawaiian Telecom');return false;" class="s-logo-link"><div class="s-logo"><img src="logos/Hawaiian Telecom.jpg" alt="Hawaiian Telecom" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/><span style="display:none;font-size:14px;font-weight:900;color:#0072ce" class="text-logo">Hawaiian Telecom</span></div></a><div class="s-provider-label">✓ Availability Check Complete</div><div class="s-title">Good News!</div><div class="s-avail">Hawaiian Telecom is available.</div><p class="s-desc">Hawaii's local provider of high-speed internet, TV, and home phone services across the islands.</p><div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div></div><div class="s-cta-wrap"><a href="#" onclick="openProviderGoodNews('Hawaiian Telecom');return false;" class="s-cta">🌐 Check Hawaiian Telecom</a><div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div></div><div class="s-footer">Terms and conditions apply.</div></div>
 
-      <div class="service-card kinetic"><div class="s-card-top"></div><div class="s-card-body"><a href="#intake" class="s-logo-link"><div class="s-logo"><span class="text-logo" style="font-size:18px;font-weight:900;color:#004b8d">Kinetic</span></div></a><div class="s-provider-label">✓ Availability Check Complete</div><div class="s-title">Good News!</div><div class="s-avail">Kinetic by Windstream is available.</div><p class="s-desc">High-speed internet to rural and suburban areas with no data caps.</p><div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div></div><div class="s-cta-wrap"><a href="#intake" class="s-cta">🌐 Check Kinetic Availability</a><div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div></div><div class="s-footer">Terms and conditions apply.</div></div>
-
-      <div class="service-card vivint"><div class="s-card-top"></div><div class="s-card-body"><a href="#intake" class="s-logo-link"><div class="s-logo"><span class="text-logo" style="font-size:18px;font-weight:900;color:#1a1a2e">Vivint</span></div></a><div class="s-provider-label">✓ Availability Check Complete</div><div class="s-title">Good News!</div><div class="s-avail">Vivint Smart Home Security is available.</div><p class="s-desc">Smart home security with cameras, smart locks, and 24/7 monitoring from one app.</p><div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div></div><div class="s-cta-wrap"><a href="#intake" class="s-cta">🔒 Get Vivint Smart Security</a><div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div></div><div class="s-footer">Terms and conditions apply.</div></div>
-
-      <div class="service-card earthlink"><div class="s-card-top"></div><div class="s-card-body"><a href="#intake" class="s-logo-link"><div class="s-logo"><span class="text-logo" style="font-size:18px;font-weight:900;color:#0099cc">EarthLink</span></div></a><div class="s-provider-label">✓ Availability Check Complete</div><div class="s-title">Good News!</div><div class="s-avail">EarthLink Internet is available.</div><p class="s-desc">Reliable internet with no data caps and U.S.-based customer support.</p><div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div></div><div class="s-cta-wrap"><a href="#intake" class="s-cta">🌐 Check EarthLink Availability</a><div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div></div><div class="s-footer">Terms and conditions apply.</div></div>
-
-      <div class="service-card altafiber"><div class="s-card-top"></div><div class="s-card-body"><a href="#intake" class="s-logo-link"><div class="s-logo"><span class="text-logo" style="font-size:18px;font-weight:900;color:#e8720c">altafiber</span></div></a><div class="s-provider-label">✓ Availability Check Complete</div><div class="s-title">Good News!</div><div class="s-avail">altafiber Internet is available.</div><p class="s-desc">Gigabit fiber internet with symmetrical speeds for ultra-fast uploads and downloads.</p><div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div></div><div class="s-cta-wrap"><a href="#intake" class="s-cta">🌐 Check altafiber Availability</a><div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div></div><div class="s-footer">Terms and conditions apply.</div></div>
-
-      <div class="service-card ziply"><div class="s-card-top"></div><div class="s-card-body"><a href="#intake" class="s-logo-link"><div class="s-logo"><span class="text-logo" style="font-size:16px;font-weight:900;color:#0a2e5a">Ziply Fiber</span></div></a><div class="s-provider-label">✓ Availability Check Complete</div><div class="s-title">Good News!</div><div class="s-avail">Ziply Fiber Internet is available.</div><p class="s-desc">Multi-gig fiber speeds in the Pacific Northwest with no data caps.</p><div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div></div><div class="s-cta-wrap"><a href="#intake" class="s-cta">🌐 Check Ziply Fiber Availability</a><div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div></div><div class="s-footer">Terms and conditions apply.</div></div>
-
-      <div class="service-card metronet"><div class="s-card-top"></div><div class="s-card-body"><a href="#intake" class="s-logo-link"><div class="s-logo"><span class="text-logo" style="font-size:18px;font-weight:900;color:#004f9f">Metronet</span></div></a><div class="s-provider-label">✓ Availability Check Complete</div><div class="s-title">Good News!</div><div class="s-avail">Metronet Fiber Internet is available.</div><p class="s-desc">100% fiber internet with symmetrical gigabit speeds for homes and businesses.</p><div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div></div><div class="s-cta-wrap"><a href="#intake" class="s-cta">🌐 Check Metronet Availability</a><div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div></div><div class="s-footer">Terms and conditions apply.</div></div>
+      <div class="service-card hugsnet"><div class="s-card-top"></div><div class="s-card-body"><a href="#" onclick="openProviderGoodNews('HugSnet');return false;" class="s-logo-link"><div class="s-logo"><img src="logos/hugsnet.png" alt="HugSnet" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/><span style="display:none;font-size:16px;font-weight:900;color:#7c3aed" class="text-logo">HugSnet</span></div></a><div class="s-provider-label">✓ Availability Check Complete</div><div class="s-title">Good News!</div><div class="s-avail">HugSnet Internet is available.</div><p class="s-desc">Reliable rural and suburban internet service with straightforward plans and friendly support.</p><div class="s-promo"><div class="s-promo-icon">🎁</div><div><div class="s-promo-title">Gift Card &amp; Reward Card Offers</div><div class="s-promo-sub">Promotions may be available.</div></div></div></div><div class="s-cta-wrap"><a href="#" onclick="openProviderGoodNews('HugSnet');return false;" class="s-cta">🌐 Check HugSnet Availability</a><div class="s-cta-sub"><span class="live-dot"></span> Live specialists available</div></div><div class="s-footer">Terms and conditions apply.</div></div>
 
     </div>
     <button class="slider-btn next" id="sliderNext">›</button>
@@ -611,7 +685,7 @@ footer{background:#060e1a;padding:46px 5% 28px}
   <h2 class="section-title">The Husky Talent Advantage</h2>
   <p class="section-sub">We're your neighbors, advocates, and experts in connecting families to the services they need.</p>
   <div class="why-grid">
-    <div class="why-card"><div class="why-icon">🏅</div><div class="why-title">Authorized Dealer</div><p class="why-desc">Officially authorized by AT&amp;T, DIRECTV, Viasat,ADT and many more.</p></div>
+    <div class="why-card"><div class="why-icon">🏅</div><div class="why-title">Authorized Dealer</div><p class="why-desc">Officially authorized by AT&amp;T, DIRECTV, Viasat, ADT and many more.</p></div>
     <div class="why-card"><div class="why-icon">🎁</div><div class="why-title">Exclusive Promotions</div><p class="why-desc">Access gift cards, reward cards, and special promotions not available elsewhere.</p></div>
     <div class="why-card"><div class="why-icon">🤝</div><div class="why-title">Expert Guidance</div><p class="why-desc">No pushy sales. Our specialists listen first and recommend the plan that fits your home.</p></div>
     <div class="why-card"><div class="why-icon">⚡</div><div class="why-title">Fast &amp; Simple</div><p class="why-desc">Check availability, compare plans, and get scheduled — all in one call.</p></div>
@@ -649,15 +723,19 @@ footer{background:#060e1a;padding:46px 5% 28px}
         <a href="#how">How It Works</a>
         <a href="#intake">Check Availability</a>
       </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <p class="footer-address">6028 Gully Grove Dr<br>Royse City, TX 75189</p>
-      </div>
+     <div class="footer-col">
+  <h4>Contact us</h4>
+  <p class="footer-address">
+    6028 Gully Grove Dr<br>
+    Royse City, TX 75189<br>
+    Call: <a href="tel:+13613574943">(361) 357-4943</a>
+  </p>
+</div>
     </div>
   </div>
   <div class="footer-bottom">
     <span>© 2026 Husky Talent. All rights reserved.</span>
-    <span>Availability, pricing, and promotions vary by location and eligibility. Terms apply.</span>
+    <span><a href="#" onclick="openTerms();return false;" style="color:rgba(255,255,255,.45);text-decoration:underline;">Terms &amp; Conditions</a> · Availability, pricing, and promotions vary by location and eligibility. Terms apply.</span>
   </div>
 </footer>
 
@@ -716,7 +794,7 @@ footer{background:#060e1a;padding:46px 5% 28px}
       <p>Choose the option that works best for you.</p>
     </div>
     <div class="check-choice-body">
-      <a href="tel:000" class="check-choice-btn check-choice-call">
+      <a href="tel:3613574943" class="check-choice-btn check-choice-call">
         <div class="check-choice-icon">📞</div>
         <div class="check-choice-text">
           <div class="check-choice-title">Call Our Agent</div>
@@ -736,23 +814,248 @@ footer{background:#060e1a;padding:46px 5% 28px}
   </div>
 </div>
 
+<!-- TERMS & CONDITIONS MODAL -->
+<div class="msg-modal-backdrop" id="termsModal">
+  <div class="msg-modal terms-modal">
+    <button class="msg-modal-close" id="termsModalClose">×</button>
+    <div class="intake-head">
+      <div class="intake-logo">
+        <img src="logos/Husky talent.jpeg" alt="Husky Talent"/>
+        <div>
+          <div class="intake-logo-text">Husky Talent LLC</div>
+          <div class="intake-logo-sub">Terms &amp; Conditions</div>
+        </div>
+      </div>
+      <h2>Terms &amp; Conditions</h2>
+      <p>Effective Date: September 3, 2026 &nbsp;·&nbsp; Last Updated: September 3, 2026</p>
+    </div>
+    <div class="terms-body">
+      <p>These Terms &amp; Conditions ("Terms") govern your access to and use of the Husky Talent LLC website, including service-availability tools, contact forms, provider information, promotions, and related services.</p>
+      <p>By accessing or using our website, you agree to these Terms.</p>
+
+      <h3>1. About Husky Talent LLC</h3>
+      <p>Husky Talent LLC is an independent sales and marketing company that helps consumers learn about and connect with available internet, fiber, television, satellite, wireless, home-security, and related service providers.</p>
+      <p>Husky Talent may operate as an authorized dealer, retailer, sales partner, referral partner, or marketing partner for certain products and services.</p>
+      <p>Unless expressly stated otherwise, Husky Talent LLC is independently operated and is not the corporate owner or operator of the third-party brands displayed on this website.</p>
+
+      <h3>2. Service Availability</h3>
+      <p>Service availability may depend upon:</p>
+      <ul>
+        <li>Customer address</li>
+        <li>Geographic service area</li>
+        <li>Network availability</li>
+        <li>Provider eligibility requirements</li>
+        <li>Credit or identity requirements where applicable</li>
+        <li>Equipment availability</li>
+        <li>Provider policies and restrictions</li>
+      </ul>
+      <p>Availability displayed or communicated through our website is preliminary.</p>
+      <p>Final eligibility, availability, pricing, installation, and service terms are determined by the applicable service provider.</p>
+
+      <h3>3. Pricing &amp; Promotions</h3>
+      <p>Prices, plans, speeds, packages, promotional offers, reward cards, gift cards, installation offers, equipment charges, taxes, fees, and other terms may change.</p>
+      <p>Promotions may be limited by geographic area, customer eligibility, qualifying services, installation or activation requirements, promotional periods, and other provider-specific conditions.</p>
+      <p>Husky Talent LLC does not guarantee that every customer will qualify for every promotion displayed or discussed.</p>
+      <p>The applicable provider's final order terms control the customer's purchase.</p>
+
+      <h3>4. Gift Cards, Reward Cards &amp; Promotions</h3>
+      <p>Gift-card, reward-card, rebate, or promotional offers may be subject to eligibility requirements, provider rules, availability, redemption requirements, and promotional periods.</p>
+      <p>Displaying or discussing an offer does not guarantee customer eligibility.</p>
+      <p>Customers should review applicable promotional terms before completing an order.</p>
+
+      <h3>5. Communication Consent</h3>
+      <p>If you voluntarily provide your telephone number or email address and request information, Husky Talent LLC and its representatives may contact you regarding your inquiry and relevant services, subject to applicable law and the consent disclosure presented when your information is submitted.</p>
+      <p>Contact may occur by:</p>
+      <ul>
+        <li>Telephone</li>
+        <li>Text message</li>
+        <li>Email</li>
+      </ul>
+      <p>Where legally required, appropriate consent will be obtained before automated technology is used for marketing communications.</p>
+      <p><strong>Consent to receive marketing communications is not a condition of purchasing any product or service.</strong></p>
+      <p>Message and data rates may apply. Message frequency may vary.</p>
+      <p>Customers may request that marketing text communications stop by replying <strong>STOP</strong> where applicable or by contacting Husky Talent LLC at <a href="tel:3613574943">(361) 357-4943</a>.</p>
+
+      <h3>6. Third-Party Service Providers</h3>
+      <p>Products and services displayed on our website may ultimately be provided by independent third-party companies.</p>
+      <p>Provider names, trademarks, service marks, logos, and product names belong to their respective owners.</p>
+      <p>Husky Talent's authorization or commercial relationship with a provider may vary depending upon the product, geographic territory, sales channel, or contractual relationship.</p>
+      <p>Nothing on our website should be interpreted as implying ownership of a third-party trademark or a commercial relationship beyond the authorization actually granted to Husky Talent LLC.</p>
+
+      <h3>7. Provider Trademarks</h3>
+      <p>AT&amp;T and the AT&amp;T Globe logo are trademarks or service marks belonging to their respective owners.</p>
+      <p>DIRECTV, ADT, Brightspeed, Frontier, Optimum, Kinetic, Vivint, EarthLink, altafiber, Ziply Fiber, Metronet, Viasat, and other provider names, trademarks, logos, product names, and service marks displayed on our website remain the property of their respective owners.</p>
+      <p>Husky Talent LLC does not claim ownership of third-party trademarks.</p>
+      <p>Use of provider branding is intended to identify services marketed, sold, referred, or otherwise facilitated through authorized or permitted business relationships.</p>
+
+      <h3>8. Third-Party Websites</h3>
+      <p>Our website may contain links to websites, ordering systems, or services operated by third parties.</p>
+      <p>Once you leave the Husky Talent website, the applicable third party's terms, privacy policy, pricing, and other policies may govern your interaction.</p>
+      <p>Husky Talent LLC is not responsible for independently operated third-party websites.</p>
+
+      <h3>9. Acceptable Use</h3>
+      <p>Users may not:</p>
+      <ul>
+        <li>Use our website for unlawful purposes</li>
+        <li>Submit false or fraudulent information</li>
+        <li>Attempt unauthorized access to our systems</li>
+        <li>Interfere with website security</li>
+        <li>Impersonate another individual</li>
+        <li>Submit another person's information without authorization</li>
+        <li>Fraudulently exploit promotions</li>
+        <li>Scrape or misuse website information through unauthorized automated systems</li>
+      </ul>
+      <p>Husky Talent LLC reserves the right to restrict access where fraud, abuse, misuse, or unlawful activity is suspected.</p>
+
+      <h3>10. No Guarantee of Service</h3>
+      <p>Information presented on our website is intended to assist consumers in exploring available service options.</p>
+      <p>Husky Talent LLC does not guarantee any particular:</p>
+      <ul>
+        <li>Service availability</li>
+        <li>Internet speed</li>
+        <li>Network performance</li>
+        <li>Installation date</li>
+        <li>Price</li>
+        <li>Promotion</li>
+        <li>Gift or reward</li>
+        <li>Equipment availability</li>
+        <li>Service quality</li>
+      </ul>
+      <p>Actual services are governed by the agreement between the customer and the applicable service provider.</p>
+
+      <h3>11. Limitation of Liability</h3>
+      <p>To the maximum extent permitted by applicable law, Husky Talent LLC and its owners, employees, representatives, contractors, and affiliates will not be liable for indirect, incidental, special, consequential, or punitive damages arising from the use of this website or products and services provided by independent third parties.</p>
+      <p>Nothing in these Terms excludes liability that cannot legally be excluded.</p>
+
+      <h3>12. Intellectual Property</h3>
+      <p>Except for third-party trademarks and materials, original Husky Talent website content, branding, graphics, text, and other materials are owned by or licensed to Husky Talent LLC and may not be commercially reproduced without authorization.</p>
+
+      <h3>13. Governing Law</h3>
+      <p>These Terms are governed by applicable federal law and the laws of the <strong>State of Texas</strong>, without regard to conflict-of-law principles.</p>
+      <p>To the extent permitted by law, disputes arising specifically from use of the Husky Talent website will be handled by an appropriate court having jurisdiction in Texas.</p>
+
+      <h3>14. Changes to These Terms</h3>
+      <p>Husky Talent LLC may modify these Terms periodically.</p>
+      <p>Updated Terms will be posted on our website with a revised effective date.</p>
+
+      <h3>15. Contact Us</h3>
+      <p>Questions concerning these Terms &amp; Conditions may be directed to:</p>
+      <div class="terms-contact">
+        <strong>Husky Talent LLC</strong><br />
+        6028 Gully Grove Dr<br />
+        Royse City, TX 75189<br />
+        United States<br /><br />
+        <strong>Phone:</strong> <a href="tel:3613574943">(361) 357-4943</a>
+      </div>
+
+      <div class="terms-copyright">© 2026 Husky Talent LLC. All rights reserved.</div>
+    </div>
+  </div>
+</div>
+
+<!-- PROVIDER GOOD NEWS MODAL -->
+<div class="msg-modal-backdrop" id="providerModal">
+  <div class="msg-modal">
+    <button class="msg-modal-close" id="providerModalClose">×</button>
+    <div class="intake-head">
+      <div class="intake-logo">
+        <img src="logos/Husky talent.jpeg" alt="Husky Talent"/>
+        <div>
+          <div class="intake-logo-text">Husky Talent</div>
+          <div class="intake-logo-sub">Authorized Service Dealer</div>
+        </div>
+      </div>
+      <h2 id="providerModalName">Good News!</h2>
+      <p>Service is available for your address. A live specialist is ready to help.</p>
+    </div>
+    <div class="gn-body" style="padding:28px 32px 32px">
+      <div class="gn-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div class="gn-label">✓ Your Availability Check Is Complete</div>
+      <div class="gn-title">Good News!</div>
+      <div class="gn-avail" id="providerModalAvail">Service is available for you.</div>
+      <p class="gn-desc">Speak with a live agent now to check plans, pricing, installation options, and current promotions for your address.</p>
+      <div class="gn-promo">
+        <div class="gn-promo-icon">🎁</div>
+        <div>
+          <div class="gn-promo-title">Gift Card &amp; Reward Card Offers</div>
+          <div class="gn-promo-sub">Promotions may be available based on provider, location, and eligibility.</div>
+        </div>
+      </div>
+      <a href="tel:3613574943" class="gn-cta">📞 &nbsp;Call Our Agent Now — (361) 357-4943</a>
+      <div class="gn-live"><span class="live-dot"></span> Live sales specialists available</div>
+    </div>
+    <div class="gn-footer">Availability, pricing, promotional offers, and reward cards vary by provider, service area, plan, and eligibility. Terms and conditions apply.</div>
+  </div>
+</div>
+
 <script>
 // ── PROVIDER DATA ──────────────────────────────────────
 const PROVIDERS = [
   { id:'att',         name:'AT&T',        logo:'logos/AT&T.webp',                  link:'https://www.attspoc.com/e/(S(plnxgaxi4prtlsde50nzh0cc))/oe/landing.aspx', avail:'AT&T Internet & Fiber is available for your address.',        cat:['internet','internet-tv','internet-security'], color:'#00a8e0' },
   { id:'directv',     name:'DIRECTV',     logo:'logos/directTV.png',               link:'https://residential.directvdealer.com/explore/?dealer_name=husky-talent&service=directv-stream', avail:'DIRECTV Stream is available for your address.', cat:['tv','internet-tv'], color:'#0069c0' },
-  { id:'brightspeed', name:'Brightspeed', logo:null,                               link:null, avail:'Brightspeed Fiber Internet is available for your address.',  cat:['internet','internet-tv','internet-security'], color:'#6d2d8a' },
-  { id:'frontier',    name:'Frontier',    logo:null,                               link:null, avail:'Frontier Fiber Internet is available for your address.',      cat:['internet','internet-tv','internet-security'], color:'#d71920' },
-  { id:'optimum',     name:'Optimum',     logo:null,                               link:null, avail:'Optimum Internet is available for your address.',             cat:['internet','internet-tv','internet-security'], color:'#7d2b8b' },
-  { id:'kinetic',     name:'Kinetic',     logo:null,                               link:null, avail:'Kinetic by Windstream is available for your address.',         cat:['internet','internet-tv','internet-security'], color:'#004b8d' },
-  { id:'vivint',      name:'Vivint',      logo:null,                               link:null, avail:'Vivint Smart Home Security is available for your address.',    cat:['security','internet-security'], color:'#1a1a2e' },
-  { id:'adt',         name:'ADT',         logo:'logos/adt.png',                    link:'https://www.getsafestreets.com/husky', avail:'ADT Home Security is available for your address.',            cat:['security','internet-security'], color:'#1b3a6b' },
-  { id:'earthlink',   name:'EarthLink',   logo:null,                               link:null, avail:'EarthLink Internet is available for your address.',           cat:['internet','internet-tv','internet-security'], color:'#0099cc' },
-  { id:'altafiber',   name:'altafiber',   logo:null,                               link:null, avail:'altafiber Internet is available for your address.',           cat:['internet','internet-tv','internet-security'], color:'#e8720c' },
-  { id:'ziply',       name:'Ziply Fiber', logo:null,                               link:null, avail:'Ziply Fiber Internet is available for your address.',         cat:['internet','internet-tv','internet-security'], color:'#0a2e5a' },
-  { id:'metronet',    name:'Metronet',    logo:null,                               link:null, avail:'Metronet Fiber Internet is available for your address.',      cat:['internet','internet-tv','internet-security'], color:'#004f9f' },
-  { id:'viasat',      name:'Viasat',      logo:'logos/Viasat-Logo-500x313.jpg',   link:'https://huskytalent.viasatretailer.com/', avail:'Viasat Satellite Internet is available for your address.', cat:['internet','internet-tv','internet-security'], color:'#e31837' }
+  { id:'brightspeed', name:'Brightspeed', logo:'logos/brightspeed.png',                link:null, avail:'Brightspeed Fiber Internet is available for your address.',  cat:['internet','internet-tv','internet-security'], color:'#6d2d8a' },
+  { id:'frontier',    name:'Frontier',    logo:'logos/Frontier.png',                   link:null, avail:'Frontier Fiber Internet is available for your address.',      cat:['internet','internet-tv','internet-security'], color:'#d71920' },
+  { id:'optimum',     name:'Optimum',     logo:'logos/optimum.png',                    link:null, avail:'Optimum Internet is available for your address.',             cat:['internet','internet-tv','internet-security'], color:'#7d2b8b' },
+  { id:'kinetic',     name:'Kinetic',     logo:'logos/kinetic.png',                    link:null, avail:'Kinetic by Windstream is available for your address.',         cat:['internet','internet-tv','internet-security'], color:'#004b8d' },
+  { id:'vivint',      name:'Vivint',      logo:null,                                   link:null, avail:'Vivint Smart Home Security is available for your address.',    cat:['security','internet-security'], color:'#1a1a2e' },
+  { id:'adt',         name:'ADT',         logo:'logos/adt.png',                        link:'https://www.getsafestreets.com/husky', avail:'ADT Home Security is available for your address.',            cat:['security','internet-security'], color:'#1b3a6b' },
+  { id:'earthlink',   name:'EarthLink',   logo:'logos/Earthlink.jpg',                  link:null, avail:'EarthLink Internet is available for your address.',           cat:['internet','internet-tv','internet-security'], color:'#0099cc' },
+  { id:'altafiber',   name:'altafiber',   logo:'logos/altagibre.png',                  link:null, avail:'altafiber Internet is available for your address.',           cat:['internet','internet-tv','internet-security'], color:'#e8720c' },
+  { id:'ziply',       name:'Ziply Fiber', logo:'logos/Ziply Fiber.png',                link:null, avail:'Ziply Fiber Internet is available for your address.',         cat:['internet','internet-tv','internet-security'], color:'#0a2e5a' },
+  { id:'metronet',    name:'Metronet',    logo:'logos/Metronet.png',                   link:null, avail:'Metronet Fiber Internet is available for your address.',      cat:['internet','internet-tv','internet-security'], color:'#004f9f' },
+  { id:'viasat',      name:'Viasat',      logo:'logos/Viasat-Logo-500x313.jpg',        link:'https://huskytalent.viasatretailer.com/', avail:'Viasat Satellite Internet is available for your address.', cat:['internet','internet-tv','internet-security'], color:'#e31837' },
+  { id:'wow',         name:'WOW!',        logo:'logos/WOW.png',                        link:null, avail:'WOW! Internet, TV & Phone is available for your address.',     cat:['internet','internet-tv'], color:'#e60028' },
+  { id:'hawaiian',    name:'Hawaiian Telecom', logo:'logos/Hawaiian Telecom.jpg',     link:null, avail:'Hawaiian Telecom is available for your address.',             cat:['internet','internet-tv'], color:'#0072ce' },
+  { id:'hugsnet',     name:'HugSnet',     logo:'logos/hugsnet.png',                    link:null, avail:'HugSnet Internet is available for your address.',              cat:['internet','internet-tv','internet-security'], color:'#7c3aed' }
 ];
+
+// ── HERO ZIP HANDLER ───────────────────────────────────
+function handleHeroZip() {
+  const zip = document.getElementById('heroZipInput').value.trim();
+  if (zip.length < 5) {
+    document.getElementById('heroZipInput').focus();
+    document.getElementById('heroZipInput').style.outline = '2px solid #e31837';
+    setTimeout(() => { document.getElementById('heroZipInput').style.outline = ''; }, 1500);
+    return;
+  }
+  // Pre-fill the zip in the intake form and scroll to it
+  document.getElementById('zip').value = zip;
+  document.getElementById('zipSearchInput').value = zip;
+  document.getElementById('zipEcho').textContent = zip;
+  // Open zip modal to show all available services
+  const resultsGrid = document.getElementById('zipResultsGrid');
+  resultsGrid.innerHTML = '';
+  PROVIDERS.forEach(p => {
+    const tile = document.createElement('div');
+    tile.className = 'zip-provider-tile';
+    tile.onclick = () => {
+      document.getElementById('zipModal').classList.remove('open');
+      document.body.style.overflow = '';
+      if (p.link) window.open(p.link, '_blank', 'noopener');
+      else { document.getElementById('gn-avail').textContent = p.avail; showStep('step-goodnews'); document.querySelector('#intake').scrollIntoView({behavior:'smooth'}); }
+    };
+    if (p.logo) {
+      const img = document.createElement('img');
+      img.src = p.logo; img.alt = p.name;
+      img.onerror = function() { this.remove(); const s = document.createElement('span'); s.style.cssText = `font-weight:800;font-size:13px;color:${p.color}`; s.textContent = p.name; tile.appendChild(s); };
+      tile.appendChild(img);
+    } else {
+      const s = document.createElement('span');
+      s.style.cssText = `font-weight:800;font-size:13px;color:${p.color}`;
+      s.textContent = p.name;
+      tile.appendChild(s);
+    }
+    resultsGrid.appendChild(tile);
+  });
+  document.getElementById('zipResult').style.display = 'block';
+  document.getElementById('zipModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+// Allow Enter key on hero zip input
+document.getElementById('heroZipInput').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') handleHeroZip();
+});
 
 // ── FORM SUBMIT ────────────────────────────────────────
 function handleFormSubmit(e) {
@@ -765,7 +1068,6 @@ function handleFormSubmit(e) {
   if(zip.length<5){alert('Please enter a valid 5-digit ZIP code.');return false;}
   if(!fn){alert('Please enter your first name.');return false;}
   if(!ph){alert('Please enter your phone number.');return false;}
-  // Submit form data in background
   const form = e.target;
   fetch(form.action,{method:'POST',body:new FormData(form)}).catch(()=>{});
   buildGrid(svc);
@@ -814,7 +1116,6 @@ function showStep(id){
   });
   const target=document.getElementById(id);
   if(target){ target.style.display='block'; }
-  // Show/hide provider-picker and goodnews-wrap (they use CSS display:none by default)
   if(id==='step-providers') document.getElementById('step-providers').style.display='block';
   if(id==='step-goodnews')  document.getElementById('step-goodnews').style.display='block';
   document.querySelector('.intake-card').scrollIntoView({behavior:'smooth',block:'start'});
@@ -870,6 +1171,50 @@ function closeCheckChoice(){
 }
 const ccClose=document.getElementById('checkChoiceClose');
 if(ccClose)ccClose.onclick=closeCheckChoice;
+
+// ── TERMS MODAL ────────────────────────────────────────
+function openTerms(){
+  document.getElementById('termsModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+const termsClose=document.getElementById('termsModalClose');
+if(termsClose)termsClose.onclick=()=>{
+  document.getElementById('termsModal').classList.remove('open');
+  document.body.style.overflow='';
+};
+
+// ── PROVIDER GOOD NEWS MODAL ──────────────────────────
+const PROVIDER_AVAIL={
+  'AT&T':'AT&T Internet & Fiber is available for your address.',
+  'DIRECTV':'DIRECTV Stream is available for your address.',
+  'Brightspeed':'Brightspeed Fiber Internet is available for your address.',
+  'Frontier':'Frontier Fiber Internet is available for your address.',
+  'Optimum':'Optimum Internet is available for your address.',
+  'Kinetic':'Kinetic by Windstream is available for your address.',
+  'Vivint':'Vivint Smart Home Security is available for your address.',
+  'ADT':'ADT Home Security is available for your address.',
+  'EarthLink':'EarthLink Internet is available for your address.',
+  'altafiber':'altafiber Internet is available for your address.',
+  'Ziply Fiber':'Ziply Fiber Internet is available for your address.',
+  'Metronet':'Metronet Fiber Internet is available for your address.',
+  'Viasat':'Viasat Satellite Internet is available for your address.',
+  'WOW!':'WOW! Internet, TV & Phone is available for your address.',
+  'Hawaiian Telecom':'Hawaiian Telecom Internet, TV & Phone is available for your address.',
+  'HugSnet':'HugSnet Internet is available for your address.'
+};
+function openProviderGoodNews(name){
+  const modal=document.getElementById('providerModal');
+  if(!modal)return;
+  document.getElementById('providerModalName').textContent=name;
+  document.getElementById('providerModalAvail').textContent=PROVIDER_AVAIL[name]||(name+' is available for your address.');
+  modal.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+const providerClose=document.getElementById('providerModalClose');
+if(providerClose)providerClose.onclick=()=>{
+  document.getElementById('providerModal').classList.remove('open');
+  document.body.style.overflow='';
+};
 
 // ── ZIP SEARCH ────────────────────────────────────────
 function handleZipSearch(e){
