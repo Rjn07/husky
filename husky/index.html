@@ -22,6 +22,28 @@ nav{position:sticky;top:0;z-index:200;background:rgba(10,22,40,.97);backdrop-fil
 .nav-links a:hover{color:#fff}
 .nav-cta{background:#1a73e8;color:#fff;padding:9px 20px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;transition:background .2s}
 .nav-cta:hover{background:#1557b0}
+.nav-call{display:inline-flex;align-items:center;gap:10px;padding:8px 18px 8px 14px;background:linear-gradient(135deg,#1a73e8,#0d47a1);text-decoration:none;border-radius:10px;color:#fff;box-shadow:0 6px 20px rgba(26,115,232,.4)}
+.nav-call:hover{background:linear-gradient(135deg,#1557b0,#0a3678);box-shadow:0 8px 26px rgba(26,115,232,.55)}
+.nav-call-icon{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;animation:phoneShake 1.1s ease-in-out infinite;transform-origin:50% 50%}
+.nav-call-text{display:flex;flex-direction:column;line-height:1.1}
+.nav-call-label{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;opacity:.9}
+.nav-call-number{font-size:14px;font-weight:800;letter-spacing:.3px}
+@keyframes phoneShake{
+  0%,100%{transform:rotate(0deg)}
+  10%{transform:rotate(-14deg)}
+  20%{transform:rotate(12deg)}
+  30%{transform:rotate(-10deg)}
+  40%{transform:rotate(8deg)}
+  50%{transform:rotate(-6deg)}
+  60%{transform:rotate(4deg)}
+  70%{transform:rotate(-2deg)}
+  80%{transform:rotate(0deg)}
+}
+@media(max-width:600px){
+  .nav-call-label{display:none}
+  .nav-call{padding:9px 14px}
+  .nav-call-number{font-size:13px}
+}
 
 /* ─── HERO ─── */
 .hero{padding:80px 5% 60px;text-align:center;position:relative;overflow:hidden}
@@ -38,6 +60,10 @@ nav{position:sticky;top:0;z-index:200;background:rgba(10,22,40,.97);backdrop-fil
 .btn-primary:hover{background:#1557b0;transform:translateY(-1px)}
 .btn-outline{background:transparent;color:#fff;padding:13px 28px;border-radius:10px;font-size:15px;font-weight:600;text-decoration:none;border:1.5px solid rgba(255,255,255,.25);transition:all .2s;cursor:pointer;font-family:'Inter',sans-serif}
 .btn-outline:hover{border-color:rgba(255,255,255,.6)}
+.btn-call-shake{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center}
+.btn-call-icon{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:rgba(26,115,232,.2);flex-shrink:0;animation:phoneShake 1.1s ease-in-out infinite;transform-origin:50% 50%;color:#fff}
+.btn-call-icon svg{stroke:#fff}
+.btn-call-num{color:#fff;font-weight:700;margin-left:4px}
 
 /* ─── HERO ZIP BOX ─── */
 .hero-zip-wrapper{max-width:480px;margin:0 auto 20px;text-align:center}
@@ -56,9 +82,9 @@ nav{position:sticky;top:0;z-index:200;background:rgba(10,22,40,.97);backdrop-fil
 
 /* ─── SECTIONS ─── */
 section{padding:72px 5%}
-.section-label{text-align:center;font-size:11px;font-weight:700;letter-spacing:2px;color:#7a8fa6;text-transform:uppercase;margin-bottom:12px}
-.section-title{text-align:center;font-family:'Sora',sans-serif;font-size:clamp(26px,4vw,42px);font-weight:800;letter-spacing:-.8px;margin-bottom:10px;line-height:1.15}
-.section-sub{text-align:center;color:rgba(255,255,255,.5);font-size:16px;max-width:500px;margin:0 auto 52px;line-height:1.6}
+.section-label{text-align:center;font-size:11px;font-weight:700;letter-spacing:2px;color:#fff;text-transform:uppercase;margin-bottom:12px}
+.section-title{text-align:center;font-family:'Sora',sans-serif;font-size:clamp(26px,4vw,42px);font-weight:800;letter-spacing:-.8px;margin-bottom:10px;line-height:1.15;color:#fff}
+.section-sub{text-align:center;color:#fff;font-size:16px;max-width:500px;margin:0 auto 52px;line-height:1.6}
 
 /* ─── INTAKE FORM ─── */
 #intake{background:#132040}
@@ -258,12 +284,14 @@ section{padding:72px 5%}
 .steps-row{display:flex;gap:0;max-width:860px;margin:0 auto;position:relative}
 .steps-row::before{content:'';position:absolute;top:27px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,#f4511e,#34a853,#00b4ff);z-index:0}
 .step{flex:1;text-align:center;padding:0 18px;position:relative;z-index:1}
-.step-num{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:19px;font-weight:800;margin:0 auto 18px;border:3px solid #132040}
+.step-num{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:19px;font-weight:800;margin:0 auto 18px;border:3px solid #fff}
 .step:nth-child(1) .step-num{background:#f4511e}
 .step:nth-child(2) .step-num{background:#34a853}
 .step:nth-child(3) .step-num{background:#00b4ff;color:#0a1628}
-.step-title{font-family:'Sora',sans-serif;font-size:15px;font-weight:700;margin-bottom:7px}
-.step-desc{font-size:13px;color:rgba(255,255,255,.5);line-height:1.6}
+.step-title{font-family:'Sora',sans-serif;font-size:16px;font-weight:800;margin-bottom:7px;color:#fff}
+.step-desc{font-size:13px;color:#fff;line-height:1.6}
+#how .section-label{color:#fff}
+#how .section-title{color:#fff}
 
 /* ─── WHY HUSKY ─── */
 #why{background:#0a1628}
@@ -281,7 +309,7 @@ section{padding:72px 5%}
 /* ─── CTA + FOOTER ─── */
 .cta-strip{background:linear-gradient(135deg,#1a73e8,#0d47a1);padding:64px 5%;text-align:center}
 .cta-strip h2{font-family:'Sora',sans-serif;font-size:clamp(22px,4vw,38px);font-weight:800;margin-bottom:12px;letter-spacing:-.5px}
-.cta-strip p{color:rgba(255,255,255,.8);font-size:15px;margin-bottom:28px}
+.cta-strip p{color:#fff;font-size:15px;margin-bottom:28px}
 footer{background:#060e1a;padding:46px 5% 28px}
 .footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:36px;margin-bottom:40px}
 .footer-brand p{color:rgba(255,255,255,.4);font-size:13px;max-width:260px;line-height:1.6;margin-top:12px}
@@ -326,7 +354,7 @@ footer{background:#060e1a;padding:46px 5% 28px}
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
-    <img src="logos/Husky talent.jpeg" alt="Husky Talent" class="nav-logo-img" />
+    <img src="logos/husky_white.png" alt="Husky Talent" class="nav-logo-img" />
     <div>
       <span class="nav-logo-text">Husky Talent</span>
       <span class="nav-logo-sub">Empowering Connections</span>
@@ -339,7 +367,17 @@ footer{background:#060e1a;padding:46px 5% 28px}
     <a href="#how">How It Works</a>
     <a href="#why">Why Us</a>
   </div>
-  <a href="#intake" class="nav-cta">Get Started</a>
+  <a href="tel:3613574943" class="nav-cta nav-call">
+    <span class="nav-call-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+      </svg>
+    </span>
+    <span class="nav-call-text">
+      <span class="nav-call-label">Call Now</span>
+      <span class="nav-call-number">(361) 357-4943</span>
+    </span>
+  </a>
 </nav>
 
 <!-- HERO -->
@@ -377,7 +415,14 @@ footer{background:#060e1a;padding:46px 5% 28px}
       <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
       Check Availability
     </a>
-    <a href="tel:3613574943" class="btn-outline">📞 Call a Specialist</a>
+    <a href="tel:3613574943" class="btn-outline btn-call-shake">
+      <span class="btn-call-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      </span>
+      Call a Specialist <span class="btn-call-num">· (361) 357-4943</span>
+    </a>
   </div>
 </section>
 
@@ -398,10 +443,10 @@ footer{background:#060e1a;padding:46px 5% 28px}
     <div class="intake-card">
       <div class="intake-head">
         <div class="intake-logo">
-          <img src="logos/Husky talent.jpeg" alt="Husky Talent"/>
+          <img src="logos/husky_white.png" alt="Husky Talent"/>
           <div>
             <div class="intake-logo-text">Husky Talent</div>
-            <div class="intake-logo-sub">Authorized Service Dealer</div>
+            <div class="intake-logo-sub">Authorized Dealer</div>
           </div>
         </div>
         <h2>Check Availability</h2>
@@ -503,8 +548,8 @@ footer{background:#060e1a;padding:46px 5% 28px}
     <button class="msg-modal-close" id="zipModalClose">×</button>
     <div class="intake-head">
       <div class="intake-logo">
-        <img src="logos/Husky talent.jpeg" alt="Husky Talent"/>
-        <div><div class="intake-logo-text">Husky Talent</div><div class="intake-logo-sub">Authorized Service Dealer</div></div>
+        <img src="logos/husky_white.png" alt="Husky Talent"/>
+        <div><div class="intake-logo-text">Husky Talent</div><div class="intake-logo-sub">Authorized Dealer</div></div>
       </div>
       <h2>Check Services in Your Area</h2>
       <p>Enter your ZIP code to see all services available at your address.</p>
@@ -522,7 +567,7 @@ footer{background:#060e1a;padding:46px 5% 28px}
           <div class="zip-success-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="zip-success-label">✓ Availability Check Complete</div>
           <h3 class="zip-success-title">Good News!</h3>
-          <p class="zip-success-msg">Services available in <strong id="zipEcho">your area</strong>:</p>
+          <p class="zip-success-msg">Service available in <strong id="zipEcho">your area</strong>:</p>
           <a href="tel:3613574943" class="zip-call-btn">📞 Call Our Agent Now</a>
         </div>
         <div class="zip-results-grid" id="zipResultsGrid"></div>
@@ -575,7 +620,7 @@ footer{background:#060e1a;padding:46px 5% 28px}
         <div class="s-card-top"></div>
         <div class="s-card-body">
           <a href="https://www.attspoc.com/e/(S(plnxgaxi4prtlsde50nzh0cc))/oe/landing.aspx" target="_blank" rel="noopener" class="s-logo-link">
-            <div class="s-logo"><img src="logos/AT&T.webp" alt="AT&T" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/><span style="display:none;font-size:20px;font-weight:900;color:#00a8e0" class="text-logo">AT&amp;T</span></div>
+            <div class="s-logo"><img src="logos/ATT-Deler-Logo.jpg" alt="AT&T" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/><span style="display:none;font-size:20px;font-weight:900;color:#00a8e0" class="text-logo">AT&amp;T</span></div>
           </a>
           <div class="s-provider-label">✓ Availability Check Complete</div>
           <div class="s-title">Good News!</div>
@@ -594,7 +639,7 @@ footer{background:#060e1a;padding:46px 5% 28px}
         <div class="s-card-top"></div>
         <div class="s-card-body">
           <a href="https://residential.directvdealer.com/explore/?dealer_name=husky-talent&service=directv-stream" target="_blank" rel="noopener" class="s-logo-link">
-            <div class="s-logo"><img src="logos/directTV.png" alt="DIRECTV" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/><span style="display:none;font-size:14px;font-weight:900;color:#0069c0" class="text-logo">DIRECTV</span></div>
+            <div class="s-logo"><img src="logos/DIRECT_TV.jpg" alt="DIRECTV" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/><span style="display:none;font-size:14px;font-weight:900;color:#0069c0" class="text-logo">DIRECTV</span></div>
           </a>
           <div class="s-provider-label">✓ Availability Check Complete</div>
           <div class="s-title">Good News!</div>
@@ -613,7 +658,7 @@ footer{background:#060e1a;padding:46px 5% 28px}
         <div class="s-card-top"></div>
         <div class="s-card-body">
           <a href="https://huskytalent.viasatretailer.com/" target="_blank" rel="noopener" class="s-logo-link">
-            <div class="s-logo"><img src="logos/Viasat-Logo-500x313.jpg" alt="Viasat" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/><span style="display:none;font-size:18px;font-weight:900;color:#e31837" class="text-logo">VIASAT</span></div>
+            <div class="s-logo"><img src="logos/viasat.png" alt="Viasat" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/><span style="display:none;font-size:18px;font-weight:900;color:#e31837" class="text-logo">VIASAT</span></div>
           </a>
           <div class="s-provider-label">✓ Availability Check Complete</div>
           <div class="s-title">Good News!</div>
@@ -706,10 +751,10 @@ footer{background:#060e1a;padding:46px 5% 28px}
   <div class="footer-top">
     <div class="footer-brand">
       <a href="#" class="nav-logo">
-        <img src="logos/Husky talent.jpeg" alt="Husky Talent" class="nav-logo-img"/>
+        <img src="logos/husky_white.png" alt="Husky Talent" class="nav-logo-img"/>
         <div><span class="nav-logo-text">Husky Talent</span><span class="nav-logo-sub">Empowering Connections</span></div>
       </a>
-      <p>An authorized dealer for AT&amp;T, DIRECTV, Viasat, and ADT — connecting American families to the services they need.</p>
+      <p>We are authorized dealer for AT&T, DIRECTV, ADT, Frontier, Windstream, Optimum and many more.</p>
     </div>
     <div class="footer-links-group">
       <div class="footer-col">
@@ -717,7 +762,7 @@ footer{background:#060e1a;padding:46px 5% 28px}
         <a href="https://www.attspoc.com/e/(S(plnxgaxi4prtlsde50nzh0cc))/oe/landing.aspx" target="_blank">AT&amp;T Internet</a>
         <a href="https://residential.directvdealer.com/explore/?dealer_name=husky-talent&service=directv-stream" target="_blank">DIRECTV Stream</a>
         <a href="https://huskytalent.viasatretailer.com/" target="_blank">Viasat Satellite</a>
-        <a href="https://www.getsafestreets.com/husky" target="_blank">ADT Security</a>
+        <a href="https://www.getsafestreets.com/husky" target="_blank">ADT Security <br> and many more.</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
@@ -737,7 +782,7 @@ footer{background:#060e1a;padding:46px 5% 28px}
   </div>
   <div class="footer-bottom">
     <span>© 2026 Husky Talent. All rights reserved.</span>
-    <span><a href="#" onclick="openTerms();return false;" style="color:rgba(255,255,255,.45);text-decoration:underline;">Terms &amp; Conditions</a> · Availability, pricing, and promotions vary by location and eligibility. Terms apply.</span>
+    <span><a href="#" onclick="openTerms();return false;" style="color:rgba(255,255,255,.45);text-decoration:underline;">Terms &amp; Conditions</a> &nbsp;·&nbsp; <a href="#" onclick="openPrivacy();return false;" style="color:rgba(255,255,255,.45);text-decoration:underline;">Privacy Policy</a> · Availability, pricing, and promotions vary by location and eligibility. Terms apply.</span>
   </div>
 </footer>
 
@@ -754,7 +799,7 @@ footer{background:#060e1a;padding:46px 5% 28px}
     <button class="msg-modal-close" id="msgModalClose">×</button>
     <div class="intake-head">
       <div class="intake-logo">
-        <img src="logos/Husky talent.jpeg" alt="Husky Talent"/>
+        <img src="logos/husky_white.png" alt="Husky Talent"/>
         <div><div class="intake-logo-text">Husky Talent</div><div class="intake-logo-sub">Authorized Service Dealer</div></div>
       </div>
       <h2>Check Availability</h2>
@@ -786,7 +831,7 @@ footer{background:#060e1a;padding:46px 5% 28px}
     <button class="msg-modal-close" id="checkChoiceClose">×</button>
     <div class="intake-head">
       <div class="intake-logo">
-        <img src="logos/Husky talent.jpeg" alt="Husky Talent"/>
+        <img src="logos/husky_white.png" alt="Husky Talent"/>
         <div>
           <div class="intake-logo-text">Husky Talent</div>
           <div class="intake-logo-sub">Authorized Service Dealer</div>
@@ -822,7 +867,7 @@ footer{background:#060e1a;padding:46px 5% 28px}
     <button class="msg-modal-close" id="termsModalClose">×</button>
     <div class="intake-head">
       <div class="intake-logo">
-        <img src="logos/Husky talent.jpeg" alt="Husky Talent"/>
+        <img src="logos/husky_white.png" alt="Husky Talent"/>
         <div>
           <div class="intake-logo-text">Husky Talent LLC</div>
           <div class="intake-logo-sub">Terms &amp; Conditions</div>
@@ -955,13 +1000,126 @@ footer{background:#060e1a;padding:46px 5% 28px}
   </div>
 </div>
 
+<!-- PRIVACY POLICY MODAL -->
+<div class="msg-modal-backdrop" id="privacyModal">
+  <div class="msg-modal terms-modal">
+    <button class="msg-modal-close" id="privacyModalClose">×</button>
+    <div class="intake-head">
+      <div class="intake-logo">
+        <img src="logos/husky_white.png" alt="Husky Talent"/>
+        <div>
+          <div class="intake-logo-text">Husky Talent LLC</div>
+          <div class="intake-logo-sub">Privacy Policy</div>
+        </div>
+      </div>
+      <h2>Privacy Policy</h2>
+      <p>Effective Date: September 3, 2026 &nbsp;·&nbsp; Last Updated: September 3, 2026</p>
+    </div>
+    <div class="terms-body">
+      <p>Husky Talent LLC ("Husky Talent," "we," "us," or "our") respects your privacy and is committed to protecting the personal information you provide when visiting our website, requesting information, checking service availability, or communicating with our representatives.</p>
+      <p>This Privacy Policy explains what information we may collect, how we may use it, when it may be shared, and the choices available to you.</p>
+
+      <h3>1. Information We Collect</h3>
+      <p>When you use our website or request information about services, we may collect:</p>
+      <ul>
+        <li>First and last name</li>
+        <li>Telephone number</li>
+        <li>Email address</li>
+        <li>ZIP code and/or service address</li>
+        <li>Products or services you are interested in</li>
+        <li>Information submitted through contact forms</li>
+        <li>Communications with our representatives</li>
+        <li>IP address, browser type, device information, and website activity</li>
+        <li>Advertising or referral information</li>
+        <li>Other information voluntarily provided by you</li>
+      </ul>
+
+      <h3>2. How We Use Your Information</h3>
+      <p>We may use information collected through our website to:</p>
+      <ul>
+        <li>Check service availability at your location</li>
+        <li>Identify products and services available in your area</li>
+        <li>Respond to customer inquiries</li>
+        <li>Connect you with a sales or service representative</li>
+        <li>Provide information regarding internet, fiber, television, satellite, wireless, home-security, and related services</li>
+        <li>Assist with orders, promotions, installation inquiries, and service requests</li>
+        <li>Communicate with you by telephone, text message, or email where permitted</li>
+        <li>Improve our website and customer experience</li>
+        <li>Analyze advertising and marketing performance</li>
+        <li>Prevent fraud or unauthorized activity</li>
+        <li>Maintain business and compliance records</li>
+        <li>Comply with applicable legal requirements</li>
+      </ul>
+
+      <h3>3. Calls, Text Messages &amp; Emails</h3>
+      <p>When you voluntarily provide your telephone number or email address and submit a request through our website, you authorize Husky Talent LLC and its representatives to contact you regarding your inquiry and relevant products or services, subject to applicable law and any consent disclosure presented when you submit the form.</p>
+      <p>Communications may include telephone calls, text messages, and emails.</p>
+      <p>Where automated technology or marketing communications are used, legally required consent will be obtained through the applicable disclosure presented at the point of collection.</p>
+      <p><strong>Consent to receive marketing communications is not a condition of purchasing any product or service.</strong></p>
+      <p>Message and data rates may apply. Message frequency may vary.</p>
+      <p>You may opt out of marketing text messages by replying <strong>STOP</strong> where applicable or by contacting us at <a href="tel:3613574943">(361) 357-4943</a>.</p>
+
+      <h3>4. How Information May Be Shared</h3>
+      <p>Information may be shared when reasonably necessary with:</p>
+      <ul>
+        <li>Authorized service providers and representatives</li>
+        <li>Telecommunications, internet, television, satellite, wireless, and home-security providers relevant to your request</li>
+        <li>Vendors supporting our website, communications, analytics, customer service, and business operations</li>
+        <li>Compliance, fraud-prevention, legal, and professional service providers</li>
+        <li>Government or regulatory authorities when required by law</li>
+      </ul>
+      <p>Information submitted for the purpose of obtaining third-party services may need to be transmitted to the applicable provider or authorized sales channel to process your inquiry or order.</p>
+
+      <h3>5. Third-Party Providers</h3>
+      <p>Husky Talent markets or facilitates products and services offered by various third-party providers.</p>
+      <p>When you proceed to a provider's website, ordering system, or other third-party platform, that company's own privacy policy and terms may apply.</p>
+      <p>Husky Talent LLC is not responsible for the privacy practices or security policies of independently operated third-party websites.</p>
+
+      <h3>6. Cookies &amp; Website Technologies</h3>
+      <p>Our website may use cookies, analytics tools, pixels, session technologies, and similar technologies to operate the website, measure traffic, understand customer interactions, improve marketing campaigns, and prevent fraudulent activity.</p>
+
+      <h3>7. Data Security</h3>
+      <p>We use reasonable administrative, technical, and organizational safeguards designed to protect personal information.</p>
+      <p>However, no internet transmission or electronic storage system can be guaranteed to be completely secure.</p>
+
+      <h3>8. Data Retention</h3>
+      <p>Personal information may be retained for as long as reasonably necessary to provide requested services, maintain business and compliance records, resolve disputes, prevent fraud, and satisfy legal obligations.</p>
+
+      <h3>9. Your Privacy Choices</h3>
+      <p>Depending upon applicable law and your location, you may have certain rights regarding your personal information.</p>
+      <p>You may contact Husky Talent to request correction or deletion of certain personal information or to request that marketing communications stop.</p>
+      <p>Certain records may still be retained when required for legal, accounting, fraud-prevention, compliance, or legitimate business purposes.</p>
+
+      <h3>10. Children's Privacy</h3>
+      <p>Our website is intended for adults seeking telecommunications and household services.</p>
+      <p>Husky Talent LLC does not knowingly collect personal information from children under 13.</p>
+
+      <h3>11. Changes to This Privacy Policy</h3>
+      <p>We may update this Privacy Policy periodically to reflect changes in our services, technology, business practices, or applicable legal requirements.</p>
+      <p>The most recent version will be posted on our website.</p>
+
+      <h3>12. Contact Us</h3>
+      <p>For questions regarding this Privacy Policy or your personal information, please contact:</p>
+      <div class="terms-contact">
+        <strong>Husky Talent LLC</strong><br />
+        6028 Gully Grove Dr<br />
+        Royse City, TX 75189<br />
+        United States<br /><br />
+        <strong>Phone:</strong> <a href="tel:3613574943">(361) 357-4943</a>
+      </div>
+
+      <div class="terms-copyright">© 2026 Husky Talent LLC. All rights reserved.</div>
+    </div>
+  </div>
+</div>
+
 <!-- PROVIDER GOOD NEWS MODAL -->
 <div class="msg-modal-backdrop" id="providerModal">
   <div class="msg-modal">
     <button class="msg-modal-close" id="providerModalClose">×</button>
     <div class="intake-head">
       <div class="intake-logo">
-        <img src="logos/Husky talent.jpeg" alt="Husky Talent"/>
+        <img src="logos/husky_white.png" alt="Husky Talent"/>
         <div>
           <div class="intake-logo-text">Husky Talent</div>
           <div class="intake-logo-sub">Authorized Service Dealer</div>
@@ -993,8 +1151,8 @@ footer{background:#060e1a;padding:46px 5% 28px}
 <script>
 // ── PROVIDER DATA ──────────────────────────────────────
 const PROVIDERS = [
-  { id:'att',         name:'AT&T',        logo:'logos/AT&T.webp',                  link:'https://www.attspoc.com/e/(S(plnxgaxi4prtlsde50nzh0cc))/oe/landing.aspx', avail:'AT&T Internet & Fiber is available for your address.',        cat:['internet','internet-tv','internet-security'], color:'#00a8e0' },
-  { id:'directv',     name:'DIRECTV',     logo:'logos/directTV.png',               link:'https://residential.directvdealer.com/explore/?dealer_name=husky-talent&service=directv-stream', avail:'DIRECTV Stream is available for your address.', cat:['tv','internet-tv'], color:'#0069c0' },
+  { id:'att',         name:'AT&T',        logo:'logos/ATT-Deler-Logo.jpg',           link:'https://www.attspoc.com/e/(S(plnxgaxi4prtlsde50nzh0cc))/oe/landing.aspx', avail:'AT&T Internet & Fiber is available for your address.',        cat:['internet','internet-tv','internet-security'], color:'#00a8e0' },
+  { id:'directv',     name:'DIRECTV',     logo:'logos/DIRECT_TV.jpg',                link:'https://residential.directvdealer.com/explore/?dealer_name=husky-talent&service=directv-stream', avail:'DIRECTV Stream is available for your address.', cat:['tv','internet-tv'], color:'#0069c0' },
   { id:'brightspeed', name:'Brightspeed', logo:'logos/brightspeed.png',                link:null, avail:'Brightspeed Fiber Internet is available for your address.',  cat:['internet','internet-tv','internet-security'], color:'#6d2d8a' },
   { id:'frontier',    name:'Frontier',    logo:'logos/Frontier.png',                   link:null, avail:'Frontier Fiber Internet is available for your address.',      cat:['internet','internet-tv','internet-security'], color:'#d71920' },
   { id:'optimum',     name:'Optimum',     logo:'logos/optimum.png',                    link:null, avail:'Optimum Internet is available for your address.',             cat:['internet','internet-tv','internet-security'], color:'#7d2b8b' },
@@ -1005,7 +1163,7 @@ const PROVIDERS = [
   { id:'altafiber',   name:'altafiber',   logo:'logos/altagibre.png',                  link:null, avail:'altafiber Internet is available for your address.',           cat:['internet','internet-tv','internet-security'], color:'#e8720c' },
   { id:'ziply',       name:'Ziply Fiber', logo:'logos/Ziply Fiber.png',                link:null, avail:'Ziply Fiber Internet is available for your address.',         cat:['internet','internet-tv','internet-security'], color:'#0a2e5a' },
   { id:'metronet',    name:'Metronet',    logo:'logos/Metronet.png',                   link:null, avail:'Metronet Fiber Internet is available for your address.',      cat:['internet','internet-tv','internet-security'], color:'#004f9f' },
-  { id:'viasat',      name:'Viasat',      logo:'logos/Viasat-Logo-500x313.jpg',        link:'https://huskytalent.viasatretailer.com/', avail:'Viasat Satellite Internet is available for your address.', cat:['internet','internet-tv','internet-security'], color:'#e31837' },
+  { id:'viasat',      name:'Viasat',      logo:'logos/viasat.png',                     link:'https://huskytalent.viasatretailer.com/', avail:'Viasat Satellite Internet is available for your address.', cat:['internet','internet-tv','internet-security'], color:'#e31837' },
   { id:'wow',         name:'WOW!',        logo:'logos/WOW.png',                        link:null, avail:'WOW! Internet, TV & Phone is available for your address.',     cat:['internet','internet-tv'], color:'#e60028' },
   { id:'hawaiian',    name:'Hawaiian Telecom', logo:'logos/Hawaiian Telecom.jpg',     link:null, avail:'Hawaiian Telecom is available for your address.',             cat:['internet','internet-tv'], color:'#0072ce' },
   { id:'hugsnet',     name:'HugSnet',     logo:'logos/hugsnet.png',                    link:null, avail:'HugSnet Internet is available for your address.',              cat:['internet','internet-tv','internet-security'], color:'#7c3aed' }
@@ -1020,10 +1178,12 @@ function handleHeroZip() {
     setTimeout(() => { document.getElementById('heroZipInput').style.outline = ''; }, 1500);
     return;
   }
-  // Pre-fill the zip in the intake form and scroll to it
+  // Pre-fill the zip in the intake form
   document.getElementById('zip').value = zip;
   document.getElementById('zipSearchInput').value = zip;
-  document.getElementById('zipEcho').textContent = zip;
+  // Use built-in DB for instant location, fallback to raw zip
+  const location = ZIP_DB[zip] || ('ZIP ' + zip);
+  document.getElementById('zipEcho').textContent = location;
   // Open zip modal to show all available services
   const resultsGrid = document.getElementById('zipResultsGrid');
   resultsGrid.innerHTML = '';
@@ -1185,6 +1345,17 @@ if(termsClose)termsClose.onclick=()=>{
   document.body.style.overflow='';
 };
 
+// ── PRIVACY MODAL ──────────────────────────────────────
+function openPrivacy(){
+  document.getElementById('privacyModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+const privacyClose=document.getElementById('privacyModalClose');
+if(privacyClose)privacyClose.onclick=()=>{
+  document.getElementById('privacyModal').classList.remove('open');
+  document.body.style.overflow='';
+};
+
 // ── PROVIDER GOOD NEWS MODAL ──────────────────────────
 const PROVIDER_AVAIL={
   'AT&T':'AT&T Internet & Fiber is available for your address.',
@@ -1218,37 +1389,255 @@ if(providerClose)providerClose.onclick=()=>{
   document.body.style.overflow='';
 };
 
+// ── ZIP → CITY / STATE DATABASE ──────────────────────
+// Built-in lookup for instant results (no network needed)
+const ZIP_DB={
+  '75189':'Royse City, TX',
+  '75001':'Addison, TX','75002':'Allen, TX','75006':'Carrollton, TX','75007':'Carrollton, TX','75013':'Allen, TX',
+  '75019':'Coppell, TX','75024':'Plano, TX','75025':'Plano, TX','75034':'Frisco, TX','75035':'Frisco, TX',
+  '75038':'Irving, TX','75040':'Garland, TX','75041':'Garland, TX','75042':'Garland, TX','75043':'Garland, TX',
+  '75044':'Garland, TX','75048':'Sachse, TX','75050':'Grand Prairie, TX','75051':'Grand Prairie, TX',
+  '75052':'Grand Prairie, TX','75054':'Grand Prairie, TX','75056':'The Colony, TX','75057':'Lewisville, TX',
+  '75060':'Irving, TX','75061':'Irving, TX','75062':'Irving, TX','75063':'Irving, TX','75067':'Lewisville, TX',
+  '75068':'Little Elm, TX','75069':'McKinney, TX','75070':'McKinney, TX','75071':'McKinney, TX',
+  '75072':'McKinney, TX','75074':'Plano, TX','75075':'Plano, TX','75080':'Richardson, TX','75081':'Richardson, TX',
+  '75082':'Richardson, TX','75083':'Richardson, TX','75085':'Richardson, TX','75086':'Wylie, TX',
+  '75087':'Rockwall, TX','75088':'Rowlett, TX','75089':'Rowlett, TX','75090':'Sherman, TX','75091':'Sherman, TX',
+  '75092':'Sherman, TX','75093':'Plano, TX','75094':'Plano, TX','75098':'Wylie, TX','75104':'Cedar Hill, TX',
+  '75110':'Corsicana, TX','75115':'DeSoto, TX','75116':'Duncanville, TX','75126':'Forney, TX','75132':'Rockwall, TX',
+  '75134':'Lancaster, TX','75135':'Caddo Mills, TX','75137':'Duncanville, TX','75141':'Hutchins, TX',
+  '75142':'Kaufman, TX','75146':'Lancaster, TX','75149':'Mesquite, TX','75150':'Mesquite, TX','75154':'Red Oak, TX',
+  '75159':'Seagoville, TX','75165':'Waxahachie, TX','75166':'Lavon, TX','75167':'Waxahachie, TX','75172':'Wilmer, TX',
+  '75173':'Nevada, TX','75180':'Balch Springs, TX','75181':'Mesquite, TX','75182':'Sunnyvale, TX',
+  '75201':'Dallas, TX','75202':'Dallas, TX','75203':'Dallas, TX','75204':'Dallas, TX','75205':'Dallas, TX',
+  '75206':'Dallas, TX','75207':'Dallas, TX','75208':'Dallas, TX','75209':'Dallas, TX','75210':'Dallas, TX',
+  '75211':'Dallas, TX','75212':'Dallas, TX','75214':'Dallas, TX','75215':'Dallas, TX','75216':'Dallas, TX',
+  '75217':'Dallas, TX','75218':'Dallas, TX','75219':'Dallas, TX','75220':'Dallas, TX','75223':'Dallas, TX',
+  '75224':'Dallas, TX','75225':'Dallas, TX','75226':'Dallas, TX','75227':'Dallas, TX','75228':'Dallas, TX',
+  '75229':'Dallas, TX','75230':'Dallas, TX','75231':'Dallas, TX','75232':'Dallas, TX','75233':'Dallas, TX',
+  '75234':'Dallas, TX','75235':'Dallas, TX','75236':'Dallas, TX','75237':'Dallas, TX','75238':'Dallas, TX',
+  '75240':'Dallas, TX','75241':'Dallas, TX','75243':'Dallas, TX','75244':'Dallas, TX','75246':'Dallas, TX',
+  '75247':'Dallas, TX','75248':'Dallas, TX','75249':'Dallas, TX','75252':'Dallas, TX','75253':'Dallas, TX',
+  '75254':'Dallas, TX','77001':'Houston, TX','77002':'Houston, TX','77003':'Houston, TX','77004':'Houston, TX',
+  '77005':'Houston, TX','77006':'Houston, TX','77007':'Houston, TX','77008':'Houston, TX','77009':'Houston, TX',
+  '77010':'Houston, TX','77011':'Houston, TX','77012':'Houston, TX','77013':'Houston, TX','77014':'Houston, TX',
+  '77015':'Houston, TX','77016':'Houston, TX','77017':'Houston, TX','77018':'Houston, TX','77019':'Houston, TX',
+  '77020':'Houston, TX','77021':'Houston, TX','77022':'Houston, TX','77023':'Houston, TX','77024':'Houston, TX',
+  '77025':'Houston, TX','77026':'Houston, TX','77027':'Houston, TX','77028':'Houston, TX','77029':'Houston, TX',
+  '77030':'Houston, TX','77031':'Houston, TX','77032':'Houston, TX','77033':'Houston, TX','77034':'Houston, TX',
+  '77035':'Houston, TX','77036':'Houston, TX','77037':'Houston, TX','77038':'Houston, TX','77039':'Houston, TX',
+  '77040':'Houston, TX','77041':'Houston, TX','77042':'Houston, TX','77043':'Houston, TX','77044':'Houston, TX',
+  '77045':'Houston, TX','77046':'Houston, TX','77047':'Houston, TX','77048':'Houston, TX','77049':'Houston, TX',
+  '77050':'Houston, TX','77051':'Houston, TX','77053':'Houston, TX','77054':'Houston, TX','77055':'Houston, TX',
+  '77056':'Houston, TX','77057':'Houston, TX','77058':'Houston, TX','77059':'Houston, TX','77060':'Houston, TX',
+  '77061':'Houston, TX','77062':'Houston, TX','77063':'Houston, TX','77064':'Houston, TX','77065':'Houston, TX',
+  '77066':'Houston, TX','77067':'Houston, TX','77068':'Houston, TX','77069':'Houston, TX','77070':'Houston, TX',
+  '77071':'Houston, TX','77072':'Houston, TX','77073':'Houston, TX','77074':'Houston, TX','77075':'Houston, TX',
+  '77076':'Houston, TX','77077':'Houston, TX','77078':'Houston, TX','77079':'Houston, TX','77080':'Houston, TX',
+  '77081':'Houston, TX','77082':'Houston, TX','77083':'Houston, TX','77084':'Houston, TX','77085':'Houston, TX',
+  '77086':'Houston, TX','77087':'Houston, TX','77088':'Houston, TX','77089':'Houston, TX','77090':'Houston, TX',
+  '77091':'Houston, TX','77092':'Houston, TX','77093':'Houston, TX','77094':'Houston, TX','77095':'Houston, TX',
+  '77096':'Houston, TX','77098':'Houston, TX','77099':'Houston, TX',
+  '78201':'San Antonio, TX','78202':'San Antonio, TX','78203':'San Antonio, TX','78204':'San Antonio, TX',
+  '78205':'San Antonio, TX','78207':'San Antonio, TX','78208':'San Antonio, TX','78209':'San Antonio, TX',
+  '78210':'San Antonio, TX','78211':'San Antonio, TX','78212':'San Antonio, TX','78213':'San Antonio, TX',
+  '78214':'San Antonio, TX','78215':'San Antonio, TX','78216':'San Antonio, TX','78217':'San Antonio, TX',
+  '78218':'San Antonio, TX','78219':'San Antonio, TX','78220':'San Antonio, TX','78221':'San Antonio, TX',
+  '78222':'San Antonio, TX','78223':'San Antonio, TX','78224':'San Antonio, TX','78225':'San Antonio, TX',
+  '78226':'San Antonio, TX','78227':'San Antonio, TX','78228':'San Antonio, TX','78229':'San Antonio, TX',
+  '78230':'San Antonio, TX','78231':'San Antonio, TX','78232':'San Antonio, TX','78233':'San Antonio, TX',
+  '78234':'San Antonio, TX','78235':'San Antonio, TX','78236':'San Antonio, TX','78237':'San Antonio, TX',
+  '78238':'San Antonio, TX','78239':'San Antonio, TX','78240':'San Antonio, TX','78242':'San Antonio, TX',
+  '78244':'San Antonio, TX','78245':'San Antonio, TX','78247':'San Antonio, TX','78248':'San Antonio, TX',
+  '78249':'San Antonio, TX','78250':'San Antonio, TX','78251':'San Antonio, TX','78252':'San Antonio, TX',
+  '78253':'San Antonio, TX','78254':'San Antonio, TX','78255':'San Antonio, TX','78256':'San Antonio, TX',
+  '78257':'San Antonio, TX','78258':'San Antonio, TX','78259':'San Antonio, TX','78260':'San Antonio, TX',
+  '78261':'San Antonio, TX','78263':'San Antonio, TX','78264':'San Antonio, TX','78265':'San Antonio, TX',
+  '78701':'Austin, TX','78702':'Austin, TX','78703':'Austin, TX','78704':'Austin, TX','78705':'Austin, TX',
+  '78717':'Austin, TX','78721':'Austin, TX','78722':'Austin, TX','78723':'Austin, TX','78724':'Austin, TX',
+  '78725':'Austin, TX','78726':'Austin, TX','78727':'Austin, TX','78728':'Austin, TX','78729':'Austin, TX',
+  '78730':'Austin, TX','78731':'Austin, TX','78732':'Austin, TX','78733':'Austin, TX','78734':'Austin, TX',
+  '78735':'Austin, TX','78736':'Austin, TX','78737':'Austin, TX','78738':'Austin, TX','78739':'Austin, TX',
+  '78741':'Austin, TX','78742':'Austin, TX','78744':'Austin, TX','78745':'Austin, TX','78746':'Austin, TX',
+  '78747':'Austin, TX','78748':'Austin, TX','78749':'Austin, TX','78750':'Austin, TX','78751':'Austin, TX',
+  '78752':'Austin, TX','78753':'Austin, TX','78754':'Austin, TX','78756':'Austin, TX','78757':'Austin, TX',
+  '78758':'Austin, TX','78759':'Austin, TX',
+  '10001':'New York, NY','10002':'New York, NY','10003':'New York, NY','10004':'New York, NY','10005':'New York, NY',
+  '10010':'New York, NY','10011':'New York, NY','10012':'New York, NY','10013':'New York, NY','10014':'New York, NY',
+  '10016':'New York, NY','10017':'New York, NY','10018':'New York, NY','10019':'New York, NY','10020':'New York, NY',
+  '10021':'New York, NY','10022':'New York, NY','10023':'New York, NY','10024':'New York, NY','10025':'New York, NY',
+  '10026':'New York, NY','10027':'New York, NY','10028':'New York, NY','10029':'New York, NY','10030':'New York, NY',
+  '10031':'New York, NY','10032':'New York, NY','10033':'New York, NY','10034':'New York, NY','10035':'New York, NY',
+  '10036':'New York, NY','10037':'New York, NY','10038':'New York, NY','10039':'New York, NY','10040':'New York, NY',
+  '10044':'New York, NY','10065':'New York, NY','10075':'New York, NY','10001':'New York, NY',
+  '90001':'Los Angeles, CA','90002':'Los Angeles, CA','90003':'Los Angeles, CA','90004':'Los Angeles, CA',
+  '90005':'Los Angeles, CA','90006':'Los Angeles, CA','90007':'Los Angeles, CA','90008':'Los Angeles, CA',
+  '90010':'Los Angeles, CA','90011':'Los Angeles, CA','90012':'Los Angeles, CA','90013':'Los Angeles, CA',
+  '90014':'Los Angeles, CA','90015':'Los Angeles, CA','90016':'Los Angeles, CA','90017':'Los Angeles, CA',
+  '90018':'Los Angeles, CA','90019':'Los Angeles, CA','90020':'Los Angeles, CA','90021':'Los Angeles, CA',
+  '90022':'Los Angeles, CA','90023':'Los Angeles, CA','90024':'Los Angeles, CA','90025':'Los Angeles, CA',
+  '90026':'Los Angeles, CA','90027':'Los Angeles, CA','90028':'Los Angeles, CA','90029':'Los Angeles, CA',
+  '90031':'Los Angeles, CA','90032':'Los Angeles, CA','90033':'Los Angeles, CA','90034':'Los Angeles, CA',
+  '90035':'Los Angeles, CA','90036':'Los Angeles, CA','90037':'Los Angeles, CA','90038':'Los Angeles, CA',
+  '90039':'Los Angeles, CA','90040':'Los Angeles, CA','90041':'Los Angeles, CA','90042':'Los Angeles, CA',
+  '90043':'Los Angeles, CA','90044':'Los Angeles, CA','90045':'Los Angeles, CA','90046':'Los Angeles, CA',
+  '90047':'Los Angeles, CA','90048':'Los Angeles, CA','90049':'Los Angeles, CA','90056':'Los Angeles, CA',
+  '90057':'Los Angeles, CA','90058':'Los Angeles, CA','90059':'Los Angeles, CA','90061':'Los Angeles, CA',
+  '90062':'Los Angeles, CA','90063':'Los Angeles, CA','90064':'Los Angeles, CA','90065':'Los Angeles, CA',
+  '90066':'Los Angeles, CA','90067':'Los Angeles, CA','90068':'Los Angeles, CA','90069':'Los Angeles, CA',
+  '90071':'Los Angeles, CA','90077':'Los Angeles, CA','90089':'Los Angeles, CA','90094':'Los Angeles, CA',
+  '90095':'Los Angeles, CA','90210':'Beverly Hills, CA','90291':'Venice, CA','90292':'Marina Del Rey, CA',
+  '90293':'Playa Del Rey, CA','90301':'Inglewood, CA','90302':'Inglewood, CA','90303':'Inglewood, CA',
+  '90304':'Inglewood, CA','90305':'Inglewood, CA','90401':'Santa Monica, CA','90402':'Santa Monica, CA',
+  '90403':'Santa Monica, CA','90404':'Santa Monica, CA','90405':'Santa Monica, CA',
+  '60601':'Chicago, IL','60602':'Chicago, IL','60603':'Chicago, IL','60604':'Chicago, IL','60605':'Chicago, IL',
+  '60606':'Chicago, IL','60607':'Chicago, IL','60608':'Chicago, IL','60609':'Chicago, IL','60610':'Chicago, IL',
+  '60611':'Chicago, IL','60612':'Chicago, IL','60613':'Chicago, IL','60614':'Chicago, IL','60615':'Chicago, IL',
+  '60616':'Chicago, IL','60617':'Chicago, IL','60618':'Chicago, IL','60619':'Chicago, IL','60620':'Chicago, IL',
+  '60621':'Chicago, IL','60622':'Chicago, IL','60623':'Chicago, IL','60624':'Chicago, IL','60625':'Chicago, IL',
+  '60626':'Chicago, IL','60628':'Chicago, IL','60629':'Chicago, IL','60630':'Chicago, IL','60631':'Chicago, IL',
+  '60632':'Chicago, IL','60633':'Chicago, IL','60634':'Chicago, IL','60636':'Chicago, IL','60637':'Chicago, IL',
+  '60638':'Chicago, IL','60639':'Chicago, IL','60640':'Chicago, IL','60641':'Chicago, IL','60642':'Chicago, IL',
+  '60643':'Chicago, IL','60644':'Chicago, IL','60645':'Chicago, IL','60646':'Chicago, IL','60647':'Chicago, IL',
+  '60649':'Chicago, IL','60651':'Chicago, IL','60652':'Chicago, IL','60653':'Chicago, IL','60654':'Chicago, IL',
+  '60655':'Chicago, IL','60656':'Chicago, IL','60657':'Chicago, IL','60659':'Chicago, IL','60660':'Chicago, IL',
+  '60661':'Chicago, IL',
+  '33101':'Miami, FL','33109':'Miami Beach, FL','33125':'Miami, FL','33126':'Miami, FL','33127':'Miami, FL',
+  '33128':'Miami, FL','33129':'Miami, FL','33130':'Miami, FL','33131':'Miami, FL','33132':'Miami, FL',
+  '33133':'Miami, FL','33134':'Miami, FL','33135':'Miami, FL','33136':'Miami, FL','33137':'Miami, FL',
+  '33138':'Miami, FL','33139':'Miami Beach, FL','33140':'Miami Beach, FL','33141':'Miami Beach, FL',
+  '33142':'Miami, FL','33143':'Miami, FL','33144':'Miami, FL','33145':'Miami, FL','33146':'Miami, FL',
+  '33147':'Miami, FL','33148':'Miami, FL','33149':'Key Biscayne, FL','33150':'Miami, FL','33154':'Miami Beach, FL',
+  '33155':'Miami, FL','33156':'Miami, FL','33157':'Miami, FL','33158':'Miami, FL','33160':'North Miami Beach, FL',
+  '33161':'Miami, FL','33162':'Miami, FL','33165':'Miami, FL','33166':'Miami, FL','33167':'Miami, FL',
+  '33168':'Miami, FL','33169':'Miami, FL','33170':'Miami, FL','33172':'Miami, FL','33173':'Miami, FL',
+  '33174':'Miami, FL','33175':'Miami, FL','33176':'Miami, FL','33177':'Miami, FL','33178':'Miami, FL',
+  '33179':'Miami, FL','33180':'Miami, FL','33181':'Miami, FL','33182':'Miami, FL','33183':'Miami, FL',
+  '33184':'Miami, FL','33185':'Homestead, FL','33186':'Miami, FL','33187':'Miami, FL','33189':'Miami, FL',
+  '33190':'Miami, FL','33193':'Miami, FL','33194':'Miami, FL','33195':'Miami, FL','33196':'Miami, FL',
+  '33197':'Miami, FL',
+  '30301':'Atlanta, GA','30303':'Atlanta, GA','30305':'Atlanta, GA','30306':'Atlanta, GA','30307':'Atlanta, GA',
+  '30308':'Atlanta, GA','30309':'Atlanta, GA','30310':'Atlanta, GA','30311':'Atlanta, GA','30312':'Atlanta, GA',
+  '30313':'Atlanta, GA','30314':'Atlanta, GA','30315':'Atlanta, GA','30316':'Atlanta, GA','30317':'Atlanta, GA',
+  '30318':'Atlanta, GA','30319':'Atlanta, GA','30324':'Atlanta, GA','30327':'Atlanta, GA','30328':'Atlanta, GA',
+  '30329':'Atlanta, GA','30331':'Atlanta, GA','30336':'Atlanta, GA','30337':'Atlanta, GA','30338':'Atlanta, GA',
+  '30339':'Atlanta, GA','30340':'Atlanta, GA','30341':'Atlanta, GA','30342':'Atlanta, GA','30344':'Atlanta, GA',
+  '30345':'Atlanta, GA','30346':'Atlanta, GA','30349':'Atlanta, GA','30350':'Atlanta, GA','30354':'Atlanta, GA',
+  '30360':'Atlanta, GA','30361':'Atlanta, GA','30362':'Atlanta, GA',
+  '85001':'Phoenix, AZ','85003':'Phoenix, AZ','85004':'Phoenix, AZ','85006':'Phoenix, AZ','85007':'Phoenix, AZ',
+  '85008':'Phoenix, AZ','85009':'Phoenix, AZ','85012':'Phoenix, AZ','85013':'Phoenix, AZ','85014':'Phoenix, AZ',
+  '85015':'Phoenix, AZ','85016':'Phoenix, AZ','85017':'Phoenix, AZ','85018':'Phoenix, AZ','85019':'Phoenix, AZ',
+  '85020':'Phoenix, AZ','85021':'Phoenix, AZ','85022':'Phoenix, AZ','85023':'Phoenix, AZ','85024':'Phoenix, AZ',
+  '85027':'Phoenix, AZ','85028':'Phoenix, AZ','85029':'Phoenix, AZ','85031':'Phoenix, AZ','85032':'Phoenix, AZ',
+  '85033':'Phoenix, AZ','85034':'Phoenix, AZ','85035':'Phoenix, AZ','85037':'Phoenix, AZ','85040':'Phoenix, AZ',
+  '85041':'Phoenix, AZ','85042':'Phoenix, AZ','85043':'Phoenix, AZ','85044':'Phoenix, AZ','85045':'Phoenix, AZ',
+  '85048':'Phoenix, AZ','85050':'Phoenix, AZ','85051':'Phoenix, AZ','85053':'Phoenix, AZ','85054':'Phoenix, AZ',
+  '85083':'Phoenix, AZ','85085':'Phoenix, AZ','85086':'Phoenix, AZ','85087':'Phoenix, AZ',
+  '19101':'Philadelphia, PA','19102':'Philadelphia, PA','19103':'Philadelphia, PA','19104':'Philadelphia, PA',
+  '19106':'Philadelphia, PA','19107':'Philadelphia, PA','19109':'Philadelphia, PA','19111':'Philadelphia, PA',
+  '19112':'Philadelphia, PA','19114':'Philadelphia, PA','19115':'Philadelphia, PA','19116':'Philadelphia, PA',
+  '19118':'Philadelphia, PA','19119':'Philadelphia, PA','19120':'Philadelphia, PA','19121':'Philadelphia, PA',
+  '19122':'Philadelphia, PA','19123':'Philadelphia, PA','19124':'Philadelphia, PA','19125':'Philadelphia, PA',
+  '19126':'Philadelphia, PA','19127':'Philadelphia, PA','19128':'Philadelphia, PA','19129':'Philadelphia, PA',
+  '19130':'Philadelphia, PA','19131':'Philadelphia, PA','19132':'Philadelphia, PA','19133':'Philadelphia, PA',
+  '19134':'Philadelphia, PA','19135':'Philadelphia, PA','19136':'Philadelphia, PA','19137':'Philadelphia, PA',
+  '19138':'Philadelphia, PA','19139':'Philadelphia, PA','19140':'Philadelphia, PA','19141':'Philadelphia, PA',
+  '19142':'Philadelphia, PA','19143':'Philadelphia, PA','19144':'Philadelphia, PA','19145':'Philadelphia, PA',
+  '19146':'Philadelphia, PA','19147':'Philadelphia, PA','19148':'Philadelphia, PA','19149':'Philadelphia, PA',
+  '19150':'Philadelphia, PA','19151':'Philadelphia, PA','19152':'Philadelphia, PA','19153':'Philadelphia, PA','19154':'Philadelphia, PA',
+  '02101':'Boston, MA','02108':'Boston, MA','02109':'Boston, MA','02110':'Boston, MA','02111':'Boston, MA',
+  '02113':'Boston, MA','02114':'Boston, MA','02115':'Boston, MA','02116':'Boston, MA','02118':'Boston, MA',
+  '02119':'Boston, MA','02120':'Boston, MA','02121':'Boston, MA','02122':'Boston, MA','02124':'Boston, MA',
+  '02125':'Boston, MA','02126':'Boston, MA','02127':'Boston, MA','02128':'Boston, MA','02129':'Boston, MA',
+  '02130':'Boston, MA','02131':'Boston, MA','02132':'Boston, MA','02133':'Boston, MA','02134':'Boston, MA',
+  '02135':'Boston, MA','02136':'Boston, MA','02138':'Cambridge, MA','02139':'Cambridge, MA',
+  '02140':'Cambridge, MA','02141':'Cambridge, MA','02142':'Cambridge, MA','02143':'Somerville, MA',
+  '02144':'Somerville, MA','02145':'Somerville, MA',
+  '98101':'Seattle, WA','98102':'Seattle, WA','98103':'Seattle, WA','98104':'Seattle, WA','98105':'Seattle, WA',
+  '98106':'Seattle, WA','98107':'Seattle, WA','98108':'Seattle, WA','98109':'Seattle, WA','98110':'Bainbridge Island, WA',
+  '98112':'Seattle, WA','98115':'Seattle, WA','98116':'Seattle, WA','98117':'Seattle, WA','98118':'Seattle, WA',
+  '98119':'Seattle, WA','98121':'Seattle, WA','98122':'Seattle, WA','98125':'Seattle, WA','98126':'Seattle, WA',
+  '98133':'Seattle, WA','98134':'Seattle, WA','98136':'Seattle, WA','98144':'Seattle, WA','98146':'Seattle, WA',
+  '98148':'Seattle, WA','98155':'Seattle, WA','98166':'Seattle, WA','98168':'Seattle, WA','98174':'Seattle, WA',
+  '98177':'Seattle, WA','98178':'Seattle, WA','98188':'Seattle, WA','98198':'Seattle, WA','98199':'Seattle, WA',
+  '94101':'San Francisco, CA','94102':'San Francisco, CA','94103':'San Francisco, CA','94104':'San Francisco, CA',
+  '94105':'San Francisco, CA','94107':'San Francisco, CA','94108':'San Francisco, CA','94109':'San Francisco, CA',
+  '94110':'San Francisco, CA','94111':'San Francisco, CA','94112':'San Francisco, CA','94114':'San Francisco, CA',
+  '94115':'San Francisco, CA','94116':'San Francisco, CA','94117':'San Francisco, CA','94118':'San Francisco, CA',
+  '94121':'San Francisco, CA','94122':'San Francisco, CA','94123':'San Francisco, CA','94124':'San Francisco, CA',
+  '94127':'San Francisco, CA','94128':'San Francisco, CA','94129':'San Francisco, CA','94130':'San Francisco, CA',
+  '94131':'San Francisco, CA','94132':'San Francisco, CA','94133':'San Francisco, CA','94134':'San Francisco, CA',
+  '94158':'San Francisco, CA',
+  '92101':'San Diego, CA','92102':'San Diego, CA','92103':'San Diego, CA','92104':'San Diego, CA','92105':'San Diego, CA',
+  '92106':'San Diego, CA','92107':'San Diego, CA','92108':'San Diego, CA','92109':'San Diego, CA','92110':'San Diego, CA',
+  '92111':'San Diego, CA','92113':'San Diego, CA','92114':'San Diego, CA','92115':'San Diego, CA','92116':'San Diego, CA',
+  '92117':'San Diego, CA','92118':'Coronado, CA','92119':'San Diego, CA','92120':'San Diego, CA','92121':'San Diego, CA',
+  '92122':'San Diego, CA','92123':'San Diego, CA','92124':'San Diego, CA','92126':'San Diego, CA','92127':'San Diego, CA',
+  '92128':'San Diego, CA','92129':'San Diego, CA','92130':'San Diego, CA','92131':'San Diego, CA','92139':'San Diego, CA',
+  '92154':'San Diego, CA','92173':'San Diego, CA'
+};
+
 // ── ZIP SEARCH ────────────────────────────────────────
 function handleZipSearch(e){
   e.preventDefault();
   const zip=document.getElementById('zipSearchInput').value.trim();
   if(zip.length<5){alert('Please enter a valid 5-digit ZIP code.');return false;}
-  document.getElementById('zipEcho').textContent=zip;
+
+  const echoEl=document.getElementById('zipEcho');
   const resultsGrid=document.getElementById('zipResultsGrid');
   resultsGrid.innerHTML='';
-  PROVIDERS.forEach(p=>{
-    const tile=document.createElement('div');
-    tile.className='zip-provider-tile';
-    tile.onclick=()=>{
-      document.getElementById('zipModal').classList.remove('open');
-      document.body.style.overflow='';
-      if(p.link) window.open(p.link,'_blank','noopener');
-      else { document.getElementById('gn-avail').textContent=p.avail; showStep('step-goodnews'); document.querySelector('#intake').scrollIntoView({behavior:'smooth'}); }
-    };
-    if(p.logo){
-      const img=document.createElement('img');
-      img.src=p.logo; img.alt=p.name;
-      img.onerror=function(){this.remove(); const s=document.createElement('span'); s.style.cssText=`font-weight:800;font-size:13px;color:${p.color}`; s.textContent=p.name; tile.appendChild(s);};
-      tile.appendChild(img);
-    } else {
-      const s=document.createElement('span');
-      s.style.cssText=`font-weight:800;font-size:13px;color:${p.color}`;
-      s.textContent=p.name;
-      tile.appendChild(s);
-    }
-    resultsGrid.appendChild(tile);
-  });
-  document.getElementById('zipResult').style.display='block';
+  const modal=document.getElementById('zipModal');
+  const resultEl=document.getElementById('zipResult');
+
+  // Primary: built-in ZIP database (instant, no network)
+  let location=ZIP_DB[zip];
+  if(location){
+    echoEl.textContent=location;
+  } else {
+    echoEl.textContent='ZIP '+zip;
+  }
+
+  function buildTiles(){
+    PROVIDERS.forEach(p=>{
+      const tile=document.createElement('div');
+      tile.className='zip-provider-tile';
+      tile.onclick=()=>{
+        modal.classList.remove('open');
+        document.body.style.overflow='';
+        if(p.link) window.open(p.link,'_blank','noopener');
+        else { document.getElementById('gn-avail').textContent=p.avail; showStep('step-goodnews'); document.querySelector('#intake').scrollIntoView({behavior:'smooth'}); }
+      };
+      if(p.logo){
+        const img=document.createElement('img');
+        img.src=p.logo; img.alt=p.name;
+        img.onerror=function(){this.remove(); const s=document.createElement('span'); s.style.cssText=`font-weight:800;font-size:13px;color:${p.color}`; s.textContent=p.name; tile.appendChild(s);};
+        tile.appendChild(img);
+      } else {
+        const s=document.createElement('span');
+        s.style.cssText=`font-weight:800;font-size:13px;color:${p.color}`;
+        s.textContent=p.name;
+        tile.appendChild(s);
+      }
+      resultsGrid.appendChild(tile);
+    });
+    resultEl.style.display='block';
+  }
+
+  // Show tiles immediately
+  buildTiles();
+
+  // Fallback: try API for ZIPs not in our database
+  if(!location){
+    fetch('https://api.zippopotam.us/us/'+zip)
+      .then(r=>r.ok?r.json():null)
+      .then(data=>{
+        if(data && data.places && data.places.length){
+          const place=data.places[0];
+          echoEl.textContent=place['place name']+', '+place['state abbreviation'];
+        }
+      })
+      .catch(()=>{});
+  }
   return false;
 }
 </script>
