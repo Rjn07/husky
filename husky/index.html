@@ -169,9 +169,9 @@ section{padding:72px 5%}
 .zip-success-title{font-family:'Sora',sans-serif;font-size:24px;font-weight:800;color:#0a1628;margin-bottom:6px}
 .zip-success-msg{font-size:14px;color:#4b5563}
 .zip-results-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
-.zip-provider-tile{background:#eef0f3;border:2px solid transparent;border-radius:12px;min-height:64px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .18s;padding:10px}
+.zip-provider-tile{background:#eef0f3;border:2px solid transparent;border-radius:12px;min-height:110px;height:110px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .18s;padding:12px;box-sizing:border-box}
 .zip-provider-tile:hover{border-color:#1a73e8;background:#deeaff;transform:translateY(-2px)}
-.zip-provider-tile img{max-width:100px;max-height:36px;object-fit:contain}
+.zip-provider-tile img{width:auto;height:auto;max-width:80%;max-height:75%;object-fit:contain;display:block}
 .zip-provider-tile span{font-weight:800;font-size:14px}
 .zip-result-disclaimer{font-size:10px;color:#9ca3af;text-align:center;line-height:1.5}
 .zip-call-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;border-radius:11px;font-size:15px;font-weight:700;color:#fff;text-decoration:none;background:linear-gradient(135deg,#1a73e8,#0d47a1);transition:opacity .2s;margin-top:14px;margin-bottom:6px}
@@ -236,7 +236,7 @@ section{padding:72px 5%}
 /* ─── PROVIDER CARDS SLIDER ─── */
 #services{background:#0a1628}
 .services-slider{position:relative;overflow:hidden}
-.services-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:0 0 16px;scrollbar-width:none}
+.services-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:none;-webkit-overflow-scrolling:touch;padding:0 0 16px;scrollbar-width:none}
 .services-track::-webkit-scrollbar{display:none}
 .service-card{flex:0 0 280px;scroll-snap-align:start;background:#fff;border-radius:18px;overflow:hidden;transition:transform .22s,box-shadow .22s}
 .service-card:hover{transform:translateY(-4px);box-shadow:0 16px 50px rgba(0,0,0,.25)}
@@ -250,8 +250,8 @@ section{padding:72px 5%}
 .s-card-top{height:5px}
 .s-card-body{padding:20px 20px 0}
 .s-logo-link{text-decoration:none;display:block}
-.s-logo{height:34px;display:flex;align-items:center;margin-bottom:12px}
-.s-logo img{height:100%;max-width:110px;object-fit:contain}
+.s-logo{display:flex;align-items:center;justify-content:center;width:100%;height:120px;margin-bottom:12px;padding:8px;box-sizing:border-box}
+.s-logo img{width:auto;height:auto;max-width:85%;max-height:100%;object-fit:contain;display:block}
 .text-logo{display:flex;align-items:center}
 .s-provider-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#34a853;margin-bottom:3px}
 .s-title{font-family:'Sora',sans-serif;font-size:20px;font-weight:800;color:#0a1628;margin-bottom:3px}
@@ -818,7 +818,7 @@ footer{background:#060e1a;padding:46px 5% 28px}
     <div class="intake-head">
       <div class="intake-logo">
         <img src="logos/husky_white.png" alt="Husky Talent"/>
-        <div><div class="intake-logo-text">Husky Talent</div><div class="intake-logo-sub">Authorized Dealer</div></div>
+        <div><div class="intake-logo-text">Husky Talent</div><div class="intake-logo-sub">Authorized Service Dealer</div></div>
       </div>
       <h2>Check Availability</h2>
       <p>Fill in your details — we'll find the right plan for your home in seconds.</p>
@@ -852,7 +852,7 @@ footer{background:#060e1a;padding:46px 5% 28px}
         <img src="logos/husky_white.png" alt="Husky Talent"/>
         <div>
           <div class="intake-logo-text">Husky Talent</div>
-          <div class="intake-logo-sub">Authorized Dealer</div>
+          <div class="intake-logo-sub">Authorized Service Dealer</div>
         </div>
       </div>
       <h2>How would you like to check availability?</h2>
@@ -1308,27 +1308,139 @@ function showStep(id){
   document.querySelector('.intake-card').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
-// ── SLIDER ────────────────────────────────────────────
+// ── CONTINUOUS SMOOTH SLIDER ──────────────────────────
 const track = document.getElementById('servicesTrack');
+if(track) track.querySelectorAll('.service-card.clone').forEach(c=>c.remove());
 const dotsContainer = document.getElementById('sliderDots');
-const cards = document.querySelectorAll('.service-card');
-const cardWidth = 300;
-let currentIndex = 0;
+const originalCards = track ? Array.from(track.querySelectorAll('.service-card')) : [];
+let pos = 0;
+let isPaused = false;
+let cardStep = 300;
+let halfWidth = cardStep * originalCards.length;
 
-cards.forEach((_,i)=>{
-  const dot=document.createElement('button');
-  dot.className='slider-dot'+(i===0?' active':'');
-  dot.onclick=()=>scrollToCard(i);
-  dotsContainer.appendChild(dot);
-});
+if(track && originalCards.length){
+  // Clone the set so the loop is seamless
+  originalCards.forEach(c=>{
+    const clone=c.cloneNode(true);
+    clone.classList.add('clone');
+    track.appendChild(clone);
+  });
 
-function scrollToCard(i){
-  currentIndex=Math.max(0,Math.min(i,cards.length-1));
-  track.scrollTo({left:currentIndex*cardWidth,behavior:'smooth'});
-  document.querySelectorAll('.slider-dot').forEach((d,j)=>d.classList.toggle('active',j===currentIndex));
+  function measure(){
+    const styles=getComputedStyle(track);
+    const gap=parseFloat(styles.columnGap||styles.gap||0)||0;
+    cardStep=originalCards[0].getBoundingClientRect().width+gap;
+    halfWidth=cardStep*originalCards.length;
+  }
+  measure();
+  window.addEventListener('resize', measure);
+
+  // Dots for the original set
+  originalCards.forEach((_,i)=>{
+    const dot=document.createElement('button');
+    dot.className='slider-dot'+(i===0?' active':'');
+    dot.onclick=()=>{ jumpToIndex(i); };
+    dotsContainer.appendChild(dot);
+  });
+
+  function updateDots(){
+    const idx=Math.floor((pos+cardStep/2)/cardStep)%originalCards.length;
+    document.querySelectorAll('.slider-dot').forEach((d,j)=>d.classList.toggle('active',j===idx));
+  }
+
+  // Drag-to-scroll state
+  let isDragging=false;
+  let dragStartX=0;
+  let dragStartPos=0;
+
+  function tick(){
+    if(!isPaused && !isDragging){
+      pos += 1.4; // ~84px per second
+      if(pos >= halfWidth) pos -= halfWidth;
+      track.scrollLeft = pos;
+      updateDots();
+    } else if(isDragging){
+      // While dragging, sync scroll → pos
+      pos = track.scrollLeft;
+      if(pos >= halfWidth) pos -= halfWidth;
+      else if(pos < 0) pos += halfWidth;
+      track.scrollLeft = pos;
+      updateDots();
+    }
+    requestAnimationFrame(tick);
+  }
+
+  function jumpToIndex(i){
+    pos = i * cardStep;
+    track.scrollTo({left:pos, behavior:'smooth'});
+    updateDots();
+  }
+
+  // Mouse drag
+  track.addEventListener('mousedown', e=>{
+    isDragging=true;
+    isPaused=true;
+    dragStartX=e.pageX;
+    dragStartPos=track.scrollLeft;
+    track.style.cursor='grabbing';
+    track.style.userSelect='none';
+  });
+  window.addEventListener('mouseup', ()=>{
+    if(isDragging){
+      isDragging=false;
+      isPaused=false;
+      track.style.cursor='';
+      track.style.userSelect='';
+    }
+  });
+  window.addEventListener('mousemove', e=>{
+    if(!isDragging)return;
+    e.preventDefault();
+    const dx=e.pageX-dragStartX;
+    track.scrollLeft=dragStartPos-dx;
+  });
+
+  // Touch drag
+  track.addEventListener('touchstart', e=>{
+    isDragging=true;
+    isPaused=true;
+    dragStartX=e.touches[0].pageX;
+    dragStartPos=track.scrollLeft;
+  }, {passive:true});
+  track.addEventListener('touchend', ()=>{
+    if(isDragging){ isDragging=false; isPaused=false; }
+  });
+  track.addEventListener('touchcancel', ()=>{
+    if(isDragging){ isDragging=false; isPaused=false; }
+  });
+  track.addEventListener('touchmove', e=>{
+    if(!isDragging)return;
+    const dx=e.touches[0].pageX-dragStartX;
+    track.scrollLeft=dragStartPos-dx;
+  }, {passive:true});
+
+  // Wheel: manual scroll, pauses auto briefly
+  track.addEventListener('wheel', ()=>{
+    isPaused=true;
+    clearTimeout(track._wheelTimer);
+    track._wheelTimer=setTimeout(()=>{ isPaused=false; }, 1500);
+  }, {passive:true});
+
+  // Hover pause (desktop)
+  track.addEventListener('mouseenter', ()=>{ if(!isDragging) isPaused=true; });
+  track.addEventListener('mouseleave', ()=>{ if(!isDragging) isPaused=false; });
+
+  // Prev/Next buttons
+  const prevBtn=document.getElementById('sliderPrev');
+  const nextBtn=document.getElementById('sliderNext');
+  if(prevBtn) prevBtn.onclick=()=>{ jumpToIndex((Math.floor((pos+cardStep/2)/cardStep)-1+originalCards.length)%originalCards.length); };
+  if(nextBtn) nextBtn.onclick=()=>{ jumpToIndex((Math.floor((pos+cardStep/2)/cardStep)+1)%originalCards.length); };
+
+  // Show grab cursor on hover
+  track.style.cursor='grab';
+
+  requestAnimationFrame(tick);
 }
-document.getElementById('sliderPrev').onclick=()=>scrollToCard(currentIndex-1);
-document.getElementById('sliderNext').onclick=()=>scrollToCard(currentIndex+1);
 
 // ── MODALS ────────────────────────────────────────────
 document.getElementById('msgFab').onclick=()=>{
