@@ -1315,6 +1315,7 @@ const dotsContainer = document.getElementById('sliderDots');
 const originalCards = track ? Array.from(track.querySelectorAll('.service-card')) : [];
 let pos = 0;
 let isPaused = false;
+let userInteracting = false;
 let cardStep = 300;
 let halfWidth = cardStep * originalCards.length;
 
@@ -1380,6 +1381,7 @@ if(track && originalCards.length){
   track.addEventListener('mousedown', e=>{
     isDragging=true;
     isPaused=true;
+    userInteracting=true;
     dragStartX=e.pageX;
     dragStartPos=track.scrollLeft;
     track.style.cursor='grabbing';
@@ -1388,9 +1390,9 @@ if(track && originalCards.length){
   window.addEventListener('mouseup', ()=>{
     if(isDragging){
       isDragging=false;
-      isPaused=false;
       track.style.cursor='';
       track.style.userSelect='';
+      scheduleResume();
     }
   });
   window.addEventListener('mousemove', e=>{
@@ -1404,14 +1406,15 @@ if(track && originalCards.length){
   track.addEventListener('touchstart', e=>{
     isDragging=true;
     isPaused=true;
+    userInteracting=true;
     dragStartX=e.touches[0].pageX;
     dragStartPos=track.scrollLeft;
   }, {passive:true});
   track.addEventListener('touchend', ()=>{
-    if(isDragging){ isDragging=false; isPaused=false; }
+    if(isDragging){ isDragging=false; scheduleResume(); }
   });
   track.addEventListener('touchcancel', ()=>{
-    if(isDragging){ isDragging=false; isPaused=false; }
+    if(isDragging){ isDragging=false; scheduleResume(); }
   });
   track.addEventListener('touchmove', e=>{
     if(!isDragging)return;
@@ -1422,13 +1425,26 @@ if(track && originalCards.length){
   // Wheel: manual scroll, pauses auto briefly
   track.addEventListener('wheel', ()=>{
     isPaused=true;
+    userInteracting=true;
     clearTimeout(track._wheelTimer);
-    track._wheelTimer=setTimeout(()=>{ isPaused=false; }, 1500);
+    track._wheelTimer=setTimeout(()=>{
+      userInteracting=false;
+      if(!isDragging) isPaused=false;
+    }, 2500);
   }, {passive:true});
 
-  // Hover pause (desktop)
+  // Hover pause (desktop) — only while pointer is over the slider
   track.addEventListener('mouseenter', ()=>{ if(!isDragging) isPaused=true; });
   track.addEventListener('mouseleave', ()=>{ if(!isDragging) isPaused=false; });
+
+  // Resume auto-scroll a moment after the user stops interacting
+  function scheduleResume(){
+    clearTimeout(track._resumeTimer);
+    track._resumeTimer=setTimeout(()=>{
+      userInteracting=false;
+      if(!isDragging) isPaused=false;
+    }, 2500);
+  }
 
   // Prev/Next buttons
   const prevBtn=document.getElementById('sliderPrev');
